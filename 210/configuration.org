@@ -1,0 +1,37 @@
+#+TITLE: 
+#+AUTHOR: 
+#+DATE: 
+
+#+OPTIONS: toc:nil
+#+OPTIONS: num:nil
+#+OPTIONS: tags:nil
+
+#+LATEX_CLASS_OPTIONS: [fleqn]
+
+#+LATEX_HEADER: \usepackage{booktabs}
+#+LATEX_HEADER: \usepackage[margin=0.5in]{geometry}
+#+LATEX_HEADER: \usepackage{multicol}
+#+LATEX_HEADER: \usepackage{titlesec}
+
+# #+LATEX_HEADER: \newcommand{\sectionbreak}{\clearpage}
+#+LATEX_HEADER: \renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+#+LATEX_HEADER: \setlength{\parindent}{0cm}
+#+LATEX_HEADER: \pagenumbering{gobble}
+
+#+BEGIN_SRC R :session global :exports none
+
+library(fmsb) ## truemedian
+library(plyr) ## count
+library(truncnorm) ## rtruncnorm
+library(pipeR) ## (~ variable)
+library(dplyr) ## rename, etc.
+library(xtable) ## xtable
+
+options(xtable.comment = FALSE)
+
+makesample <- dget("./R/makesample.R")
+maketable <- dget("./R/maketable.R")
+rcrit <- dget("./R/rcrit.R")
+stth <- dget("./R/stth.R")
+
+#+END_SRC

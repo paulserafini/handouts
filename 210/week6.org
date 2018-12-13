@@ -1,0 +1,118 @@
+\onecolumn
+* Week #6 :conceptual:midterm:
+
+Definitions:
+ - Null hypothesis
+ - Alternate hypothesis
+ - Alpha (\alpha)
+ - Beta (\beta)
+ - Power
+ - Type I error
+ - Type II error
+ - Null distribution (H_0)
+ - Alternate distribution (H_1)
+ - /p/-value
+   
+Questions:
+ - Draw a null distribution and illustrate the relationship between the critical values and \alpha
+ - Draw an alternate distribution and illustrate the relationship between the critical values, \beta, and power
+ - Draw a distribution and illustrate the relationship between the /p/-value and $z_{\textnormal{obs}}$
+ - How do we control Type I error? Type II error?
+ - How is \beta affected by change in effect size, \alpha, \sigma, and sample size?
+ - How is \alpha affected by change in \sigma and sample size?
+ - H_0 and H_1 must be exhaustive (one must be true) and mutually exclusive (they can't both be true). Come up with some invalid hypotheses
+ - What is wrong with saying ``$p$ is the probability that the null hypothesis is true''?
+ - What is the goal of a confidence interval?
+ - Why is calculating a 1 - \alpha% confidence interval the same as performing a hypothesis test at \alpha?
+ - What do we need to know in order to use a $z$ test?
+ - Give an example of a finding which is statistically significant but practically insignificant. When might this occur?
+   
+\newpage
+
+* Math                                                  :ignore:math:midterm:
+
+#+BEGIN_SRC R :session global :results value raw :exports results
+printq <- dget("./R/1sample-ztest.R")
+print("\\twocolumn")
+#+END_SRC
+
+** /Z/-tests
+
+\begin{gather*}
+\sigma_{\bar{X}} = \dfrac{\sigma}{\sqrt{n}} \\
+z_{\textnormal{crit}} = \textnormal{the \emph{z} score with $\alpha/2$ above it} \\
+z_{\textnormal{obs}} = \dfrac{\bar{X} - \mu}{\sigma_{\bar{X}}} \\
+\mathit{CI}_y = \bar{X} \pm (\sigma_{\bar{X}} \times z_y) \\
+z_y = \textnormal{ the \emph{z} score with } (100 - y)/100 \textnormal{ above it}
+\end{gather*}
+
+** Critical /z/ values
+
+#+ATTR_LATEX: :booktabs t :center t :rmlines t
+|-------+-------------------------+--------------|
+|     /z/ | Area between mean and /z/ | Area above /z/ |
+|-------+-------------------------+--------------|
+| 1.645 |                    0.45 |         0.05 |
+|  1.96 |                   0.475 |        0.025 |
+| 2.576 |                   0.495 |        0.005 |
+|-------+-------------------------+--------------|
+
+** Question #1
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(TRUE, seeds[1])
+#+END_SRC
+** Question #2
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[2])
+#+END_SRC
+#+BEGIN_SRC R :session global :results value raw :exports results
+if (include.answer == TRUE) {
+print("\\newpage")
+}
+#+END_SRC
+** Question #3
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[3])
+#+END_SRC
+** Question #4
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[4])
+#+END_SRC
+** Question #5
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[5])
+#+END_SRC
+#+BEGIN_SRC R :session global :results value raw :exports results
+if (include.answer == TRUE) {
+print("\\newpage")
+}
+#+END_SRC
+** Question #6
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[6])
+#+END_SRC
+** Question #7
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[7])
+#+END_SRC
+** Question #8
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[8])
+#+END_SRC
+#+BEGIN_SRC R :session global :results value raw :exports results
+if (include.answer == TRUE) {
+print("\\newpage")
+}
+#+END_SRC
+** Question #9
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[9])
+#+END_SRC
+** Question #10
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[10])
+#+END_SRC
+** Question #11
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[11])
+#+END_SRC

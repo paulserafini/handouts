@@ -1,0 +1,30 @@
+\onecolumn
+* Week #4 :conceptual:midterm:
+
+Definitions:
+ - /z/ score
+ - Normal distribution
+
+Questions:
+ - Why do we transform scores into standard scores?
+ - Draw these scores on a number line:
+      \begin{center}
+      4, 6, 4, 3, 8
+      \end{center}
+   Then, subtract the mean from each score and draw the result on another number line. Then, divide those by the standard deviation and draw them on yet another number line. What does each step do?
+ - How does the height of the normal curve correspond to the number line below it?
+   
+\newpage
+   
+* Math                                                       :ignore:math:midterm:
+
+#+BEGIN_SRC R :session global :results value raw :exports results
+printq <- dget("./R/zscores.R")
+print("\\onecolumn")
+#+END_SRC
+
+** /Z/-scores
+
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[1])
+#+END_SRC

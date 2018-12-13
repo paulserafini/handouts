@@ -1,0 +1,114 @@
+\onecolumn
+* Week #11 :conceptual:final:
+
+ - What does the regression line minimise? Draw a picture
+ - How many regression lines are possible for a given set of data? How many lines of best fit are possible?
+ - Draw an example of a nonlinear relationship
+ - Give an example of restriction of range
+ - Explain the difference between univariate and regression outliers using a drawing
+ - How do outliers affect model fit?
+   
+\newpage
+
+* Regression :ignore:math:final:
+
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq <- dget("./R/regression.R")
+if (include.answer == FALSE) {
+    cat("\\twocolumn",
+        "\\setlength{\\mathindent}{0.5cm}", sep="\n")
+} else {
+    cat("\\onecolumn", sep="\n")
+}
+#+END_SRC
+
+** Regression
+
+\begin{multicols}{2}
+\begin{gather*}
+\bar{Y} = \Sigma (Y_i) / n \\
+df_1 = 1 \\
+df_2 = n - df_1 - 1 \\
+\mathit{SP} = \Sigma[(X_i - \bar{X})(Y_i - \bar{Y})] \\
+\mathit{SS_X} = \Sigma[(X_i - \bar{X})^2] \\
+\beta_1 = \mathit{SP / SS_X} \\
+\beta_0 = \bar{Y} - \beta_1 \times \bar{X}
+\end{gather*}
+\begin{gather*}
+\\
+\hat{Y}_i = \beta_0 + X_i \times \beta_1 \\
+\mathit{SS_{\textnormal{tot}}} = \Sigma[(Y_i - \bar{Y})^2] \\
+\mathit{SS_{\textnormal{reg}}} = \Sigma[(\hat{Y} - \bar{Y})^2] \\
+\mathit{SS_{\textnormal{res}}} = \mathit{SS_{\textnormal{tot}} - SS_{\textnormal{reg}}} \\
+\mathit{MS_{\textnormal{reg}}} = \mathit{SS_{\textnormal{reg}}} / df_1 \\
+\mathit{MS_{\textnormal{res}} = SS_{\textnormal{res}}} / df_2 \\
+\mathit{F = MS_{\textnormal{reg}} / MS_{\textnormal{res}}}
+\end{gather*}
+\end{multicols}
+
+** Critical /F/ values
+
+#+ATTR_LATEX: :booktabs t :center t :rmlines t
+|-------+------+-------+-------+--------|
+|       |      |       | $df_1$ |        |
+|-------+------+-------+-------+--------|
+| $df_2$ |    \alpha |     1 |     2 |      3 |
+|-------+------+-------+-------+--------|
+|     1 | 0.05 | 161.4 | 199.5 | 215.71 |
+|       | 0.01 |  4052 |  4999 |   5404 |
+|     2 | 0.05 | 18.51 |    19 |  19.16 |
+|       | 0.01 | 98.94 |    99 |  99.17 |
+|     3 | 0.05 |  7.71 |  6.94 |   6.59 |
+|       | 0.01 | 34.12 | 30.82 |  29.46 |
+|     4 | 0.05 |  7.71 |  6.94 |   6.59 |
+|       | 0.01 |  21.2 |    18 |  16.69 |
+|-------+------+-------+-------+--------|
+
+** Question #1
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, 100)
+#+END_SRC
+#+BEGIN_SRC R :session global :results value raw :exports results
+if (include.answer == TRUE) {
+print("\\newpage")
+}
+#+END_SRC
+** Question #2
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[2])
+#+END_SRC
+#+BEGIN_SRC R :session global :results value raw :exports results
+if (include.answer == FALSE) {
+print("\\vfill\\eject")
+}
+#+END_SRC
+** Question #3
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[3])
+#+END_SRC
+#+BEGIN_SRC R :session global :results value raw :exports results
+if (include.answer == TRUE) {
+print("\\newpage")
+}
+#+END_SRC
+** Question #4
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, 101)
+#+END_SRC
+** Question #5
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[5])
+#+END_SRC
+#+BEGIN_SRC R :session global :results value raw :exports results
+if (include.answer == TRUE) {
+print("\\newpage")
+}
+#+END_SRC
+** Question #6
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[6])
+#+END_SRC
+** Question #7
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[7])
+#+END_SRC

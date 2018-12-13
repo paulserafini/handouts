@@ -1,0 +1,22 @@
+#+INCLUDE: "configuration.org"
+
+#+SELECT_TAGS: math
+#+EXCLUDE_TAGS: final
+# #+EXPORT_FILE_NAME: answerkey.pdf
+#+BEGIN_SRC R :session global :exports none
+include.answer <- FALSE
+seeds <- 1:100
+##seeds <- seeds * 1000
+#+END_SRC
+
+#+INCLUDE: "week1.org"
+#+INCLUDE: "week2.org"
+#+INCLUDE: "week3.org"
+#+INCLUDE: "week4.org"
+#+INCLUDE: "week5.org"
+#+INCLUDE: "week6.org"
+#+INCLUDE: "week7.org"
+#+INCLUDE: "week8.org"
+#+INCLUDE: "week9.org"
+#+INCLUDE: "week10.org"
+#+INCLUDE: "week11.org"

@@ -1,0 +1,63 @@
+\onecolumn
+* Week #1                                                    :conceptual:midterm:
+
+Definitions:
+ - Population
+ - Sample
+ - Parameter
+ - Statistic
+ - Descriptive statistics
+ - Inferential statistics
+ - Independent variable
+ - Dependent variable
+
+Questions:
+ - Give examples of the above
+
+\newpage
+     
+* Math                                                  :ignore:math:midterm:
+
+#+BEGIN_SRC R :session global :results value raw :exports results
+printq <- dget("./R/summation.R")
+print("\\onecolumn")
+#+END_SRC
+
+** Summing notation
+
+$X_1$ = the first element of $X$ \\
+$X_i$ = an arbitrary element of $X$ \\
+$X_n$ = the last element of $X$ \\
+$\Sigma(X_i) = X_1 + X_2 + ... + X_n$ \\
+$\Sigma(X_i + 1) = (X_1 + 1) + (X_2 + 1) + ... + (X_n + 1)$ \\
+$\Sigma(X_i - Y_i) = (X_1 - Y_1) + (X_2 - Y_2) + ... + (X_n - Y_n)$ \\
+$[\Sigma(X_i)]^2 = (X_1 + X_2 + ... + X_n)^2$
+
+\begin{multicols}{2}
+
+** Question #1
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(TRUE, seeds[1])
+#+END_SRC
+** Question #2
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[2])
+#+END_SRC
+** Question #3
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[3])
+#+END_SRC
+** Question #4
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[4])
+#+END_SRC
+** Question #5
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[5])
+#+END_SRC
+** Question #6
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[6])
+#+END_SRC
+
+\end{multicols}

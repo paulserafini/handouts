@@ -1,0 +1,26 @@
+\onecolumn
+* Week #5 :conceptual:midterm:
+
+Definitions
+ - Sampling distribution
+ - Standard error
+ - Law of large numbers?
+
+Questions
+ - What is the difference between standard error and standard deviation?
+ - Why is standard error so named?
+ - Why can't we just draw a sample from the population and estimate the parameter by the sample statistic?
+ - Give an example of a sampling distribution
+ - What is the difference between a sampling distribution and a sampling distribution of the mean?
+ - What is the difference between standard error and standard error of the mean?
+ - Imagine a bowl with five bingo chips in it, numbered 1 through 5. For this "population":
+   - List all 25 possible samples of size 2 (sampling with replacement)
+   - Calculate the mean for every sample
+   - Count the frequency of each value of the mean
+   - Draw the frequency distribution as a bar plot
+   - Calculate the probability of drawing a sample with:
+     - A mean >= 4
+     - A mean <= 2.5
+     - An error of at least 1.5
+
+\newpage

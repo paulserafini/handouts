@@ -1,0 +1,97 @@
+\onecolumn
+* Week #9: Chapters 10 & 11 :conceptual:final:
+
+ - Give an example of a research design in which you would use a dependent /t/-test
+ - How does using a dependent design rather than an independent design affect power? Why?
+ - Give an example of a research question which could be addressed by ANOVA but not a single t-test
+ - Define the numerator and denominator of the F statistic, then explain why F is equal to 1 under the null hypothesis
+ - How much within and between group variability is there in each of the following scenarios?
+   - Scenario #1
+     - Group 1: [1, 1, 1, 1, 1]
+     - Group 2: [1, 1, 1, 1, 1]
+     - Group 3: [1, 1, 1, 1, 1]
+   - Scenario #2
+     - Group 1: [1, 4, 3, 7, 9]
+     - Group 2: [2, 3, 4, 8, 8]
+     - Group 3: [1, 2, 5, 9, 7]
+   - Scenario #3
+     - Group 1: [1, 1, 1, 1, 1]
+     - Group 2: [15, 15, 15, 15, 15]
+     - Group 3: [30, 30, 30, 30, 30]
+   - Scenario #4
+     - Group 1: [1, 4, 3, 7, 9]
+     - Group 2: [15, 26, 17, 29, 21]
+     - Group 3: [30, 37, 43, 41, 32]
+   Rank them on the likelihoood the null hypothesis (F = 1) will be rejected
+
+   \newpage
+
+* Math                                                    :ignore:math:final:
+
+#+BEGIN_SRC R :session global :results value raw :exports results
+printq <- dget("./R/dep-ttest.R")
+print("\\twocolumn")
+#+END_SRC
+
+** Dependent /t/-tests
+
+\begin{gather*}
+df = n - 1 \\
+\bar{D} = \Sigma (D_i) / n \\
+s_D = \sqrt{ \Sigma[(D_i - \bar{D})^2] / df } \\
+s_{\bar{D}} = s_D / \sqrt{n} \\
+t_{\textnormal{obs}} = \bar{D} / s_{\bar{D}} \\
+\mathit{CI_y} = \bar{D} \pm s_{\bar{D}} \times t_{\textnormal{y}} \\
+t_y \textnormal{ is the critical value for } \alpha = (100 - y) / 100
+\end{gather*}
+
+** Critical /t/ values
+
+#+ATTR_LATEX: :booktabs t :center t :rmlines t
+|----+------+------+------|
+|    |      |    \alpha |      |
+|----+------+------+------|
+| /df/ |  0.1 | 0.05 | 0.01 |
+|----+------+------+------|
+|  4 | 2.13 | 2.78 |  4.6 |
+|  5 | 2.02 | 2.57 | 4.03 |
+|  6 | 1.94 | 2.45 | 3.71 |
+|----+------+------+------|
+
+** Question #1
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(TRUE, seeds[1])
+#+END_SRC
+#+BEGIN_SRC R :session global :results value raw :exports results
+if (include.answer == TRUE) {
+print("\\newpage")
+}
+#+END_SRC
+#+BEGIN_SRC R :session global :results value raw :exports results
+if (include.answer == FALSE) {
+print("\\vfill\\eject")
+}
+#+END_SRC
+** Question #2
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[2])
+#+END_SRC
+** Question #3
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[3])
+#+END_SRC
+#+BEGIN_SRC R :session global :results value raw :exports results
+if (include.answer == TRUE) {
+print("\\newpage")
+}
+#+END_SRC
+
+** Question #4
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[4])
+#+END_SRC
+
+** Question #5
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[5])
+#+END_SRC

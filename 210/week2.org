@@ -1,0 +1,211 @@
+\onecolumn
+* Week #2 :conceptual:midterm:
+
+Definitions:
+ - Discrete
+ - Continuous
+ - Nominal
+ - Ordinal
+ - Interval
+ - Ratio
+   
+Questions:
+ - Give some examples of the above
+ - Draw a good bar graph and a bad one, and list the differences
+   
+\newpage
+
+* Math                                                  :ignore:math:midterm:
+
+#+BEGIN_SRC R :session global :results value raw :exports results
+printq1 <- dget("./R/frequency-tables.R")
+printq2 <- dget("./R/intervals.R")
+print("\\twocolumn")
+#+END_SRC
+
+** Frequency table construction
+
+For the following data sets, create a frequency table containing the frequency, cumulative frequency, relative frequency, and cumulative relative frequency of each value.
+
+\begin{quote}
+Freq. = number equal to score
+
+C Freq. = number less than or equal to score
+
+R Freq. = frequency divided by sample size
+
+CR Freq. = cumulative frequency divided by n
+\end{quote}
+
+** Question #1
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq1(TRUE, seeds[1])
+#+END_SRC
+** Question #2
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq1(include.answer, seeds[2])
+#+END_SRC
+** Question #3
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq1(include.answer, seeds[3])
+#+END_SRC
+
+** Question #4
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq1(include.answer, seeds[4])
+#+END_SRC
+#+BEGIN_SRC R :session global :results value raw :exports results
+if (include.answer == TRUE) {
+print("\\vfill\\eject")
+}
+#+END_SRC
+** Question #5
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq1(include.answer, seeds[5])
+#+END_SRC
+** Question #6
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq1(include.answer, seeds[6])
+#+END_SRC
+** Question #7
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq1(include.answer, seeds[7])
+#+END_SRC
+** Question #8
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq1(include.answer, seeds[8])
+#+END_SRC
+
+** Question #9
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq1(include.answer, seeds[9])
+#+END_SRC
+#+BEGIN_SRC R :session global :results value raw :exports results
+if (include.answer == TRUE) {
+print("\\vfill\\eject")
+}
+#+END_SRC
+** Question #10
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq1(include.answer, seeds[10])
+#+END_SRC
+** Question #11
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq1(include.answer, seeds[11])
+#+END_SRC
+** Question #12
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq1(include.answer, seeds[12])
+#+END_SRC
+
+** Question #13
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq1(include.answer, seeds[13])
+#+END_SRC
+** Question #14
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq1(include.answer, seeds[14])
+#+END_SRC
+#+BEGIN_SRC R :session global :results value raw :exports results
+if (include.answer == TRUE) {
+print("\\vfill\\eject")
+}
+#+END_SRC
+** Question #15
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq1(include.answer, seeds[15])
+#+END_SRC
+** Question #16
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq1(include.answer, seeds[16])
+#+END_SRC
+** Question #17
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq1(include.answer, seeds[17])
+#+END_SRC
+** Question #18
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq1(include.answer, seeds[18])
+#+END_SRC
+** Question #19
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq1(include.answer, seeds[19])
+#+END_SRC
+
+\newpage
+
+
+** Interval construction
+** Question #1
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq2(TRUE, seeds[1])
+#+END_SRC
+** Question #2
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq2(include.answer, seeds[2])
+#+END_SRC
+** Question #3
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq2(include.answer, seeds[3])
+#+END_SRC
+#+BEGIN_SRC R :session global :results value raw :exports results
+if (include.answer == TRUE) {
+print("\\vfill\\eject")
+}
+#+END_SRC
+** Question #4
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq2(include.answer, seeds[4])
+#+END_SRC
+** Question #5
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq2(include.answer, seeds[5])
+#+END_SRC
+** Question #6
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq2(include.answer, seeds[6])
+#+END_SRC
+#+BEGIN_SRC R :session global :results value raw :exports results
+if (include.answer == TRUE) {
+print("\\newpage")
+} else {
+print("\\vfill\\eject")
+}
+#+END_SRC
+** Question #7
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq2(include.answer, seeds[7])
+#+END_SRC
+** Question #8
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq2(include.answer, seeds[8])
+#+END_SRC
+** Question #9
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq2(include.answer, seeds[9])
+#+END_SRC
+** Question #10
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq2(include.answer, seeds[10])
+#+END_SRC
+#+BEGIN_SRC R :session global :results value raw :exports results
+if (include.answer == TRUE) {
+print("\\vfill\\eject")
+}
+#+END_SRC
+** Question #11
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq2(include.answer, seeds[11])
+#+END_SRC
+** Question #12
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq2(include.answer, seeds[12])
+#+END_SRC
+** Question #13
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq2(include.answer, seeds[13])
+#+END_SRC
+** Question #14
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq2(include.answer, seeds[14])
+#+END_SRC

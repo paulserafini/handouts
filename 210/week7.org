@@ -1,0 +1,92 @@
+\onecolumn
+* Week #7 :conceptual:final:
+
+ - When would we use a t test instead of a z test?
+ - What is the expected value of t under the null?
+ - What is homogeneity of variance?
+ - Why can't we calculate a t statistic with a sample size of 1?
+ - When might we employ a Welch correction?
+ - Give an example of a research question for which a one-sample /t/-test would be appropriate
+   
+\newpage
+   
+* Math                                                    :ignore:math:final:
+
+#+BEGIN_SRC R :session global :results value raw :exports results
+printq <- dget("./R/1sample-ttest.R")
+print("\\twocolumn")
+#+END_SRC
+
+** One sample /t/-tests
+
+\begin{gather*}
+df = n - 1 \\
+s_{\bar{X}} = \dfrac{s}{\sqrt{n}} \\
+t = \dfrac{\bar{X} - \mu}{s_{\bar{X}}} \\
+\mathit{CI}_{y} = \bar{X} \pm (s_{\bar{X}} \times t_y) \\
+t_y = \textnormal{the critical value for an alpha of } (100-y)/100
+\end{gather*}
+
+** Critical /t/ values
+
+#+ATTR_LATEX: :booktabs t :center t :rmlines t
+|----+------+------+------+------|
+|    |      |    \alpha |      |      |
+|----+------+------+------+------|
+| /df/ |  0.2 |  0.1 | 0.05 | 0.01 |
+|----+------+------+------+------|
+|  4 | 1.53 | 2.13 | 2.78 |  4.6 |
+|  5 | 1.48 | 2.02 | 2.57 | 4.03 |
+|  6 | 1.44 | 1.94 | 2.45 | 3.71 |
+|----+------+------+------+------|
+
+** Question #1
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(TRUE, seeds[1])
+#+END_SRC
+** Question #2
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[2])
+#+END_SRC
+#+BEGIN_SRC R :session global :results value raw :exports results
+if (include.answer == TRUE) {
+print("\\newpage")
+}
+#+END_SRC
+** Question #3
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[3])
+#+END_SRC
+** Question #4
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[4])
+#+END_SRC
+** Question #5
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[5])
+#+END_SRC
+#+BEGIN_SRC R :session global :results value raw :exports results
+if (include.answer == TRUE) {
+print("\\newpage")
+}
+#+END_SRC
+** Question #6
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[6])
+#+END_SRC
+** Question #7
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[7])
+#+END_SRC
+** Question #8
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[8])
+#+END_SRC
+** Question #9
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[9])
+#+END_SRC
+** Question #10
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[10])
+#+END_SRC
