@@ -34,6 +34,12 @@ function (include, seed) {
     F <- round(MSreg / MSres, 2)
     Fcrit <- round(qf(1-alpha, df1, df2), 2)
 
+    if (F >= Fcrit) {
+        decision <- paste0("Reject because $", F, " >= ", Fcrit, "$")
+    } else {
+        decision <- paste0("Fail to reject because $", F, " < ", Fcrit, "$")
+    }
+
     question <- paste0("Test the model fit at an $\\alpha$ of ", alpha, ".")
 
     if (include == TRUE) {
@@ -70,7 +76,8 @@ function (include, seed) {
                      \\mathit{MS_{\\textnormal{reg}}} = ", SSreg, " / ", df1, " = ", MSreg, " \\\\
                      \\mathit{MS_{\\textnormal{res}}} = ", SSres, "/", df2, " = ", MSres, " \\\\
                      F = ", MSreg, " / ", MSres, " = ", F, " \\\\
-                     F_{\\textnormal{crit}} = ", Fcrit, "
+                     F_{\\textnormal{crit}} = ", Fcrit, " \\\\
+                     \\textnormal{", decision, "}
                      \\end{gather*}
                      \\end{multicols}")
 

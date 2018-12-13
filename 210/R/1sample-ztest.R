@@ -24,7 +24,7 @@ function (include.answer, seed) {
     UL <- round(xbar + se * CIcrit, 2)
 
     if (2 * pnorm(-abs(zobs)) <= alpha) {
-        operator <- ifelse(zobs > zcrit, "> ", " < -")
+        operator <- ifelse(zobs > zcrit, ">= ", " =< -")
         decision <- paste0("Reject because $", zobs, operator, zcrit, "$")
     
     } else {
@@ -34,11 +34,12 @@ function (include.answer, seed) {
     answer <- paste0("
                       \\begin{gather*}
                       \\sigma = \\sqrt{", variance, "} = ", sigma, " \\\\
-                      \\sigma_{\\bar{X}} = \\frac{", sigma, "}{\\sqrt{", n, "}} = ", se, " \\\\
-                      z_{\\textnormal{obs}} = \\frac{", xbar, " - ", constant, "}{", se, "} = ", zobs, " \\\\
+                      \\sigma_{\\bar{X}} = ", sigma, "/\\sqrt{", n, "} = ", se, " \\\\
+                      z_{\\textnormal{obs}} = (", xbar, " - ", constant, ")/", se, " = ", zobs, " \\\\
                       z_{\\textnormal{crit}} = \\pm", zcrit, " \\\\
                       \\textnormal{", decision, "} \\\\
-                      \\mathit{CI}_{", 100*CC, "} = ", xbar, " \\pm (", se, " \\times ", zcrit, ") = [", LL, " , ", UL, "]
+                      z_{", 100*CC, "} = ", CIcrit, " \\\\
+                      \\mathit{CI}_{", 100*CC, "} = ", xbar, " \\pm (", se, " \\times ", zcrit, ") = [", LL, " ,\\ ", UL, "]
                       \\end{gather*}")
     
     question <- paste0("Researchers draw a sample of ", n, " with a mean of ", xbar, ". The population variance is known to be ", variance, ". Test $H_0: \\mu = ", constant, "$ at an \\alpha of ", alpha, ", state your decision, and calculate a ", 100*CC, "% confidence interval.", sep = "")

@@ -7,6 +7,7 @@
  - When isn't Pearson's /r/ an appropriate measure?
  - Why doesn't correlation imply causation? Does causation imply correlation?
  - One sample has n = 10 and a variance of 20, the other has n = 15 and variance of 30; will the pooled variance be closer to 15 or 30 (rewrite this)
+ - Why is the $df = n - 2$?
  - Rank each set of scores:
    \begin{center}
    4, 0, 4, 9, 3 \\

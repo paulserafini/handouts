@@ -25,21 +25,23 @@ function (include.answer, seed) {
     UL <- round(xbar + se * CIcrit, 2)
 
     if (2 * pt(-abs(tobs),df=df) <= alpha) {
-        error <- ifelse(mu == constant , "false rejection (type I error)", "correct rejection")
+        operator <- ifelse(tobs > tcrit, ">= ", " =< -")
+        decision <- paste0("Reject because $", tobs, operator, tcrit, "$")
     } else {
-        error <- ifelse(mu == constant , "correct acceptance", "false acceptance (type II error)")
+        decision <- paste0("Fail to reject because $", tcrit, " > ", tobs, " > -", tcrit, "$")
     }
 
     answer <- paste0("
                       \\begin{gather*}
-                      s_{\\bar{X}} = \\frac{", sd, "}{ \\sqrt{", n, "}} = ", se, " \\\\
+                      s_{\\bar{X}} = ", sd, "/\\sqrt{", n, "} = ", se, " \\\\
                       t_{\\textnormal{tobs}} = (", xbar, " - ", constant, ") / ", se, " = ", tobs, " \\\\
-                      t_{\\textnormal{crit}} = ", tcrit, "\\\\
-                      \\textnormal{They make a ", error, "} \\\\
-                      \\mathit{CI}_{", 100*CC, "} = ", xbar, " \\pm (", se, " \\times ", CIcrit, ") = [", LL, " , ", UL, "]
+                      t_{\\textnormal{crit}} = \\pm", tcrit, "\\\\
+                      \\textnormal{", decision, "} \\\\
+                      t_{", 100*CC, "} = ", CIcrit, "\\\\
+                      \\mathit{CI}_{", 100*CC, "} = ", xbar, " \\pm (", se, " \\times ", CIcrit, ") = [", LL, " ,\\ ", UL, "]
                       \\end{gather*}")
 
-    question <- paste0("Researchers draw a sample of ", n, " with a mean of ", xbar, " and a standard deviation of ", sd, ". Test H_0: \\mu = ", constant, " at an \\alpha of ", alpha, ", state the error/decision, then calculate a ", 100*CC, "% confidence interval. In reality, \\mu = ", mu, ".", sep="")
+    question <- paste0("Researchers draw a sample of ", n, " with a mean of ", xbar, " and a standard deviation of ", sd, ". Test $H_0: \\mu = ", constant, "$ at an \\alpha of ", alpha, ", state your decision, then calculate a ", 100*CC, "% confidence interval.", sep="")
 
     if (include.answer == TRUE) {
         cat(question, answer, sep="\n")

@@ -49,6 +49,13 @@ function (include.answer, seed) {
         p <- round(cor.test(X,Y)$p.value, 2)
         rcrit <- round(rcrit(n, alpha), 2)
 
+        if (abs(r) >= rcrit) {
+            operator <- ifelse(robs > rcrit, ">= ", " =< -")
+            decision <- paste0("Reject because $", r, operator, rcrit, "$")
+        } else {
+            decision <- paste0("Fail to reject because $", rcrit, " > ", r, " > -", rcrit, "$")
+        }
+
         paste0("
             \\vspace{-3em}
             \\begin{multicols}{2}
@@ -56,13 +63,14 @@ function (include.answer, seed) {
             \\bar{X} = ", Xbar, " \\\\
             \\bar{Y} = ", Ybar, " \\\\
             \\mathit{SS_X} = ", SSx, " \\\\
+            \\mathit{SS_Y} = ", SSy, "
             \\end{gather*}
             \\begin{gather*}
             \\\\
-            \\mathit{SS_Y} = ", SSy, " \\\\
             \\mathit{SP} = ", SP, " \\\\
             r_{\\mathit{XY}} = ", SP, " / \\sqrt{", SSx, " \\times ", SSy, "} = ", r, " \\\\
-            r_{\\textnormal{crit}} = ", rcrit, "
+            r_{\\textnormal{crit}} = \\pm", rcrit, " \\\\
+            \\textnormal{", decision, "}
             \\end{gather*}
             \\end{multicols}") %>>% cat(sep="\n")
 

@@ -39,12 +39,13 @@ function (include.answer, seed) {
     UL <- round((xbar1 - xbar2) + se * CIcrit, 2)
 
     if (2 * pt(-abs(tobs),df=dftot) <= alpha) {
-        decision <- ifelse(mu1 == mu2 , "false rejection (type I error)", "correct rejection")
+        operator <- ifelse(tobs >= tcrit, ">= ", " =< -")
+        decision <- paste0("Reject because $", tobs, operator, tcrit, "$")
     } else {
-        decision <- ifelse(mu1 == mu2 , "correct acceptance", "false acceptance (type II error)")
+        decision <- paste0("Fail to reject because $", tcrit, " > ", tobs, " > -", tcrit, "$")
     }
 
-    question <- paste0("Researchers draw one sample of ", n1, " with a mean of ", xbar1, " and a standard deviation of ", sd1, ", and another sample of ", n2, " with a mean of ", xbar2, " and a standard deviation of ", sd2, ". Test H_0: \\mu_1 = \\mu_2 at an \\alpha of ", alpha, ", state the decision/error, then calculate a ", 100*CC, "% confidence interval. In reality, \\mu_1 = ", mu1, " and \\mu_2 = ", mu2, ".")
+    question <- paste0("Researchers draw one sample of ", n1, " with a mean of ", xbar1, " and a standard deviation of ", sd1, ", and another sample of ", n2, " with a mean of ", xbar2, " and a standard deviation of ", sd2, ". Test $H_0: \\mu_1 = \\mu_2$ at an \\alpha of ", alpha, ", state the error, then calculate a ", 100*CC, "% confidence interval.")
     
     if (include.answer == TRUE) {
     
@@ -61,8 +62,9 @@ function (include.answer, seed) {
                           s_{(\\bar{X}_1 - \\bar{X}_2)} = \\sqrt{(", var.p, "/", n1, ") + (", var.p, "/", n2, ")} = ", se, " \\\\
                           t_{\\textnormal{obs}}(", dftot, ") = (", xbar1, " - ", xbar2, ") / ", se, " = ", tobs, " \\\\
                           t_{\\textnormal{crit}} = \\pm", tcrit, "\\\\
-                          \\textnormal{They make a ", decision, "} \\\\
-                          \\mathit{CI}_{", 100*CC, "} = (", xbar1, " - ", xbar2, ") \\pm ", se, " \\times ", CIcrit, " = [", LL, ", ", UL, "]
+                          \\textnormal{", decision, "} \\\\
+                          t_{", 100*CC, "} = ", CIcrit, "\\\\
+                          \\mathit{CI}_{", 100*CC, "} = (", xbar1, " - ", xbar2, ") \\pm (", se, " \\times ", CIcrit, ") = [", LL, ",\\ ", UL, "]
                           \\end{gather*}")
 
         cat(question, answer, sep="\n")

@@ -36,9 +36,10 @@ function (include.answer, seed) {
     UL <- round(Dbar + sDbar * CIcrit, 2)
 
     if (2 * pt(-abs(tobs),df=df) <= alpha) {
-        decision <- ifelse(mu1 == mu2 , "false rejection (type I error)", "correct rejection")
+        operator <- ifelse(tobs > tcrit, ">= ", " =< -")
+        decision <- paste0("Reject because $", tobs, operator, tcrit, "$")
     } else {
-        decision <- ifelse(mu1 == mu2 , "correct acceptance", "false acceptance (type II error)")
+        decision <- paste0("Fail to reject because $", tcrit, " > ", tobs, " > -", tcrit, "$")
     }
     
     answer <- paste0("
@@ -50,13 +51,14 @@ function (include.answer, seed) {
                       s_{\\bar{D}} = ", sD, " / \\sqrt{", n, "} = ", sDbar, " \\\\
                       t_{\\textnormal{obs}}(", df, ") = ", Dbar, " / ", sDbar, " = ", tobs, " \\\\
                       t_{\\textnormal{crit}} = ", tcrit, " \\\\
-                      \\textnormal{They make a ", decision, "} \\\\
-                      \\mathit{CI}_{", 100*CC, "} = ", Dbar,  " \\pm (", sDbar, " \\times ", CIcrit, ") = [", LL, " , ", UL, "]
+                      \\textnormal{", decision, "} \\\\
+                      t_{", 100*CC, "} = ", CIcrit, " \\\\
+                      \\mathit{CI}_{", 100*CC, "} = ", Dbar,  " \\pm (", sDbar, " \\times ", CIcrit, ") = [", LL, ",\\ ", UL, "]
                       \\end{gather*}")
                       
     question1 <- "Researchers collect the following data:"
     
-    question2 <- paste0("Test H_0: \\mu_{\\bar{D}} = 0 at an \\alpha of ", alpha, ", state the decision/error, then calculate a ", 100*CC, "% confidence interval. In reality, \\mu_{\\bar{D}} = ", mu1 - mu2, ".")
+    question2 <- paste0("Test $H_0: \\mu_{\\bar{D}} = 0$ at an \\alpha of ", alpha, ", state the decision/error, then calculate a ", 100*CC, "% confidence interval.")
 
     if (include.answer == TRUE) {
 
