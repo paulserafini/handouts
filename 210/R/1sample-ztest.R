@@ -19,27 +19,29 @@ function (include.answer, seed) {
     
     ## Calculate confidence interval
     CC <- sample(c(0.90, 0.95, 0.99), 1)
-    CIcrit <- abs(round(qnorm(CC/2), 2))
+    CIcrit <- abs(round(qnorm((1 - CC)/2), 2))
     LL <- round(xbar - se * CIcrit, 2)
     UL <- round(xbar + se * CIcrit, 2)
 
     if (2 * pnorm(-abs(zobs)) <= alpha) {
-        decision <- ifelse(mu == constant , "false rejection (Type I error)", "correct rejection")
+        operator <- ifelse(zobs > zcrit, "> ", " < -")
+        decision <- paste0("Reject because $", zobs, operator, zcrit, "$")
+    
     } else {
-        decision <- ifelse(mu == constant , "correct acceptance", "false acceptance (Type II error)")
+        decision <- paste0("Fail to reject because $", zcrit, " > ", zobs, " > -", zcrit, "$")
     }
 
     answer <- paste0("
                       \\begin{gather*}
-                      z_{\\textnormal{crit}} = ", zcrit, " \\\\
                       \\sigma = \\sqrt{", variance, "} = ", sigma, " \\\\
                       \\sigma_{\\bar{X}} = \\frac{", sigma, "}{\\sqrt{", n, "}} = ", se, " \\\\
                       z_{\\textnormal{obs}} = \\frac{", xbar, " - ", constant, "}{", se, "} = ", zobs, " \\\\
-                      \\textnormal{They make a ", decision, "} \\\\
+                      z_{\\textnormal{crit}} = \\pm", zcrit, " \\\\
+                      \\textnormal{", decision, "} \\\\
                       \\mathit{CI}_{", 100*CC, "} = ", xbar, " \\pm (", se, " \\times ", zcrit, ") = [", LL, " , ", UL, "]
                       \\end{gather*}")
     
-    question <- paste0("Researchers draw a sample of ", n, " with a mean of ", xbar, ". The population variance is known to be ", variance, ". Test H_0: \\mu = ", constant, " at an \\alpha of ", alpha, " state the error/decision, and calculate a ", 100*CC, "% confidence interval. The population mean is actually ", mu, ".", sep = "")
+    question <- paste0("Researchers draw a sample of ", n, " with a mean of ", xbar, ". The population variance is known to be ", variance, ". Test $H_0: \\mu = ", constant, "$ at an \\alpha of ", alpha, ", state your decision, and calculate a ", 100*CC, "% confidence interval.", sep = "")
 
     if (include.answer == TRUE) {
         cat(question, answer, sep="\n")
