@@ -39,7 +39,7 @@ function (include.answer, seed) {
                       z_{\\textnormal{crit}} = \\pm", zcrit, " \\\\
                       \\textnormal{", decision, "} \\\\
                       z_{", 100*CC, "} = ", CIcrit, " \\\\
-                      \\mathit{CI}_{", 100*CC, "} = ", xbar, " \\pm (", se, " \\times ", zcrit, ") = [", LL, " ,\\ ", UL, "]
+                      \\mathit{CI}_{", 100*CC, "} = ", xbar, " \\pm (", se, " \\times ", CIcrit, ") = [", LL, " ,\\ ", UL, "]
                       \\end{gather*}")
     
     question <- paste0("Researchers draw a sample of ", n, " with a mean of ", xbar, ". The population variance is known to be ", variance, ". Test $H_0: \\mu = ", constant, "$ at an \\alpha of ", alpha, ", state your decision, and calculate a ", 100*CC, "% confidence interval.", sep = "")

@@ -9,7 +9,7 @@ function(include.answer, seed) {
     ## Create question
     question <- paste0("The lowest value in the data set is ", lowest,
                        ", and the desired interval width is ", width,
-                       ". Find the lower limit, midpoint, and upper limit of the first five intervals.")
+                       ".")
 
     if (include.answer == TRUE) {
 

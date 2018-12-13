@@ -13,7 +13,7 @@
 #+LATEX_HEADER: \usepackage{multicol}
 #+LATEX_HEADER: \usepackage{titlesec}
 
-# #+LATEX_HEADER: \newcommand{\sectionbreak}{\clearpage}
+#+LATEX_HEADER: \newcommand{\sectionbreak}{\clearpage}
 #+LATEX_HEADER: \renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
 #+LATEX_HEADER: \setlength{\parindent}{0cm}
 #+LATEX_HEADER: \pagenumbering{gobble}

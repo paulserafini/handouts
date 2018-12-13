@@ -14,7 +14,7 @@ function(include.answer, seed) {
                           \\Sigma(X_iY_i) = ", sum(x * y), " \\\\
                           \\Sigma(X_i^2) = ", sum(x^2), " \\\\
                           [\\Sigma(X_i - Y_i)]^2 = ", sum(x - y)^2, " \\\\
-                          [\\Sigma(X_i)][\\Sigma(Y_i)] = ", sum(x) * sum(y), " \\\\
+                          \\Sigma(X_i) \\Sigma(Y_i) = ", sum(x) * sum(y), " \\\\
                           \\end{gather*}")
     } else {
         output <- paste0("
@@ -25,7 +25,7 @@ function(include.answer, seed) {
                           \\Sigma(X_iY_i) =  \\\\
                           \\Sigma(X_i^2) =  \\\\
                           [\\Sigma(X_i - Y_i)]^2 =  \\\\
-                          [\\Sigma(X_i)][\\Sigma(Y_i)] =  \\\\
+                          \\Sigma(X_i)\\Sigma(Y_i) =  \\\\
                           \\end{gather*}")
     }
 

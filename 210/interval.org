@@ -1,0 +1,86 @@
+* Configuration :ignore:
+
+#+BEGIN_SRC R :session global :results value raw :exports results
+printq <- dget("./R/intervals.R")
+print("\\twocolumn")
+#+END_SRC
+
+* Interval construction
+
+For each scenario, find the lower limit, midpoint, and upper limit of the first five intervals.
+
+** Question #1
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(TRUE, seeds[1])
+#+END_SRC
+** Question #2
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[2])
+#+END_SRC
+** Question #3
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[3])
+#+END_SRC
+#+BEGIN_SRC R :session global :results value raw :exports results
+if (include.answer == TRUE) {
+print("\\vfill\\eject")
+}
+#+END_SRC
+** Question #4
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[4])
+#+END_SRC
+** Question #5
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[5])
+#+END_SRC
+** Question #6
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[6])
+#+END_SRC
+#+BEGIN_SRC R :session global :results value raw :exports results
+if (include.answer == TRUE) {
+print("\\newpage")
+} else {
+print("\\vfill\\eject")
+}
+#+END_SRC
+** Question #7
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[7])
+#+END_SRC
+** Question #8
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[8])
+#+END_SRC
+** Question #9
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[9])
+#+END_SRC
+** Question #10
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[10])
+#+END_SRC
+#+BEGIN_SRC R :session global :results value raw :exports results
+if (include.answer == TRUE) {
+print("\\vfill\\eject")
+}
+#+END_SRC
+** Question #11
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[11])
+#+END_SRC
+** Question #12
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[12])
+#+END_SRC
+** Question #13
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[13])
+#+END_SRC
+** Question #14
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[14])
+#+END_SRC
+
+\onecolumn

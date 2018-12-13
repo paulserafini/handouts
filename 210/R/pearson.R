@@ -5,8 +5,8 @@ function (include.answer, seed) {
     ## Create sample
     n <- sample(4:6, 1)
     df <- n - 1
-    X <- makesample(n)
-    Y <- makesample(n)
+    X <- sample(1:9, n)
+    Y <- sample(1:9, n)
 
     ## Get rcrit
     alpha <- sample(c(0.2, 0.1), 1)

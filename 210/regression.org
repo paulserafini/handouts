@@ -1,16 +1,4 @@
-\onecolumn
-* Week #11 :conceptual:final:
-
- - What does the regression line minimise? Draw a picture
- - How many regression lines are possible for a given set of data? How many lines of best fit are possible?
- - Draw an example of a nonlinear relationship
- - Give an example of restriction of range
- - Explain the difference between univariate and regression outliers using a drawing
- - How do outliers affect model fit?
-   
-\newpage
-
-* Regression :ignore:math:final:
+* Configuration :ignore:
 
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq <- dget("./R/regression.R")
@@ -22,7 +10,7 @@ if (include.answer == FALSE) {
 }
 #+END_SRC
 
-** Regression
+* Regression
 
 \begin{multicols}{2}
 \begin{gather*}
@@ -112,3 +100,5 @@ printq(include.answer, seeds[6])
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[7])
 #+END_SRC
+
+\onecolumn

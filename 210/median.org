@@ -1,0 +1,65 @@
+* Configuration :ignore:math:midterm:
+
+#+BEGIN_SRC R :session global :results value raw :exports results
+printq <- dget("./R/median.R")
+print("\\twocolumn")
+#+END_SRC
+  
+* Median calculation                                    :math:midterm:
+
+For each table, calculate the median using this formula:
+
+\begin{equation*}
+\mathit{Md} = \mathit{LL} + W \begin{bmatrix} \frac{0.5(n) - \mathit{cumF}}{\mathit{fm}} \end{bmatrix}
+\end{equation*}
+
+/LL/ = (score of the row with the lowest CR freq. \geq 0.5) - 0.5
+
+/W/ = interval width (= 1 if the data are ungrouped)
+
+/n/ = sample size (= the highest C freq.)
+
+/cumF/ = CR freq. of the row below the one containing /LL/
+
+/fm/ = frequency of the row containing /LL/
+
+** Question #1
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(TRUE, seeds[1])
+#+END_SRC
+** Question #2
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[2])
+#+END_SRC
+** Question #3
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[3])
+#+END_SRC
+#+BEGIN_SRC R :session global :results value raw :exports results
+if (include.answer == TRUE) {
+print("\\vfill\\eject")
+}
+#+END_SRC
+** Question #4
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[4])
+#+END_SRC
+#+BEGIN_SRC R :session global :results value raw :exports results
+if (include.answer == FALSE) {
+print("\\vfill\\eject")
+}
+#+END_SRC
+** Question #5
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[5])
+#+END_SRC
+** Question #6
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[6])
+#+END_SRC
+** Question #7
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[7])
+#+END_SRC
+
+\onecolumn

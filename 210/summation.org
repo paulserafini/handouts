@@ -1,29 +1,11 @@
-\onecolumn
-* Week #1                                                    :conceptual:midterm:
-
-Definitions:
- - Population
- - Sample
- - Parameter
- - Statistic
- - Descriptive statistics
- - Inferential statistics
- - Independent variable
- - Dependent variable
-
-Questions:
- - Give examples of the above
-
-\newpage
-     
-* Math                                                  :ignore:math:midterm:
+* Configuration :ignore:
 
 #+BEGIN_SRC R :session global :results value raw :exports results
 printq <- dget("./R/summation.R")
-print("\\onecolumn")
+print("\\twocolumn")
 #+END_SRC
 
-** Summing notation
+* Summing notation
 
 $X_1$ = the first element of $X$ \\
 $X_i$ = an arbitrary element of $X$ \\
@@ -32,8 +14,6 @@ $\Sigma(X_i) = X_1 + X_2 + ... + X_n$ \\
 $\Sigma(X_i + 1) = (X_1 + 1) + (X_2 + 1) + ... + (X_n + 1)$ \\
 $\Sigma(X_i - Y_i) = (X_1 - Y_1) + (X_2 - Y_2) + ... + (X_n - Y_n)$ \\
 $[\Sigma(X_i)]^2 = (X_1 + X_2 + ... + X_n)^2$
-
-\begin{multicols}{2}
 
 ** Question #1
 #+BEGIN_SRC R :session global :results output raw :exports results
@@ -60,4 +40,4 @@ printq(include.answer, seeds[5])
 printq(include.answer, seeds[6])
 #+END_SRC
 
-\end{multicols}
+\onecolumn

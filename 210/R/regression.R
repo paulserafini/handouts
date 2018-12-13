@@ -4,8 +4,8 @@ function (include, seed) {
 
     ## Create sample
     n <- sample(4:6, 1)
-    X <- makesample(n)
-    Y <- makesample(n)
+    X <- sample(1:9, n)
+    Y <- sample(1:9, n)
 
     ## Calculate regression
     Xsd <- round(sd(X), 2)
@@ -65,11 +65,11 @@ function (include, seed) {
                      \\bar{X} = ", Xbar, " \\\\
                      \\beta_0 = ", Ybar, " - (", B1, " \\times ", Xbar, ") = ", B0, " \\\\
                      \\hat{Y}_i = ", B0, " + (", B1, " \\times X_i ) \\\\
-                     \\mathit{SS_{\\textnormal{tot}}} = ", SStot, "
+                     \\mathit{SS_{\\textnormal{tot}}} = ", SStot, " \\\\
+                     \\mathit{SS_{\\textnormal{reg}}} = ", SSreg, " \\\\
                      \\end{gather*}
                      \\begin{gather*}
                      \\\\
-                     \\mathit{SS_{\\textnormal{reg}}} = ", SSreg, " \\\\
                      \\mathit{SS_{\\textnormal{res}}} = ", SStot, " - ", SSreg, " = ", SSres, " \\\\
                      df_1 = ", df1, " \\\\
                      df_2 = ", n, " - ", df1, " - 1 = ", df2, " \\\\

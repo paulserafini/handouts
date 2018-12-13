@@ -1,42 +1,11 @@
-\onecolumn
-* Week #6 :conceptual:midterm:
-
-Definitions:
- - Null hypothesis
- - Alternate hypothesis
- - Alpha (\alpha)
- - Beta (\beta)
- - Power
- - Type I error
- - Type II error
- - Null distribution (H_0)
- - Alternate distribution (H_1)
- - /p/-value
-   
-Questions:
- - Draw a null distribution and illustrate the relationship between the critical values and \alpha
- - Draw an alternate distribution and illustrate the relationship between the critical values, \beta, and power
- - Draw a distribution and illustrate the relationship between the /p/-value and $z_{\textnormal{obs}}$
- - How do we control Type I error? Type II error?
- - How is \beta affected by change in effect size, \alpha, \sigma, and sample size?
- - How is \alpha affected by change in \sigma and sample size?
- - H_0 and H_1 must be exhaustive (one must be true) and mutually exclusive (they can't both be true). Come up with some invalid hypotheses
- - What is wrong with saying ``$p$ is the probability that the null hypothesis is true''?
- - What is the goal of a confidence interval?
- - Why is calculating a 1 - \alpha% confidence interval the same as performing a hypothesis test at \alpha?
- - What do we need to know in order to use a $z$ test?
- - Give an example of a finding which is statistically significant but practically insignificant. When might this occur?
-   
-\newpage
-
-* Math                                                  :ignore:math:midterm:
+* Configuration :ignore:
 
 #+BEGIN_SRC R :session global :results value raw :exports results
 printq <- dget("./R/1sample-ztest.R")
 print("\\twocolumn")
 #+END_SRC
 
-** /Z/-tests
+* /Z/-tests
 
 \begin{gather*}
 \sigma_{\bar{X}} = \dfrac{\sigma}{\sqrt{n}} \\
@@ -116,3 +85,5 @@ printq(include.answer, seeds[10])
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[11])
 #+END_SRC
+
+\onecolumn

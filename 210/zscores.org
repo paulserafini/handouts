@@ -1,0 +1,12 @@
+* Configuration :ignore:
+
+#+BEGIN_SRC R :session global :results value raw :exports results
+printq <- dget("./R/zscores.R")
+print("\\onecolumn")
+#+END_SRC
+
+* /Z/-scores
+
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[1])
+#+END_SRC

@@ -1,20 +1,11 @@
-\onecolumn
-* Week #8 :conceptual:final:
-
- - Give an example of a research question for which you would use an independent /t/-test
- - What is the standard error of mean differences?
- - What is the sampling distribution of mean differences?
-   
-\newpage
-   
-* Math                                                    :ignore:math:final:
+* Configuration :ignore:math:final:
 
 #+BEGIN_SRC R :session global :results value raw :exports results
 printq <- dget("./R/ind-ttest.R")
 print("\\twocolumn")
 #+END_SRC
 
-** Independent /t/-tests
+* Independent /t/-tests                                     :math:final:
 
 \begin{gather*}
 df_i = n_i - 1 \\
@@ -93,3 +84,5 @@ print("\\newpage")
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[8])
 #+END_SRC
+
+\onecolumn

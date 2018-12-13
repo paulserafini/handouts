@@ -1,22 +1,4 @@
-\onecolumn
-* Week #10 :conceptual:final:
-
- - Give an example of two variables which would have a correlation of close to 1
- - Give an example of two variables which would have a correlation of close to -1
- - Give an example of two variable which would have a correlation of close to 0
- - When isn't Pearson's /r/ an appropriate measure?
- - Why doesn't correlation imply causation? Does causation imply correlation?
- - One sample has n = 10 and a variance of 20, the other has n = 15 and variance of 30; will the pooled variance be closer to 15 or 30 (rewrite this)
- - Why is the $df = n - 2$?
- - Rank each set of scores:
-   \begin{center}
-   4, 0, 4, 9, 3 \\
-   3, 5, 3, 6, 3
-   \end{center}
-   
-\newpage
-   
-* Pearson's /r/ :ignore:math:final:
+* Configuration :ignore:
 
 #+BEGIN_SRC R :session global :results value raw :exports results
 printq <- dget("./R/pearson.R")
@@ -27,7 +9,7 @@ print("\\twocolumn")
 }
 #+END_SRC
 
-** Correlation
+* Pearson's /r/
 
 \begin{gather*}
 \bar{X} = \Sigma (X_i) / n \\
@@ -94,3 +76,5 @@ printq(include.answer, seeds[6])
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[7])
 #+END_SRC
+
+\onecolumn

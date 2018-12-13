@@ -1,39 +1,11 @@
-\onecolumn
-* Week #9: Chapters 10 & 11 :conceptual:final:
-
- - Give an example of a research design in which you would use a dependent /t/-test
- - How does using a dependent design rather than an independent design affect power? Why?
- - Give an example of a research question which could be addressed by ANOVA but not a single t-test
- - Define the numerator and denominator of the F statistic, then explain why F is equal to 1 under the null hypothesis
- - How much within and between group variability is there in each of the following scenarios?
-   - Scenario #1
-     - Group 1: [1, 1, 1, 1, 1]
-     - Group 2: [1, 1, 1, 1, 1]
-     - Group 3: [1, 1, 1, 1, 1]
-   - Scenario #2
-     - Group 1: [1, 4, 3, 7, 9]
-     - Group 2: [2, 3, 4, 8, 8]
-     - Group 3: [1, 2, 5, 9, 7]
-   - Scenario #3
-     - Group 1: [1, 1, 1, 1, 1]
-     - Group 2: [15, 15, 15, 15, 15]
-     - Group 3: [30, 30, 30, 30, 30]
-   - Scenario #4
-     - Group 1: [1, 4, 3, 7, 9]
-     - Group 2: [15, 26, 17, 29, 21]
-     - Group 3: [30, 37, 43, 41, 32]
-   Rank them on the likelihoood the null hypothesis (F = 1) will be rejected
-
-   \newpage
-
-* Math                                                    :ignore:math:final:
+* Configuration :ignore:
 
 #+BEGIN_SRC R :session global :results value raw :exports results
 printq <- dget("./R/dep-ttest.R")
 print("\\twocolumn")
 #+END_SRC
 
-** Dependent /t/-tests
+* Dependent /t/-tests
 
 \begin{gather*}
 df = n - 1 \\
@@ -95,3 +67,5 @@ printq(include.answer, seeds[4])
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[5])
 #+END_SRC
+
+\onecolumn
