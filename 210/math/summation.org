@@ -8,7 +8,6 @@ print("\\twocolumn")
 * Summing notation
 
 $X_1$ = the first element of $X$ \\
-$X_i$ = an arbitrary element of $X$ \\
 $X_n$ = the last element of $X$ \\
 $\Sigma(X_i) = X_1 + X_2 + ... + X_n$ \\
 $\Sigma(X_i + 1) = (X_1 + 1) + (X_2 + 1) + ... + (X_n + 1)$ \\

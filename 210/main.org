@@ -1,6 +1,7 @@
 #+INCLUDE: "configuration.org"
 
-# #+SELECT_TAGS: week1
+
+# #+SELECT_TAGS: week6
 # #+EXPORT_FILE_NAME: answerkey.pdf
 #+BEGIN_SRC R :session global :exports none
 include.answer <- TRUE
@@ -10,48 +11,28 @@ seeds <- 1:100
 
 * Week #1 :week1:
 
-Definitions:
- - Population
- - Sample
- - Parameter
- - Statistic
- - Descriptive statistics
- - Inferential statistics
- - Independent variable
- - Dependent variable
-
-Questions:
- - Give examples of the above
+ - Give an example of a population and a sample from that population
+ - Give an example of a parameter and its statistic counterpart
+ - Give an example of an descriptive question and then reframe it as an inferential question
+ - Give an example of a research question and identify the independent variable and the dependent variable
    
  #+INCLUDE: "./math/summation.org"
-
+ 
 * Week #2 :week2:
 
-Definitions:
- - Discrete
- - Continuous
- - Nominal
- - Ordinal
- - Interval
- - Ratio
-   
-Questions:
- - Give some examples of the above
- - Draw a good bar graph and a bad one, and list the differences
+ - Give an example of each of the following, and explain why your example is appropriate:
+    - Discrete variable
+    - Continuous variable
+    - Nominal variable
+    - Ordinal variable
+    - Interval variable
+    - Ratio variable
+ - Draw a well-designed bar graph and a poorly-designed one, and indicate the differences
    
  #+INCLUDE: "./math/frequency.org"
  #+INCLUDE: "./math/interval.org"
 
 * Week #3 :week3:
-
-Definitions:
- - Mean
- - Median
- - Mode
- - Variance
- - Standard deviation
-   
-Questions:
 
  - Why is the mean more sensitive to extreme scores than the median?
  - Why might we prefer the median over the mean?
@@ -72,11 +53,6 @@ Questions:
 
 * Week #4 :week4:
 
-Definitions:
- - /z/ score
- - Normal distribution
-
-Questions:
  - Why do we transform scores into standard scores?
  - Draw these scores on a number line:
       \begin{center}
@@ -88,12 +64,6 @@ Questions:
  #+INCLUDE: "./math/zscores.org"
 * Week #5 :week5:
 
-Definitions
- - Sampling distribution
- - Standard error
- - Law of large numbers?
-
-Questions
  - What is the difference between standard error and standard deviation?
  - Why is standard error so named?
  - Why can't we just draw a sample from the population and estimate the parameter by the sample statistic?
@@ -112,56 +82,45 @@ Questions
 
 * Week #6 :week6:
 
-Definitions:
- - Null hypothesis
- - Alternate hypothesis
- - Alpha (\alpha)
- - Beta (\beta)
- - Power
- - Type I error
- - Type II error
- - Null distribution (H_0)
- - Alternate distribution (H_1)
- - /p/-value
-   
-Questions:
  - Draw a null distribution and illustrate the relationship between the critical values and \alpha
  - Draw an alternate distribution and illustrate the relationship between the critical values, \beta, and power
- - Draw a distribution and illustrate the relationship between the /p/-value and $z_{\textnormal{obs}}$
- - How do we control Type I error? Type II error?
- - How is \beta affected by change in effect size, \alpha, \sigma, and sample size?
- - How is \alpha affected by change in \sigma and sample size?
- - H_0 and H_1 must be exhaustive (one must be true) and mutually exclusive (they can't both be true). Come up with some invalid hypotheses
- - What is wrong with saying ``$p$ is the probability that the null hypothesis is true''?
- - What is the goal of a confidence interval?
- - Why is calculating a 1 - \alpha% confidence interval the same as performing a hypothesis test at \alpha?
- - What do we need to know in order to use a $z$ test?
- - Give an example of a finding which is statistically significant but practically insignificant. When might this occur?
+ - What is \sigma_{\bar{X}}? What does it measure?
+ - How are \alpha and \beta each affected by change in the critical values, effect size, $\sigma_{\bar{X}}$? Illustrate with a drawing
+ - Give an example of a research question where a nondirectional test would be appropriate, then modify it so that a directional test would be appropriate
+ - H_0 and H_1 must be exhaustive (one must be true) and mutually exclusive (they can't both be true). Come up with some invalid hypotheses. Here's an example to get you started:
+   - H_0: \mu_1 = \mu_2
+   - H_1: \mu_1 > \mu_2
+
+# - What is wrong with saying ``$p$ is the probability that the null hypothesis is true''?
+# - What is the goal of a confidence interval?
+# - Why is calculating a 1 - \alpha% confidence interval the same as performing a hypothesis test at \alpha?
+# - Give an example of a finding which is statistically significant but practically insignificant. When might this occur?
  
  #+INCLUDE: "./math/ztests.org"
 
 * Week #7 :week7:
 
- - When would we use a t test instead of a z test?
- - What is the expected value of t under the null?
- - What is homogeneity of variance?
- - Why can't we calculate a t statistic with a sample size of 1?
+ - When should we use a /t/ test instead of a /z/ test?
+ - What is the expected value of /t/ under the null?
+ - What is homogeneity of variance? State it symbolically
+ - Why can't we calculate a /t/ statistic with a sample of one?
  - When might we employ a Welch correction?
- - Give an example of a research question for which a one-sample /t/-test would be appropriate
+ - Give an example of a research question for which a one-sample /t/-test would be appropriate, and explain why it is appropriate
  
  #+INCLUDE: "./math/1sample_t-test.org"
 
 * Week #8 :week8:
 
- - Give an example of a research question for which you would use an independent /t/-test
- - What is the standard error of mean differences?
+ - Give an example of a research question for which you would use an independent /t/-test, and explain why it is appropriate
+ - What is $s_{\bar{X}_1 - \bar{X}_2}$ and what does it measure?
  - What is the sampling distribution of mean differences?
+ - What is the reasoning behind using pooled variance?
    
  #+INCLUDE: "./math/independent_t-test.org"
 
 * Week #9 :week9:
 
- - Give an example of a research design in which you would use a dependent /t/-test
+ - Give an example of a research design in which you would use a dependent /t/-test, and explain why it is appropriate
  - How does using a dependent design rather than an independent design affect power? Why?
  - Give an example of a research question which could be addressed by ANOVA but not a single t-test
  - Define the numerator and denominator of the F statistic, then explain why F is equal to 1 under the null hypothesis
@@ -190,12 +149,11 @@ Questions:
 
  - Give an example of two variables which would have a correlation of close to 1
  - Give an example of two variables which would have a correlation of close to -1
- - Give an example of two variable which would have a correlation of close to 0
- - When isn't Pearson's /r/ an appropriate measure?
+ - Give an example of two variables which would have a correlation of close to 0
+ - Draw a a relationship which cannot be accurately described by Pearson's /r/
  - Why doesn't correlation imply causation? Does causation imply correlation?
- - One sample has n = 10 and a variance of 20, the other has n = 15 and variance of 30; will the pooled variance be closer to 15 or 30 (rewrite this)
  - Why does $df = n - 2$?
- - Rank each set of scores:
+ - Rank each set of scores as though you were calculating Spearman's rho:
    \begin{center}
    4, 0, 4, 9, 3 \\
    3, 5, 3, 6, 3
@@ -206,10 +164,9 @@ Questions:
 * Week #11 :week11:
 
  - What does the regression line minimise? Draw a picture
- - How many regression lines are possible for a given set of data? How many lines of best fit are possible?
- - Draw an example of a nonlinear relationship
+ - How many regression lines are possible for a given data set?
  - Give an example of restriction of range
- - Explain the difference between univariate and regression outliers using a drawing
- - How do outliers affect model fit?
+ - Explain the difference between a univariate outlier and a regression outlier, and draw a picture
+ - Draw an example of how an influential outlier might affect the regression line
 
  #+INCLUDE: "./math/regression.org"
