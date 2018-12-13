@@ -1,30 +1,13 @@
 * Configuration :ignore:
 
 #+BEGIN_SRC R :session global :results value raw :exports results
-printq <- dget("./R/1sample-ztest.R")
+printq <- dget("./R/interval.R")
 print("\\twocolumn")
 #+END_SRC
 
-* /Z/-tests
+* Interval construction
 
-\begin{gather*}
-\sigma_{\bar{X}} = \dfrac{\sigma}{\sqrt{n}} \\
-z_{\textnormal{crit}} = \textnormal{the \emph{z} score with $\alpha/2$ above it} \\
-z_{\textnormal{obs}} = \dfrac{\bar{X} - \mu}{\sigma_{\bar{X}}} \\
-\mathit{CI}_y = \bar{X} \pm (\sigma_{\bar{X}} \times z_y) \\
-z_y = \textnormal{ the \emph{z} score with } (100 - y)/100 \textnormal{ above it}
-\end{gather*}
-
-** Critical /z/ values
-
-#+ATTR_LATEX: :booktabs t :center t :rmlines t
-|-------+-------------------------+--------------|
-|     /z/ | Area between mean and /z/ | Area above /z/ |
-|-------+-------------------------+--------------|
-| 1.645 |                    0.45 |         0.05 |
-|  1.96 |                   0.475 |        0.025 |
-| 2.576 |                   0.495 |        0.005 |
-|-------+-------------------------+--------------|
+For each scenario, find the lower limit, midpoint, and upper limit of the first five intervals.
 
 ** Question #1
 #+BEGIN_SRC R :session global :results output raw :exports results
@@ -34,14 +17,14 @@ printq(TRUE, seeds[1])
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[2])
 #+END_SRC
-#+BEGIN_SRC R :session global :results value raw :exports results
-if (include.answer == TRUE) {
-print("\\newpage")
-}
-#+END_SRC
 ** Question #3
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[3])
+#+END_SRC
+#+BEGIN_SRC R :session global :results value raw :exports results
+if (include.answer == TRUE) {
+print("\\vfill\\eject")
+}
 #+END_SRC
 ** Question #4
 #+BEGIN_SRC R :session global :results output raw :exports results
@@ -51,14 +34,16 @@ printq(include.answer, seeds[4])
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[5])
 #+END_SRC
-#+BEGIN_SRC R :session global :results value raw :exports results
-if (include.answer == TRUE) {
-print("\\newpage")
-}
-#+END_SRC
 ** Question #6
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[6])
+#+END_SRC
+#+BEGIN_SRC R :session global :results value raw :exports results
+if (include.answer == TRUE) {
+print("\\newpage")
+} else {
+print("\\vfill\\eject")
+}
 #+END_SRC
 ** Question #7
 #+BEGIN_SRC R :session global :results output raw :exports results
@@ -68,11 +53,6 @@ printq(include.answer, seeds[7])
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[8])
 #+END_SRC
-#+BEGIN_SRC R :session global :results value raw :exports results
-if (include.answer == TRUE) {
-print("\\newpage")
-}
-#+END_SRC
 ** Question #9
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[9])
@@ -81,9 +61,26 @@ printq(include.answer, seeds[9])
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[10])
 #+END_SRC
+#+BEGIN_SRC R :session global :results value raw :exports results
+if (include.answer == TRUE) {
+print("\\vfill\\eject")
+}
+#+END_SRC
 ** Question #11
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[11])
+#+END_SRC
+** Question #12
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[12])
+#+END_SRC
+** Question #13
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[13])
+#+END_SRC
+** Question #14
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[14])
 #+END_SRC
 
 \onecolumn

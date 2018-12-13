@@ -1,9 +1,9 @@
 #+INCLUDE: "configuration.org"
 
-# #+SELECT_TAGS: week11
+# #+SELECT_TAGS: week1
 # #+EXPORT_FILE_NAME: answerkey.pdf
 #+BEGIN_SRC R :session global :exports none
-include.answer <- T
+include.answer <- TRUE
 seeds <- 1:100
 ##seeds <- seeds * 1000
 #+END_SRC
@@ -23,7 +23,7 @@ Definitions:
 Questions:
  - Give examples of the above
    
- #+INCLUDE: "summation.org"
+ #+INCLUDE: "./math/summation.org"
 
 * Week #2 :week2:
 
@@ -39,8 +39,8 @@ Questions:
  - Give some examples of the above
  - Draw a good bar graph and a bad one, and list the differences
    
- #+INCLUDE: "frequency.org"
- #+INCLUDE: "interval.org"
+ #+INCLUDE: "./math/frequency.org"
+ #+INCLUDE: "./math/interval.org"
 
 * Week #3 :week3:
 
@@ -67,8 +67,8 @@ Questions:
     2, 8, 1, 1, 3
     \end{center}
 
- #+INCLUDE: "median.org"
- #+INCLUDE: "standard_deviation.org"
+ #+INCLUDE: "./math/median.org"
+ #+INCLUDE: "./math/standard_deviation.org"
 
 * Week #4 :week4:
 
@@ -85,7 +85,7 @@ Questions:
    Then, subtract the mean from each score and draw the result on another number line. Then, divide those by the standard deviation and draw them on yet another number line. What does each step do?
  - How does the height of the normal curve correspond to the number line below it?
    
- #+INCLUDE: "zscores.org"
+ #+INCLUDE: "./math/zscores.org"
 * Week #5 :week5:
 
 Definitions
@@ -138,7 +138,7 @@ Questions:
  - What do we need to know in order to use a $z$ test?
  - Give an example of a finding which is statistically significant but practically insignificant. When might this occur?
  
- #+INCLUDE: "ztests.org"
+ #+INCLUDE: "./math/ztests.org"
 
 * Week #7 :week7:
 
@@ -149,7 +149,7 @@ Questions:
  - When might we employ a Welch correction?
  - Give an example of a research question for which a one-sample /t/-test would be appropriate
  
- #+INCLUDE: "1sample_t-test.org"
+ #+INCLUDE: "./math/1sample_t-test.org"
 
 * Week #8 :week8:
 
@@ -157,7 +157,7 @@ Questions:
  - What is the standard error of mean differences?
  - What is the sampling distribution of mean differences?
    
- #+INCLUDE: "independent_t-test.org"
+ #+INCLUDE: "./math/independent_t-test.org"
 
 * Week #9 :week9:
 
@@ -184,7 +184,7 @@ Questions:
      - Group 3: [30, 37, 43, 41, 32]
    Rank them on the likelihoood the null hypothesis (F = 1) will be rejected
 
- #+INCLUDE: "dependent_t-test.org"
+ #+INCLUDE: "./math/dependent_t-test.org"
 
 * Week #10 :week10:
 
@@ -201,7 +201,7 @@ Questions:
    3, 5, 3, 6, 3
    \end{center}
    
- #+INCLUDE: "pearson.org"
+ #+INCLUDE: "./math/pearson.org"
 
 * Week #11 :week11:
 
@@ -212,4 +212,4 @@ Questions:
  - Explain the difference between univariate and regression outliers using a drawing
  - How do outliers affect model fit?
 
- #+INCLUDE: "regression.org"
+ #+INCLUDE: "./math/regression.org"

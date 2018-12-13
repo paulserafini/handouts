@@ -32,6 +32,5 @@ options(xtable.comment = FALSE)
 makesample <- dget("./R/makesample.R")
 maketable <- dget("./R/maketable.R")
 rcrit <- dget("./R/rcrit.R")
-stth <- dget("./R/stth.R")
 
 #+END_SRC

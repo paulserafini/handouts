@@ -1,49 +1,58 @@
-* Configuration :ignore:
+* Configuration :ignore:math:final:
 
 #+BEGIN_SRC R :session global :results value raw :exports results
-printq <- dget("./R/1sample-ttest.R")
+printq <- dget("./R/independent_t-test.R")
 print("\\twocolumn")
 #+END_SRC
 
-* One sample /t/-tests
+* Independent /t/-tests                                     :math:final:
 
 \begin{gather*}
-df = n - 1 \\
-s_{\bar{X}} = \dfrac{s}{\sqrt{n}} \\
-t_{\textnormal{obs}} = \dfrac{\bar{X} - \mu}{s_{\bar{X}}} \\
-\mathit{CI}_{y} = \bar{X} \pm (s_{\bar{X}} \times t_y) \\
-t_y = \textnormal{the critical value for } \alpha = (100-y)/100
+df_i = n_i - 1 \\
+df_{\textnormal{tot}} = df_1 + df_2 \\
+\mathit{SS}_i = s^2_i \times df_i \\
+t_{\textnormal{obs}} = \frac{(\bar{X}_1 - \bar{X}_2)}{s_{(\bar{X}_1 - \bar{X}_2)}} \\
+s_{(\bar{X}_1 - \bar{X}_2)} = \sqrt{\frac{s^2_p}{n_1} + \frac{s^2_p}{n_2}} \\
+s^2_p = \frac{\mathit{SS}_1 + \mathit{SS}_2}{df_{\textnormal{tot}}} \\
+\mathit{CI}_y = (\bar{X}_1 - \bar{X}_2) \pm\ s_{(\bar{X}_1 - \bar{X}_2)} \times t_y \\
+t_y = \textnormal{is the critical value for } \alpha = (100-y)/100
 \end{gather*}
 
 ** Critical /t/ values
 
 #+ATTR_LATEX: :booktabs t :center t :rmlines t
-|----+------+------+------+------|
-|    |      |    \alpha |      |      |
-|----+------+------+------+------|
-| /df/ |  0.2 |  0.1 | 0.05 | 0.01 |
-|----+------+------+------+------|
-|  4 | 1.53 | 2.13 | 2.78 |  4.6 |
-|  5 | 1.48 | 2.02 | 2.57 | 4.03 |
-|  6 | 1.44 | 1.94 | 2.45 | 3.71 |
-|----+------+------+------+------|
+|    |      |    \alpha |      |
+|----+------+------+------|
+| /df/ |  0.1 | 0.05 | 0.01 |
+|----+------+------+------|
+| 10 | 1.81 | 2.23 | 3.17 |
+| 11 |  1.8 |  2.2 | 3.11 |
+| 12 | 1.78 | 2.18 | 3.05 |
+|----+------+------+------|
 
 ** Question #1
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(TRUE, seeds[1])
 #+END_SRC
+#+BEGIN_SRC R :session global :results value raw :exports results
+if (include.answer == TRUE) {
+print("\\newpage")
+} else {
+print("\\vfill\\eject")
+}
+#+END_SRC
 ** Question #2
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[2])
+#+END_SRC
+** Question #3
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[3])
 #+END_SRC
 #+BEGIN_SRC R :session global :results value raw :exports results
 if (include.answer == TRUE) {
 print("\\newpage")
 }
-#+END_SRC
-** Question #3
-#+BEGIN_SRC R :session global :results output raw :exports results
-printq(include.answer, seeds[3])
 #+END_SRC
 ** Question #4
 #+BEGIN_SRC R :session global :results output raw :exports results
@@ -66,17 +75,14 @@ printq(include.answer, seeds[6])
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[7])
 #+END_SRC
+#+BEGIN_SRC R :session global :results value raw :exports results
+if (include.answer == TRUE) {
+print("\\newpage")
+}
+#+END_SRC
 ** Question #8
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[8])
-#+END_SRC
-** Question #9
-#+BEGIN_SRC R :session global :results output raw :exports results
-printq(include.answer, seeds[9])
-#+END_SRC
-** Question #10
-#+BEGIN_SRC R :session global :results output raw :exports results
-printq(include.answer, seeds[10])
 #+END_SRC
 
 \onecolumn

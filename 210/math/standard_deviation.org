@@ -1,7 +1,7 @@
 * Configuration :ignore:
 
 #+BEGIN_SRC R :session global :results value raw :exports results
-printq <- dget("./R/standard-deviation.R")
+printq <- dget("./R/standard_deviation.R")
 print("\\twocolumn")
 #+END_SRC
   

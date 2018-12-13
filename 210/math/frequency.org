@@ -1,7 +1,7 @@
 * Configuration :ignore:
 
 #+BEGIN_SRC R :session global :results value raw :exports results
-printq1 <- dget("./R/frequency-tables.R")
+printq1 <- dget("./R/frequency.R")
 print("\\twocolumn")
 #+END_SRC
 

@@ -1,58 +1,47 @@
-* Configuration :ignore:math:final:
+* Configuration :ignore:
 
 #+BEGIN_SRC R :session global :results value raw :exports results
-printq <- dget("./R/ind-ttest.R")
+printq <- dget("./R/ztest.R")
 print("\\twocolumn")
 #+END_SRC
 
-* Independent /t/-tests                                     :math:final:
+* /Z/-tests
 
 \begin{gather*}
-df_i = n_i - 1 \\
-df_{\textnormal{tot}} = df_1 + df_2 \\
-\mathit{SS}_i = s^2_i \times df_i \\
-t_{\textnormal{obs}} = \frac{(\bar{X}_1 - \bar{X}_2)}{s_{(\bar{X}_1 - \bar{X}_2)}} \\
-s_{(\bar{X}_1 - \bar{X}_2)} = \sqrt{\frac{s^2_p}{n_1} + \frac{s^2_p}{n_2}} \\
-s^2_p = \frac{\mathit{SS}_1 + \mathit{SS}_2}{df_{\textnormal{tot}}} \\
-\mathit{CI}_y = (\bar{X}_1 - \bar{X}_2) \pm\ s_{(\bar{X}_1 - \bar{X}_2)} \times t_y \\
-t_y = \textnormal{is the critical value for } \alpha = (100-y)/100
+\sigma_{\bar{X}} = \dfrac{\sigma}{\sqrt{n}} \\
+z_{\textnormal{crit}} = \textnormal{the \emph{z} score with $\alpha/2$ above it} \\
+z_{\textnormal{obs}} = \dfrac{\bar{X} - \mu}{\sigma_{\bar{X}}} \\
+\mathit{CI}_y = \bar{X} \pm (\sigma_{\bar{X}} \times z_y) \\
+z_y = \textnormal{ the \emph{z} score with } (100 - y)/100 \textnormal{ above it}
 \end{gather*}
 
-** Critical /t/ values
+** Critical /z/ values
 
 #+ATTR_LATEX: :booktabs t :center t :rmlines t
-|    |      |    \alpha |      |
-|----+------+------+------|
-| /df/ |  0.1 | 0.05 | 0.01 |
-|----+------+------+------|
-| 10 | 1.81 | 2.23 | 3.17 |
-| 11 |  1.8 |  2.2 | 3.11 |
-| 12 | 1.78 | 2.18 | 3.05 |
-|----+------+------+------|
+|-------+-------------------------+--------------|
+|     /z/ | Area between mean and /z/ | Area above /z/ |
+|-------+-------------------------+--------------|
+| 1.645 |                    0.45 |         0.05 |
+|  1.96 |                   0.475 |        0.025 |
+| 2.576 |                   0.495 |        0.005 |
+|-------+-------------------------+--------------|
 
 ** Question #1
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(TRUE, seeds[1])
 #+END_SRC
-#+BEGIN_SRC R :session global :results value raw :exports results
-if (include.answer == TRUE) {
-print("\\newpage")
-} else {
-print("\\vfill\\eject")
-}
-#+END_SRC
 ** Question #2
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[2])
 #+END_SRC
-** Question #3
-#+BEGIN_SRC R :session global :results output raw :exports results
-printq(include.answer, seeds[3])
-#+END_SRC
 #+BEGIN_SRC R :session global :results value raw :exports results
 if (include.answer == TRUE) {
 print("\\newpage")
 }
+#+END_SRC
+** Question #3
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[3])
 #+END_SRC
 ** Question #4
 #+BEGIN_SRC R :session global :results output raw :exports results
@@ -75,14 +64,26 @@ printq(include.answer, seeds[6])
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[7])
 #+END_SRC
+** Question #8
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[8])
+#+END_SRC
 #+BEGIN_SRC R :session global :results value raw :exports results
 if (include.answer == TRUE) {
 print("\\newpage")
 }
 #+END_SRC
-** Question #8
+** Question #9
 #+BEGIN_SRC R :session global :results output raw :exports results
-printq(include.answer, seeds[8])
+printq(include.answer, seeds[9])
+#+END_SRC
+** Question #10
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[10])
+#+END_SRC
+** Question #11
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[11])
 #+END_SRC
 
 \onecolumn
