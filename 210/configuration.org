@@ -30,7 +30,7 @@ library(xtable) ## xtable
 options(xtable.comment = FALSE)
 
 makesample <- dget("./R/makesample.R")
-## maketable <- dget("./R/maketable.R")
+maketable <- dget("./R/maketable.R")
 rcrit <- dget("./R/rcrit.R")
 
 #+END_SRC
