@@ -62,19 +62,36 @@ function (include.answer, seed) {
 
     if (include.answer == TRUE) {
 
+        cat(question1, sep="\n")
+
         table <- cbind(sample1, sample2, D, dev, devSq)
         colnames(table) <- c("Pre", "Post", "$D_i$", "$D_i - \\bar{D}$", "$(D_i - \\bar{D})^2$")
-        table <- capture.output(maketable(table, TRUE))
+        table %>>%
+            xtable() %>>%
+            print.xtable(floating=TRUE,
+                         table.placement="!h",
+                         sanitize.text.function=function(x){x},
+                         booktabs=TRUE,
+                         include.rownames=FALSE)
 
-        cat(question1, table, question2, answer, sep="\n")
+        cat(question2, answer, sep="\n")
 
     } else {
 
+
+        cat(question1, sep="\n")
+
         table <- cbind(sample1, sample2)
         colnames(table) <- c("Pre", "Post")
-        table <- capture.output(maketable(table, TRUE))
+        table %>>%
+            xtable() %>>%
+            print.xtable(floating=TRUE,
+                         table.placement="!h",
+                         sanitize.text.function=function(x){x},
+                         booktabs=TRUE,
+                         include.rownames=FALSE)
 
-        cat(question1, table, question2, sep="\n")
+        cat(question2, sep="\n")
 
     }
 }

@@ -81,9 +81,21 @@ function (include, seed) {
                      \\end{gather*}
                      \\end{multicols}")
 
-        cat(question, capture.output(maketable(table, TRUE)), answer, sep="\n")
+        cat(question, sep="\n")
+
+        table %>>%
+            xtable() %>>%
+            print.xtable(floating=TRUE,
+                         table.placement="!h",
+                         sanitize.text.function=function(x){x},
+                         booktabs=TRUE,
+                         include.rownames=FALSE)
+
+        cat(answer, sep="\n")
 
     } else {
+
+        cat(question, sep="\n")
     
         table <- cbind(X, (X - Xbar)^2, Y, (Y - Ybar)^2, (X - Xbar) * (Y - Ybar))
         table <- round(table, 2)
@@ -92,7 +104,13 @@ function (include, seed) {
                              "$Y_i$",
                              "$(Y_i - \\bar{Y})^2$",
                              "$(X_i - \\bar{X})(Y_i - \\bar{Y})$")
+        table %>>%
+            xtable() %>>%
+            print.xtable(floating=TRUE,
+                         table.placement="!h",
+                         sanitize.text.function=function(x){x},
+                         booktabs=TRUE,
+                         include.rownames=FALSE)
 
-        cat(question, capture.output(maketable(table, TRUE)), sep="\n")
     }
 }

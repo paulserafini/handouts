@@ -2,12 +2,7 @@
 
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq <- dget("./R/regression.R")
-if (include.answer == FALSE) {
-    cat("\\twocolumn",
-        "\\setlength{\\mathindent}{0.5cm}", sep="\n")
-} else {
-    cat("\\onecolumn", sep="\n")
-}
+cat("\\newpage", sep="\n")
 #+END_SRC
 
 * Regression
@@ -54,21 +49,12 @@ df_2 = n - df_1 - 1 \\
 
 ** Question #1
 #+BEGIN_SRC R :session global :results output raw :exports results
-printq(include.answer, 100)
-#+END_SRC
-#+BEGIN_SRC R :session global :results value raw :exports results
-if (include.answer == TRUE) {
-print("\\newpage")
-}
+printq(TRUE, seeds[1])
+cat("\\twocolumn", sep="\n")
 #+END_SRC
 ** Question #2
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[2])
-#+END_SRC
-#+BEGIN_SRC R :session global :results value raw :exports results
-if (include.answer == FALSE) {
-print("\\vfill\\eject")
-}
 #+END_SRC
 ** Question #3
 #+BEGIN_SRC R :session global :results output raw :exports results
@@ -88,8 +74,8 @@ printq(include.answer, 101)
 printq(include.answer, seeds[5])
 #+END_SRC
 #+BEGIN_SRC R :session global :results value raw :exports results
-if (include.answer == TRUE) {
-print("\\newpage")
+if (include.answer == FALSE) {
+print("\\vfill\\eject")
 }
 #+END_SRC
 ** Question #6
@@ -101,4 +87,11 @@ printq(include.answer, seeds[6])
 printq(include.answer, seeds[7])
 #+END_SRC
 
-\onecolumn
+** Question #8
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[8])
+#+END_SRC
+** Question #9
+#+BEGIN_SRC R :session global :results output raw :exports results
+printq(include.answer, seeds[9])
+#+END_SRC
