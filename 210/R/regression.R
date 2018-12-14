@@ -40,7 +40,9 @@ function (include, seed) {
         decision <- paste0("Fail to reject because $", F, " < ", Fcrit, "$")
     }
 
-    question <- paste0("Test the model fit at an $\\alpha$ of ", alpha, ".")
+    
+
+    question <- paste0("Test the model fit at an $\\alpha$ of ", alpha, ". \\\\")
 
     if (include == TRUE) {
 
@@ -84,7 +86,7 @@ function (include, seed) {
         cat(question, sep="\n")
 
         table %>>%
-            xtable() %>>%
+            xtable(digits=c(0,0,2,0,2,2,2,2,2)) %>>%
             print.xtable(floating=TRUE,
                          table.placement="!h",
                          sanitize.text.function=function(x){x},
@@ -96,6 +98,8 @@ function (include, seed) {
     } else {
 
         cat(question, sep="\n")
+
+        cat("\\begin{minipage}[t][4cm][t]{6cm} \\vspace{0.25cm}", sep="\n")
     
         table <- cbind(X, (X - Xbar)^2, Y, (Y - Ybar)^2, (X - Xbar) * (Y - Ybar))
         table <- round(table, 2)
@@ -105,12 +109,15 @@ function (include, seed) {
                              "$(Y_i - \\bar{Y})^2$",
                              "$(X_i - \\bar{X})(Y_i - \\bar{Y})$")
         table %>>%
-            xtable() %>>%
-            print.xtable(floating=TRUE,
-                         table.placement="!h",
+            xtable(digits=c(0,0,2,0,2,2)) %>>%
+            print.xtable(floating=FALSE,
+                         #table.placement="!h",
                          sanitize.text.function=function(x){x},
                          booktabs=TRUE,
                          include.rownames=FALSE)
 
+        cat("\\end{minipage}", sep="\n")
+
     }
+
 }

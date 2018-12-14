@@ -56,42 +56,39 @@ function (include.answer, seed) {
                       \\mathit{CI}_{", 100*CC, "} = ", Dbar,  " \\pm (", sDbar, " \\times ", CIcrit, ") = [", LL, ",\\ ", UL, "]
                       \\end{gather*}")
                       
-    question1 <- "Researchers collect the following data:"
-    
-    question2 <- paste0("Test $H_0: \\mu_{\\bar{D}} = 0$ at an \\alpha of ", alpha, ", state the decision/error, then calculate a ", 100*CC, "% confidence interval.")
+    question <- paste0("Test $H_0: \\mu_{\\bar{D}} = 0$ at an \\alpha of ", alpha, ", state the decision/error, then calculate a ", 100*CC, "% confidence interval.")
 
     if (include.answer == TRUE) {
 
-        cat(question1, sep="\n")
+        cat(question, sep="\n")
 
         table <- cbind(sample1, sample2, D, dev, devSq)
         colnames(table) <- c("Pre", "Post", "$D_i$", "$D_i - \\bar{D}$", "$(D_i - \\bar{D})^2$")
         table %>>%
-            xtable() %>>%
+            xtable(digits=c(0,0,0,0,2,2)) %>>%
             print.xtable(floating=TRUE,
                          table.placement="!h",
                          sanitize.text.function=function(x){x},
                          booktabs=TRUE,
                          include.rownames=FALSE)
 
-        cat(question2, answer, sep="\n")
 
+        cat(answer, sep="\n")
+        
     } else {
 
 
-        cat(question1, sep="\n")
+        cat(question, sep="\n")
 
         table <- cbind(sample1, sample2)
         colnames(table) <- c("Pre", "Post")
         table %>>%
-            xtable() %>>%
+            xtable(digits=c(0,0,0)) %>>%
             print.xtable(floating=TRUE,
                          table.placement="!h",
                          sanitize.text.function=function(x){x},
                          booktabs=TRUE,
                          include.rownames=FALSE)
-
-        cat(question2, sep="\n")
 
     }
 }

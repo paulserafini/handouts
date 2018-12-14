@@ -11,7 +11,7 @@ function (include.answer, seed) {
     ## Get rcrit
     alpha <- sample(c(0.2, 0.1), 1)
 
-    paste0("Calculate $r_{\\mathit{XY}}$ and test H_0: \\rho_{\\mathit{XY}} = 0 at \\alpha = ", alpha, ".") %>>% cat(sep="\n")
+    paste0("Calculate $r_{\\mathit{XY}}$ and test H_0: \\rho_{\\mathit{XY}} = 0 at \\alpha = ", alpha, ". \\\\") %>>% cat(sep="\n")
 
     if (include.answer == TRUE) {
 
@@ -76,15 +76,20 @@ function (include.answer, seed) {
 
     } else {
 
+        cat("\\begin{minipage}[t][4cm][t]{9cm} \\vspace{0.25cm}", sep="\n")
+
         cbind(X, Y) %>>%
             as.data.frame() %>>%
             rename("$X_i$"=X,
                    "$Y_i$"=Y) %>>%
             xtable() %>>%
-            print.xtable(floating=TRUE,
-                         table.placement="!h",
+            print.xtable(floating=FALSE,
+                         #table.placement="!h",
                          sanitize.text.function=function(x){x},
                          booktabs=TRUE,
                          include.rownames=FALSE)
+
+        cat("\\end{minipage}", sep="\n")
+        
     }
 }

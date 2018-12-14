@@ -19,6 +19,7 @@ function (include.answer, seed) {
         mutate(above = 1 - pnorm(z)) %>>%
         mutate(mean = 0.5 - above) %>>%
         arrange(z) %>>%
+        distinct() %>>%
         rename("$z$"=z,
                "Area between mean and $z$"=mean,
                "Area above $z$"=above) %>>%
