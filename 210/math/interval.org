@@ -21,14 +21,12 @@ printq(include.answer, seeds[2])
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[3])
 #+END_SRC
-#+BEGIN_SRC R :session global :results value raw :exports results
-if (include.answer == TRUE) {
-print("\\vfill\\eject")
-}
-#+END_SRC
 ** Question #4
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[4])
+if (include.answer == TRUE) {
+cat("\\vfill\\eject", sep="\n")
+}
 #+END_SRC
 ** Question #5
 #+BEGIN_SRC R :session global :results output raw :exports results
@@ -38,11 +36,6 @@ printq(include.answer, seeds[5])
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[6])
 #+END_SRC
-#+BEGIN_SRC R :session global :results value raw :exports results
-if (include.answer == TRUE) {
-print("\\newpage")
-}
-#+END_SRC
 ** Question #7
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[7])
@@ -50,6 +43,9 @@ printq(include.answer, seeds[7])
 ** Question #8
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[8])
+if (include.answer == TRUE) {
+    cat("\\vfill\\eject", sep="\n")
+}
 #+END_SRC
 ** Question #9
 #+BEGIN_SRC R :session global :results output raw :exports results
@@ -59,11 +55,6 @@ printq(include.answer, seeds[9])
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[10])
 #+END_SRC
-#+BEGIN_SRC R :session global :results value raw :exports results
-if (include.answer == TRUE) {
-print("\\vfill\\eject")
-}
-#+END_SRC
 ** Question #11
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[11])
@@ -71,6 +62,9 @@ printq(include.answer, seeds[11])
 ** Question #12
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[12])
+if (include.answer == TRUE) {
+cat("\\vfill\\eject", sep="\n")
+}
 #+END_SRC
 ** Question #13
 #+BEGIN_SRC R :session global :results output raw :exports results

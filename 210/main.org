@@ -1,7 +1,7 @@
 #+INCLUDE: "configuration.org"
 
 
-# #+SELECT_TAGS: week11
+# #+SELECT_TAGS: week1
 # #+EXPORT_FILE_NAME: answerkey.pdf
 #+BEGIN_SRC R :session global :exports none
 include.answer <- TRUE
