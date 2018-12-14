@@ -1,10 +1,10 @@
 #+INCLUDE: "configuration.org"
 
 
-#+SELECT_TAGS: week10
+# #+SELECT_TAGS: week11
 # #+EXPORT_FILE_NAME: answerkey.pdf
 #+BEGIN_SRC R :session global :exports none
-include.answer <- FALSE
+include.answer <- TRUE
 seeds <- 1:100
 ##seeds <- seeds * 1000
 #+END_SRC

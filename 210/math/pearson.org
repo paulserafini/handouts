@@ -36,7 +36,11 @@ printq(TRUE, seeds[1])
 ** Question #2
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(TRUE, seeds[2])
-cat("\\twocolumn", sep="\n")
+if (!include.answer) {
+    cat("\\twocolumn", sep="\n")
+} else {
+    cat("\\newpage", sep="\n")
+}
 #+END_SRC
 ** Question #3
 #+BEGIN_SRC R :session global :results output raw :exports results
@@ -49,10 +53,8 @@ printq(include.answer, seeds[4])
 ** Question #5
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[5])
-#+END_SRC
-#+BEGIN_SRC R :session global :results value raw :exports results
 if (include.answer == TRUE) {
-print("\\newpage")
+cat("\\newpage", sep="\n")
 }
 #+END_SRC
 ** Question #6
@@ -71,6 +73,9 @@ printq(include.answer, seeds[7])
 ** Question #8
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[8])
+if (include.answer == TRUE) {
+cat("\\newpage", sep="\n")
+}
 #+END_SRC
 ** Question #9
 #+BEGIN_SRC R :session global :results output raw :exports results

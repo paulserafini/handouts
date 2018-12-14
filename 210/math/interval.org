@@ -41,8 +41,6 @@ printq(include.answer, seeds[6])
 #+BEGIN_SRC R :session global :results value raw :exports results
 if (include.answer == TRUE) {
 print("\\newpage")
-} else {
-print("\\vfill\\eject")
 }
 #+END_SRC
 ** Question #7

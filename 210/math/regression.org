@@ -50,7 +50,11 @@ df_2 = n - df_1 - 1 \\
 ** Question #1
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(TRUE, seeds[1])
-cat("\\twocolumn", sep="\n")
+if (!include.answer) {
+    cat("\\twocolumn", sep="\n")
+} else {
+    cat("\\newpage", sep="\n")
+}
 #+END_SRC
 ** Question #2
 #+BEGIN_SRC R :session global :results output raw :exports results
@@ -59,10 +63,8 @@ printq(include.answer, seeds[2])
 ** Question #3
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[3])
-#+END_SRC
-#+BEGIN_SRC R :session global :results value raw :exports results
 if (include.answer == TRUE) {
-print("\\newpage")
+    cat("\\newpage", sep="\n")
 }
 #+END_SRC
 ** Question #4
@@ -72,10 +74,10 @@ printq(include.answer, 101)
 ** Question #5
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[5])
-#+END_SRC
-#+BEGIN_SRC R :session global :results value raw :exports results
-if (include.answer == FALSE) {
-print("\\vfill\\eject")
+if (include.answer == TRUE) {
+    cat("\\newpage", sep="\n")
+} else {
+    cat("\\vfill\\eject", sep="\n")
 }
 #+END_SRC
 ** Question #6
@@ -85,8 +87,10 @@ printq(include.answer, seeds[6])
 ** Question #7
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[7])
+if (include.answer == TRUE) {
+    cat("\\newpage", sep="\n")
+}
 #+END_SRC
-
 ** Question #8
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[8])
