@@ -6,13 +6,13 @@ function (include.answer, seed) {
 
     ## Create sample 1
     n1 <- sample(6:7, 1)
-    sample1 <- sample(1:10, n1)
+    sample1 <- sample(1:10, n1, replace=TRUE)
     var1 <- var(sample1)
     xbar1 <- mean(sample1)
 
     ## Create sample 2
     n2 <- sample(6:7, 1)
-    sample2 <- sample(1:10, n2)
+    sample2 <- sample(1:10, n2, replace=TRUE)
     var2 <- var(sample2)
     xbar2 <- mean(sample2)
 

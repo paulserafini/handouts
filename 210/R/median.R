@@ -18,25 +18,24 @@ function (include.answer, seed) {
     crfreq <- cumsum(rfreq)
     freq.table <- cbind(score, freq, cfreq, rfreq, crfreq)
 
-    print.xtable(xtable(freq.table, digits=c(0,0,0,0,2,2)),
+    freq.table <- xtable(freq.table, digits=c(0,0,0,0,2,2))
+    print.xtable(freq.table,
                  floating=TRUE,
                  table.placement="!h",
                  booktabs=TRUE,
                  include.rownames=FALSE)
     
-    if (include.answer == TRUE) {
+    if (include.answer) {
 
         median <- median(data)
         ll <- freq.table[freq.table[,1] == median, 1] - 0.5
         cumf <- freq.table[freq.table[,1] == median - 1, 3]
         fm <- freq.table[freq.table[,1] == median, 2]
 
-        answer <- paste0("Median = ", ll, "  + 1
-               $\\begin{bmatrix}
-               \\frac{0.5(", n, ") - ", cumf, "}{", fm, "}
-               \\end{bmatrix}$ = ", round(truemedian(data), 2))
-
-        cat(answer, sep="\n")
+        cat("Median = ", ll, "  + 1
+             $\\begin{bmatrix}
+             \\frac{0.5(", n, ") - ", cumf, "}{", fm, "}
+             \\end{bmatrix}$ = ", round(truemedian(data), 2), "\n", sep="")
 
     }
 }

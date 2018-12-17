@@ -1,11 +1,13 @@
 * Configuration :ignore:
 
-#+BEGIN_SRC R :session global :results value raw :exports results
+#+BEGIN_SRC R :session global :results output raw :exports results
 printq <- dget("./R/ztest.R")
-print("\\twocolumn")
+cat("\\twocolumn\n")
 #+END_SRC
 
 * /Z/-tests
+
+** Definitions :ignore:
 
 \begin{gather*}
 \sigma_{\bar{X}} = \dfrac{\sigma}{\sqrt{n}} \\
@@ -33,10 +35,8 @@ printq(TRUE, seeds[1])
 ** Question #2
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[2])
-#+END_SRC
-#+BEGIN_SRC R :session global :results value raw :exports results
-if (include.answer == TRUE) {
-print("\\newpage")
+if (include.answer) {
+    cat("\\newpage\n")
 }
 #+END_SRC
 ** Question #3
@@ -50,10 +50,8 @@ printq(include.answer, seeds[4])
 ** Question #5
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[5])
-#+END_SRC
-#+BEGIN_SRC R :session global :results value raw :exports results
-if (include.answer == TRUE) {
-print("\\newpage")
+if (include.answer) {
+    cat("\\newpage\n")
 }
 #+END_SRC
 ** Question #6
@@ -67,10 +65,8 @@ printq(include.answer, seeds[7])
 ** Question #8
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[8])
-#+END_SRC
-#+BEGIN_SRC R :session global :results value raw :exports results
-if (include.answer == TRUE) {
-print("\\newpage")
+if (include.answer) {
+    cat("\\newpage\n")
 }
 #+END_SRC
 ** Question #9

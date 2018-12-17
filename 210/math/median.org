@@ -1,11 +1,13 @@
-* Configuration :ignore:math:midterm:
+* Configuration :ignore:
 
-#+BEGIN_SRC R :session global :results value raw :exports results
+#+BEGIN_SRC R :session global :results output raw :exports results
 printq <- dget("./R/median.R")
-print("\\twocolumn")
+cat("\\twocolumn\n")
 #+END_SRC
   
-* Median calculation                                    :math:midterm:
+* Median calculation
+
+** Instructions :ignore:
 
 For each table, calculate the median using this formula:
 
@@ -34,20 +36,14 @@ printq(include.answer, seeds[2])
 ** Question #3
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[3])
-#+END_SRC
-#+BEGIN_SRC R :session global :results value raw :exports results
-if (include.answer == TRUE) {
-print("\\vfill\\eject")
+if (include.answer) {
+    cat("\\vfill\\eject\n")
 }
 #+END_SRC
 ** Question #4
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[4])
-#+END_SRC
-#+BEGIN_SRC R :session global :results value raw :exports results
-if (include.answer == FALSE) {
-print("\\vfill\\eject")
-}
+cat("\\vfill\\eject\n")
 #+END_SRC
 ** Question #5
 #+BEGIN_SRC R :session global :results output raw :exports results

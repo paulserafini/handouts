@@ -1,11 +1,13 @@
-* Configuration :ignore:math:final:
+* Configuration :ignore:
 
-#+BEGIN_SRC R :session global :results value raw :exports results
+#+BEGIN_SRC R :session global :results output raw :exports results
 printq <- dget("./R/independent_t-test.R")
-print("\\twocolumn")
+cat("\\twocolumn\n")
 #+END_SRC
 
-* Independent /t/-tests                                     :math:final:
+* Independent /t/-tests
+
+** Definitions :ignore:
 
 \begin{gather*}
 df_i = n_i - 1 \\
@@ -33,12 +35,10 @@ t_y = \textnormal{is the critical value for } \alpha = (100-y)/100
 ** Question #1
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(TRUE, seeds[1])
-#+END_SRC
-#+BEGIN_SRC R :session global :results value raw :exports results
-if (include.answer == TRUE) {
-print("\\newpage")
+if (include.answer) {
+    cat("\\newpage\n")
 } else {
-print("\\vfill\\eject")
+    cat("\\vfill\\eject\n")
 }
 #+END_SRC
 ** Question #2
@@ -48,10 +48,8 @@ printq(include.answer, seeds[2])
 ** Question #3
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[3])
-#+END_SRC
-#+BEGIN_SRC R :session global :results value raw :exports results
-if (include.answer == TRUE) {
-print("\\newpage")
+if (include.answer) {
+    cat("\\newpage\n")
 }
 #+END_SRC
 ** Question #4
@@ -61,10 +59,8 @@ printq(include.answer, seeds[4])
 ** Question #5
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[5])
-#+END_SRC
-#+BEGIN_SRC R :session global :results value raw :exports results
-if (include.answer == TRUE) {
-print("\\newpage")
+if (include.answer) {
+    cat("\\newpage\n")
 }
 #+END_SRC
 ** Question #6
@@ -74,10 +70,8 @@ printq(include.answer, seeds[6])
 ** Question #7
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[7])
-#+END_SRC
-#+BEGIN_SRC R :session global :results value raw :exports results
-if (include.answer == TRUE) {
-print("\\newpage")
+if (include.answer) {
+    cat("\\newpage\n")
 }
 #+END_SRC
 ** Question #8

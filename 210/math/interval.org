@@ -1,11 +1,13 @@
 * Configuration :ignore:
 
-#+BEGIN_SRC R :session global :results value raw :exports results
+#+BEGIN_SRC R :session global :results output raw :exports results
 printq <- dget("./R/interval.R")
-print("\\twocolumn")
+cat("\\twocolumn\n")
 #+END_SRC
 
 * Interval construction
+
+** Instructions :ignore:
 
 For each scenario, find the lower limit, midpoint, and upper limit of the first five intervals.
 
@@ -24,7 +26,7 @@ printq(include.answer, seeds[3])
 ** Question #4
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[4])
-if (include.answer == TRUE) {
+if (include.answer) {
 cat("\\vfill\\eject", sep="\n")
 }
 #+END_SRC
@@ -43,7 +45,7 @@ printq(include.answer, seeds[7])
 ** Question #8
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[8])
-if (include.answer == TRUE) {
+if (include.answer) {
     cat("\\vfill\\eject", sep="\n")
 }
 #+END_SRC
@@ -62,7 +64,7 @@ printq(include.answer, seeds[11])
 ** Question #12
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[12])
-if (include.answer == TRUE) {
+if (include.answer) {
 cat("\\vfill\\eject", sep="\n")
 }
 #+END_SRC

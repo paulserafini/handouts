@@ -13,25 +13,27 @@ function(include.answer, seed) {
         table <- as.data.frame(sample)
         table$dev <- sample - mean(sample)
         table$devSq <- table$dev^2
-        colnames(table) <- c("$X_i$",
-                             "$X_i - \\bar{X}$",
-                             "$(X_i - \\bar{X})^2$")
-
-        print.xtable(xtable(digits=0)
-                     floating=TRUE,
-                     table.placement="!h",
-                     sanitize.text.function=function(x){x},
-                     booktabs=TRUE,
-                     include.rownames=FALSE)
 
         ## Calculate standard deviation
         xbar <- mean(sample)
-        SS <- sum(tmp$dev.sq)
+        SS <- sum(table$devSq)
         df <- n - 1
         var <- SS / df
         sd <- sqrt(var)
 
         massRound(SS, var, sd)
+
+        colnames(table) <- c("$X_i$",
+                             "$X_i - \\bar{X}$",
+                             "$(X_i - \\bar{X})^2$")
+
+        table <- xtable(table, digits=0)
+        print.xtable(table,
+                     floating=TRUE,
+                     table.placement="!h",
+                     sanitize.text.function=function(x){x},
+                     booktabs=TRUE,
+                     include.rownames=FALSE)
 
         cat("\\vspace{-3em}
              \\begin{multicols}{2}

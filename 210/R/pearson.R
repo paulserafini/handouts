@@ -11,7 +11,7 @@ function (include.answer, seed) {
     table <- cbind(X, Y)
     table <- as.data.frame(table)
 
-    cat("Calculate $r_{\\mathit{XY}}$ and test H_0: \\rho_{\\mathit{XY}} = 0 at \\alpha = ", alpha, ".\n")
+    cat("Calculate $r_{\\mathit{XY}}$ and test H_0: \\rho_{\\mathit{XY}} = 0 at \\alpha = ", alpha, ".\n", sep="")
 
     if (include.answer) {
 
@@ -82,7 +82,7 @@ function (include.answer, seed) {
 
     } else {
 
-        cat("\\begin{minipage}[t][4cm][t]{9cm} \\vspace{0.25cm}\n")
+        cat("\n\\begin{minipage}[t][4cm][t]{3cm} \\vspace{0.25cm}\n")
 
         colnames(table) <- c("$X_i$", "$Y_i$")
         table <- xtable(table, digits=0)
@@ -92,7 +92,7 @@ function (include.answer, seed) {
                      booktabs=TRUE,
                      include.rownames=FALSE)
 
-        cat("\\end{minipage}\n")
+        cat("\n\\end{minipage}\n")
         
     }
 }

@@ -1,11 +1,13 @@
 * Configuration :ignore:
 
-#+BEGIN_SRC R :session global :results value raw :exports results
+#+BEGIN_SRC R :session global :results output raw :exports results
 printq <- dget("./R/standard_deviation.R")
-print("\\twocolumn")
+cat("\\twocolumn\n")
 #+END_SRC
   
 * Standard deviation calculation
+
+** Instructions :ignore:
 
 \begin{gather*}
 \mathit{SS} = \Sigma(X_i - \bar{X})^2 \\
@@ -22,14 +24,11 @@ printq(TRUE, seeds[1])
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[2])
 #+END_SRC
-
 ** Question #3
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[3])
-#+END_SRC
-#+BEGIN_SRC R :session global :results value raw :exports results
-if (include.answer == TRUE) {
-print("\\vfill\\eject")
+if (include.answer) {
+    cat("\\vfill\\eject\n")
 }
 #+END_SRC
 ** Question #4

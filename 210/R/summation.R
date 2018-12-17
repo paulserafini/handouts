@@ -2,8 +2,8 @@ function(include.answer, seed) {
 
     set.seed(seed)
 
-    x <- sample(1:10, 5)
-    y <- sample(1:10, 5)
+    x <- sample(1:10, 5, replace=TRUE)
+    y <- sample(1:10, 5, replace=TRUE)
 
     if (include.answer == TRUE) {
         output <- paste0("

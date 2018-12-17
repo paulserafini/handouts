@@ -24,16 +24,21 @@ function (include.answer, seed) {
     if (include.answer) {
 
         ## Calculate regression formula
+        SP <- sum(table$products)
         SSx <- sum(table$XdevSq)
         SSy <- sum(table$YdevSq)
-        SP <- sum(table$products)
         B1 <- SP / SSx
         B0 <- Ybar - B1 * Xbar
-        Yhat <- B0 + X * B1
+
+        ## Complete table
+        table$Yhat <- B0 + X * B1
+        table$Res <- table$Yhat - Ybar
+        table$ResSq <- table$Res^2
+        table <- round(table, 2)
 
         ## Calculate Fcrit
-        SStot <- sum((Y - Ybar)^2)
-        SSreg <- sum((Yhat - Ybar)^2)
+        SStot <- sum(table$YdevSq)
+        SSreg <- sum(table$ResSq)
         SSres <- SStot - SSreg
         df1 <- 1
         df2 <- n - df1 - 1
@@ -50,11 +55,6 @@ function (include.answer, seed) {
             decision <- paste0("Fail to reject because $", F, " < ", Fcrit, "$")
         }
 
-        ## Complete table
-        table$Yhat <- Yhat
-        table$Res <- Yhat - Ybar
-        table$ResSq <- table$Res^2
-        table <- round(table, 2)
         colnames(table) <- c("$X_i$",
                              "$Y_i$",
                              "$(X_i - \\bar{X})^2$",
@@ -99,23 +99,22 @@ function (include.answer, seed) {
 
     } else {
 
-        cat("\\begin{minipage}[t][4cm][t]{6cm} \\vspace{0.25cm}\n")
+        cat("\n\\begin{minipage}[t][4cm][t]{6cm} \\vspace{0.25cm}\n")
 
-        table <- round(table, 2)
         colnames(table) <- c("$X_i$",
                              "$Y_i$",
                              "$(X_i - \\bar{X})^2$",
                              "$(Y_i - \\bar{Y})^2$",
                              "$(X_i - \\bar{X})(Y_i - \\bar{Y})$")
 
-        table <- xtable(digits=c(0,0,0,0,0,0))
+        table <- xtable(table, digits=c(0,0,0,0,0,0))
         print.xtable(table,
                      floating=FALSE,
                      sanitize.text.function=function(x){x},
                      booktabs=TRUE,
                      include.rownames=FALSE)
 
-        cat("\\end{minipage}\n")
+        cat("\n\\end{minipage}\n")
 
     }
 

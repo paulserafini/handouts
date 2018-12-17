@@ -21,10 +21,7 @@
 #+BEGIN_SRC R :session global :exports none
 
 library(fmsb) ## truemedian
-library(plyr) ## count
 library(truncnorm) ## rtruncnorm
-library(pipeR) ## (~ variable)
-library(dplyr) ## rename, etc.
 library(xtable) ## xtable
 
 options(xtable.comment = FALSE)

@@ -8,7 +8,7 @@ function(include.answer, seed) {
     ## Create question
     question <- paste0("The lowest value in the data set is ", lowest, ",
                         and the desired interval width is ", width, ".")
-    cat(question)
+    cat(question, "\n")
 
     if (include.answer) {
 
@@ -20,10 +20,11 @@ function(include.answer, seed) {
         ## Derive LL, MP, and UL of first five intervals
         LL <- seq(from = LL1, to = LL5, by = width)
         UL <- LL + width - 1
-        MP <- mean(LL, UL)
+        MP <- (LL - 0.5) + (width / 2)
         table <- cbind(LL, MP, UL)
 
-        print.xtable(xtable(digits=c(0,0,1,0))
+        table <- xtable(table, digits=c(0,0,1,0))
+        print.xtable(table,
                      floating=TRUE,
                      table.placement="!h",
                      booktabs=TRUE,

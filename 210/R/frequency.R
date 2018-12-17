@@ -2,8 +2,8 @@ function(include.answer, seed) {
 
     ## Create scenario
     set.seed(seed)
-    data <- rnorm(12, 0, 1)
-    data <- round(data, 0)
+    n <- 12
+    data <- sample(1:5, 12, replace=TRUE)
 
     question <- paste(data, collapse=", ")
     cat(question, "\n")
@@ -17,9 +17,11 @@ function(include.answer, seed) {
         crfreq <- cumsum(rfreq)
         freq.table <- cbind(score, freq, cfreq, rfreq, crfreq)
 
-        print.xtable(xtable(freq.table, digits=c(0,0,0,0,2,2)),
+        freq.table <- xtable(freq.table, digits=c(0,0,0,0,2,2))
+        print.xtable(freq.table,
                      floating=TRUE,
                      table.placement="!h",
                      booktabs=TRUE,
                      include.rownames=FALSE)
+    }
 }

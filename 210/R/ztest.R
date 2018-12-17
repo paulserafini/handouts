@@ -5,7 +5,7 @@ function (include.answer, seed) {
     n <- sample(5:10, 1)
     sigma <- runif(1, 1, 5)
     mu <- sample(1:10, 1)
-    sample <- sample(1:10, n)
+    sample <- sample(1:10, n, replace=TRUE)
     xbar <- mean(sample)
     alpha <- sample(c(0.1, 0.05, 0.01), 1)
     CC <- sample(c(0.90, 0.95, 0.99), 1)

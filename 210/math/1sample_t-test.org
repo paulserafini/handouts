@@ -1,11 +1,13 @@
 * Configuration :ignore:
 
-#+BEGIN_SRC R :session global :results value raw :exports results
+#+BEGIN_SRC R :session global :results output raw :exports results
 printq <- dget("./R/1sample_t-test.R")
-print("\\twocolumn")
+cat("\\twocolumn\n")
 #+END_SRC
 
 * One sample /t/-tests
+
+** Definitions :ignore:
 
 \begin{gather*}
 df = n - 1 \\
@@ -35,10 +37,8 @@ printq(TRUE, seeds[1])
 ** Question #2
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[2])
-#+END_SRC
-#+BEGIN_SRC R :session global :results value raw :exports results
-if (include.answer == TRUE) {
-print("\\newpage")
+if (include.answer) {
+    cat("\\newpage\n")
 }
 #+END_SRC
 ** Question #3
@@ -53,14 +53,12 @@ printq(include.answer, seeds[4])
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[5])
 #+END_SRC
-#+BEGIN_SRC R :session global :results value raw :exports results
-if (include.answer == TRUE) {
-print("\\newpage")
-}
-#+END_SRC
 ** Question #6
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[6])
+if (include.answer) {
+    cat("\\newpage\n")
+}
 #+END_SRC
 ** Question #7
 #+BEGIN_SRC R :session global :results output raw :exports results

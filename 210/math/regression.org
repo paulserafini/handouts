@@ -2,10 +2,12 @@
 
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq <- dget("./R/regression.R")
-cat("\\newpage", sep="\n")
+cat("\\newpage\n")
 #+END_SRC
 
 * Regression
+
+** Definitions :ignore:
 
 \begin{multicols}{2}
 \begin{gather*}
@@ -50,10 +52,10 @@ df_2 = n - df_1 - 1 \\
 ** Question #1
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(TRUE, seeds[1])
-if (!include.answer) {
-    cat("\\twocolumn", sep="\n")
+if (include.answer) {
+    cat("\\newpage\n")
 } else {
-    cat("\\newpage", sep="\n")
+    cat("\\twocolumn\n")
 }
 #+END_SRC
 ** Question #2
@@ -63,8 +65,8 @@ printq(include.answer, seeds[2])
 ** Question #3
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[3])
-if (include.answer == TRUE) {
-    cat("\\newpage", sep="\n")
+if (include.answer) {
+    cat("\\newpage\n")
 }
 #+END_SRC
 ** Question #4
@@ -74,10 +76,10 @@ printq(include.answer, 101)
 ** Question #5
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[5])
-if (include.answer == TRUE) {
-    cat("\\newpage", sep="\n")
+if (include.answer) {
+    cat("\\newpage\n")
 } else {
-    cat("\\vfill\\eject", sep="\n")
+    cat("\\vfill\\eject\n")
 }
 #+END_SRC
 ** Question #6
@@ -87,8 +89,8 @@ printq(include.answer, seeds[6])
 ** Question #7
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[7])
-if (include.answer == TRUE) {
-    cat("\\newpage", sep="\n")
+if (include.answer) {
+    cat("\\newpage\n")
 }
 #+END_SRC
 ** Question #8

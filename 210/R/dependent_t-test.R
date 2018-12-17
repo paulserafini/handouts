@@ -3,12 +3,12 @@ function (include.answer, seed) {
     ## Create scenario
     set.seed(seed)
     n <- sample(5:7, 1)
-    sample1 <- sample(1:10, n)
-    sample2 <- sample(1:10, n)
+    sample1 <- makesample(n)
+    sample2 <- makesample(n)
     CC <- sample(c(0.90, 0.95, 0.99), 1)
-    alpha <- sample(c(0.1, 0.05, 0.01), 1)
+    alpha <- sample(1-CC, 1)
    
-    ## Begin derivation table
+    ## Initialise derivation table
     table <- cbind(sample1, sample2)
     table <- as.data.frame(table)
     
@@ -29,7 +29,7 @@ function (include.answer, seed) {
         sD <- sqrt(sumDevSq / df)
         sDbar <- sD / sqrt(n)
         tobs <- Dbar / sDbar
-        tcrit <- qt(alpha/2, df)
+        tcrit <- qt(alpha / 2, df)
         tcrit <- abs(tcrit)
 
         ## Calculate confidence interval
@@ -47,9 +47,7 @@ function (include.answer, seed) {
                              "$D_i - \\bar{D}$",
                              "$(D_i - \\bar{D})^2$")
 
-        table <- xtable(table,
-                        digits=c(0,0,0,0,2,2))
-
+        table <- xtable(table, digits=0)
         print.xtable(table,
                      floating=TRUE,
                      table.placement="!h",
