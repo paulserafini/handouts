@@ -4,162 +4,162 @@
 # #+SELECT_TAGS: week4
 # #+EXPORT_FILE_NAME: answerkey.pdf
 #+BEGIN_SRC R :session global :exports none
-include.answer <- FALSE
+include.answer <- TRUE
 seeds <- 1:100
 ##seeds <- seeds * 1000
 #+END_SRC
 
-* Week #1 :week1:
+# * Week #1 :week1:
 
- - Give an example of a population and a sample from that population
- - Give an example of a parameter and its statistic counterpart
- - Give an example of an descriptive question and then reframe it as an inferential question
- - Give an example of a research question and identify the independent variable and the dependent variable
+#  - Give an example of a population and a sample from that population
+#  - Give an example of a parameter and its statistic counterpart
+#  - Give an example of an descriptive question and then reframe it as an inferential question
+#  - Give an example of a research question and identify the independent variable and the dependent variable
    
- #+INCLUDE: "./math/summation.org"
+#  #+INCLUDE: "./math/summation.org"
  
-* Week #2 :week2:
+# * Week #2 :week2:
 
- - Give an example of each of the following, and explain why your example is appropriate:
-    - Discrete variable
-    - Continuous variable
-    - Nominal variable
-    - Ordinal variable
-    - Interval variable
-    - Ratio variable
- - Draw a well-designed bar graph and a poorly-designed one, and indicate the differences
+#  - Give an example of each of the following, and explain why your example is appropriate:
+#     - Discrete variable
+#     - Continuous variable
+#     - Nominal variable
+#     - Ordinal variable
+#     - Interval variable
+#     - Ratio variable
+#  - Draw a well-designed bar graph and a poorly-designed one, and indicate the differences
    
- #+INCLUDE: "./math/frequency.org"
- #+INCLUDE: "./math/interval.org"
+#  #+INCLUDE: "./math/frequency.org"
+#  #+INCLUDE: "./math/interval.org"
 
-* Week #3 :week3:
+# * Week #3 :week3:
 
- - Why is the mean more sensitive to extreme scores than the median?
- - Why might we prefer the median over the mean?
- - What are we squaring in a sum of squares?
- - What is the point of the squaring in sum of squares?
- - In what sense is a variance a mean?
- - When would variance be equal to zero?
- - Why do we use standard deviation instead of variance?
- - Why do we using $n - 1$ instead of $n$ in the denominator of variance?
- - Why is the standard deviation so named?
- - For the following data set, calculate the mode, median, mean, and standard deviation. Then, add 5 to every number in the data set and calculate again. Then, multiply every number in the data set by 2 and calculate again. What effect does adding/multiplying every score with the same number have, and why? Explain for each statistic.
-    \begin{center}
-    2, 8, 1, 1, 3
-    \end{center}
+#  - Why is the mean more sensitive to extreme scores than the median?
+#  - Why might we prefer the median over the mean?
+#  - What are we squaring in a sum of squares?
+#  - What is the point of the squaring in sum of squares?
+#  - In what sense is a variance a mean?
+#  - When would variance be equal to zero?
+#  - Why do we use standard deviation instead of variance?
+#  - Why do we using $n - 1$ instead of $n$ in the denominator of variance?
+#  - Why is the standard deviation so named?
+#  - For the following data set, calculate the mode, median, mean, and standard deviation. Then, add 5 to every number in the data set and calculate again. Then, multiply every number in the data set by 2 and calculate again. What effect does adding/multiplying every score with the same number have, and why? Explain for each statistic.
+#     \begin{center}
+#     2, 8, 1, 1, 3
+#     \end{center}
 
- #+INCLUDE: "./math/median.org"
- #+INCLUDE: "./math/standard_deviation.org"
+#  #+INCLUDE: "./math/median.org"
+#  #+INCLUDE: "./math/standard_deviation.org"
 
-* Week #4 :week4:
+# * Week #4 :week4:
 
- - Why do we transform scores into standard scores?
- - Draw these scores on a number line:
-      \begin{center}
-      4, 6, 4, 3, 8
-      \end{center}
-   Then, subtract the mean from each score and draw the result on another number line. Then, divide those by the standard deviation and draw them on yet another number line. What does each step do?
- - How does the height of the normal curve correspond to the number line below it?
+#  - Why do we transform scores into standard scores?
+#  - Draw these scores on a number line:
+#       \begin{center}
+#       4, 6, 4, 3, 8
+#       \end{center}
+#    Then, subtract the mean from each score and draw the result on another number line. Then, divide those by the standard deviation and draw them on yet another number line. What does each step do?
+#  - How does the height of the normal curve correspond to the number line below it?
    
- #+INCLUDE: "./math/zscores.org"
-* Week #5 :week5:
+#  #+INCLUDE: "./math/zscores.org"
+# * Week #5 :week5:
 
- - What is the difference between standard error and standard deviation?
- - Why is standard error so named?
- - Why can't we just draw a sample from the population and estimate the parameter by the sample statistic?
- - Give an example of a sampling distribution
- - What is the difference between a sampling distribution and a sampling distribution of the mean?
- - What is the difference between standard error and standard error of the mean?
- - Imagine a bowl with five bingo chips in it, numbered 1 through 5. For this "population":
-   - List all 25 possible samples of size 2 (sampling with replacement)
-   - Calculate the mean for every sample
-   - Count the frequency of each value of the mean
-   - Draw the frequency distribution as a bar plot
-   - Calculate the probability of drawing a sample with:
-     - A mean >= 4
-     - A mean <= 2.5
-     - An error of at least 1.5
+#  - What is the difference between standard error and standard deviation?
+#  - Why is standard error so named?
+#  - Why can't we just draw a sample from the population and estimate the parameter by the sample statistic?
+#  - Give an example of a sampling distribution
+#  - What is the difference between a sampling distribution and a sampling distribution of the mean?
+#  - What is the difference between standard error and standard error of the mean?
+#  - Imagine a bowl with five bingo chips in it, numbered 1 through 5. For this "population":
+#    - List all 25 possible samples of size 2 (sampling with replacement)
+#    - Calculate the mean for every sample
+#    - Count the frequency of each value of the mean
+#    - Draw the frequency distribution as a bar plot
+#    - Calculate the probability of drawing a sample with:
+#      - A mean >= 4
+#      - A mean <= 2.5
+#      - An error of at least 1.5
 
-* Week #6 :week6:
+# * Week #6 :week6:
 
- - Draw a null distribution and illustrate the relationship between the critical values and \alpha
- - Draw an alternate distribution and illustrate the relationship between the critical values, \beta, and power
- - What is \sigma_{\bar{X}}? What does it measure?
- - How are \alpha and \beta each affected by change in the critical values, effect size, $\sigma_{\bar{X}}$? Illustrate with a drawing
- - Give an example of a research question where a nondirectional test would be appropriate, then modify it so that a directional test would be appropriate
- - H_0 and H_1 must be exhaustive (one must be true) and mutually exclusive (they can't both be true). Come up with some invalid hypotheses. Here's an example to get you started:
-   - H_0: \mu_1 = \mu_2
-   - H_1: \mu_1 > \mu_2
+#  - Draw a null distribution and illustrate the relationship between the critical values and \alpha
+#  - Draw an alternate distribution and illustrate the relationship between the critical values, \beta, and power
+#  - What is \sigma_{\bar{X}}? What does it measure?
+#  - How are \alpha and \beta each affected by change in the critical values, effect size, $\sigma_{\bar{X}}$? Illustrate with a drawing
+#  - Give an example of a research question where a nondirectional test would be appropriate, then modify it so that a directional test would be appropriate
+#  - H_0 and H_1 must be exhaustive (one must be true) and mutually exclusive (they can't both be true). Come up with some invalid hypotheses. Here's an example to get you started:
+#    - H_0: \mu_1 = \mu_2
+#    - H_1: \mu_1 > \mu_2
 
-# - What is wrong with saying ``$p$ is the probability that the null hypothesis is true''?
-# - What is the goal of a confidence interval?
-# - Why is calculating a 1 - \alpha% confidence interval the same as performing a hypothesis test at \alpha?
-# - Give an example of a finding which is statistically significant but practically insignificant. When might this occur?
+# # - What is wrong with saying ``$p$ is the probability that the null hypothesis is true''?
+# # - What is the goal of a confidence interval?
+# # - Why is calculating a 1 - \alpha% confidence interval the same as performing a hypothesis test at \alpha?
+# # - Give an example of a finding which is statistically significant but practically insignificant. When might this occur?
  
- #+INCLUDE: "./math/ztests.org"
+#  #+INCLUDE: "./math/ztests.org"
 
-* Week #7 :week7:
+# * Week #7 :week7:
 
- - When should we use a /t/ test instead of a /z/ test?
- - What is the expected value of /t/ under the null?
- - What is homogeneity of variance? State it symbolically
- - Why can't we calculate a /t/ statistic with a sample of one?
- - When might we employ a Welch correction?
- - Give an example of a research question for which a one-sample /t/-test would be appropriate, and explain why it is appropriate
+#  - When should we use a /t/ test instead of a /z/ test?
+#  - What is the expected value of /t/ under the null?
+#  - What is homogeneity of variance? State it symbolically
+#  - Why can't we calculate a /t/ statistic with a sample of one?
+#  - When might we employ a Welch correction?
+#  - Give an example of a research question for which a one-sample /t/-test would be appropriate, and explain why it is appropriate
  
- #+INCLUDE: "./math/1sample_t-test.org"
+#  #+INCLUDE: "./math/1sample_t-test.org"
 
-* Week #8 :week8:
+# * Week #8 :week8:
 
- - Give an example of a research question for which you would use an independent /t/-test, and explain why it is appropriate
- - What is $s_{\bar{X}_1 - \bar{X}_2}$ and what does it measure?
- - What is the sampling distribution of mean differences?
- - What is the reasoning behind using pooled variance?
+#  - Give an example of a research question for which you would use an independent /t/-test, and explain why it is appropriate
+#  - What is $s_{\bar{X}_1 - \bar{X}_2}$ and what does it measure?
+#  - What is the sampling distribution of mean differences?
+#  - What is the reasoning behind using pooled variance?
    
- #+INCLUDE: "./math/independent_t-test.org"
+#  #+INCLUDE: "./math/independent_t-test.org"
 
-* Week #9 :week9:
+# * Week #9 :week9:
 
- - Give an example of a research design in which you would use a dependent /t/-test, and explain why it is appropriate
- - How does using a dependent design rather than an independent design affect power? Why?
- - Give an example of a research question which could be addressed by ANOVA but not a single t-test
- - Define the numerator and denominator of the F statistic, then explain why F is equal to 1 under the null hypothesis
- - How much within and between group variability is there in each of the following scenarios?
-   - Scenario #1
-     - Group 1: [1, 1, 1, 1, 1]
-     - Group 2: [1, 1, 1, 1, 1]
-     - Group 3: [1, 1, 1, 1, 1]
-   - Scenario #2
-     - Group 1: [1, 4, 3, 7, 9]
-     - Group 2: [2, 3, 4, 8, 8]
-     - Group 3: [1, 2, 5, 9, 7]
-   - Scenario #3
-     - Group 1: [1, 1, 1, 1, 1]
-     - Group 2: [15, 15, 15, 15, 15]
-     - Group 3: [30, 30, 30, 30, 30]
-   - Scenario #4
-     - Group 1: [1, 4, 3, 7, 9]
-     - Group 2: [15, 26, 17, 29, 21]
-     - Group 3: [30, 37, 43, 41, 32]
-   Rank them on the likelihoood the null hypothesis (F = 1) will be rejected
+#  - Give an example of a research design in which you would use a dependent /t/-test, and explain why it is appropriate
+#  - How does using a dependent design rather than an independent design affect power? Why?
+#  - Give an example of a research question which could be addressed by ANOVA but not a single t-test
+#  - Define the numerator and denominator of the F statistic, then explain why F is equal to 1 under the null hypothesis
+#  - How much within and between group variability is there in each of the following scenarios?
+#    - Scenario #1
+#      - Group 1: [1, 1, 1, 1, 1]
+#      - Group 2: [1, 1, 1, 1, 1]
+#      - Group 3: [1, 1, 1, 1, 1]
+#    - Scenario #2
+#      - Group 1: [1, 4, 3, 7, 9]
+#      - Group 2: [2, 3, 4, 8, 8]
+#      - Group 3: [1, 2, 5, 9, 7]
+#    - Scenario #3
+#      - Group 1: [1, 1, 1, 1, 1]
+#      - Group 2: [15, 15, 15, 15, 15]
+#      - Group 3: [30, 30, 30, 30, 30]
+#    - Scenario #4
+#      - Group 1: [1, 4, 3, 7, 9]
+#      - Group 2: [15, 26, 17, 29, 21]
+#      - Group 3: [30, 37, 43, 41, 32]
+#    Rank them on the likelihoood the null hypothesis (F = 1) will be rejected
 
- #+INCLUDE: "./math/dependent_t-test.org"
+#  #+INCLUDE: "./math/dependent_t-test.org"
 
-* Week #10 :week10:
+# * Week #10 :week10:
 
- - Give an example of two variables which would have a correlation of close to 1
- - Give an example of two variables which would have a correlation of close to -1
- - Give an example of two variables which would have a correlation of close to 0
- - Draw a a relationship which cannot be accurately described by Pearson's /r/
- - Why doesn't correlation imply causation? Does causation imply correlation?
- - Why does $df = n - 2$?
- - Rank each set of scores as though you were calculating Spearman's rho:
-   \begin{center}
-   4, 0, 4, 9, 3 \\
-   3, 5, 3, 6, 3
-   \end{center}
+#  - Give an example of two variables which would have a correlation of close to 1
+#  - Give an example of two variables which would have a correlation of close to -1
+#  - Give an example of two variables which would have a correlation of close to 0
+#  - Draw a a relationship which cannot be accurately described by Pearson's /r/
+#  - Why doesn't correlation imply causation? Does causation imply correlation?
+#  - Why does $df = n - 2$?
+#  - Rank each set of scores as though you were calculating Spearman's rho:
+#    \begin{center}
+#    4, 0, 4, 9, 3 \\
+#    3, 5, 3, 6, 3
+#    \end{center}
    
- #+INCLUDE: "./math/pearson.org"
+#  #+INCLUDE: "./math/pearson.org"
 
 * Week #11 :week11:
 

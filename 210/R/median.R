@@ -11,19 +11,18 @@ function (include.answer, seed) {
         data <- round(rnorm(n, mean, 1), 0)
     }
 
-    data %>>%
-        plyr::count() %>>%
-        mutate(cfreq = cumsum(freq)) %>>%
-        mutate(rfreq = freq / 12) %>>%
-        mutate(crfreq = cumsum(rfreq)) %>>%
-        round(2) %>>%
-        rename(score=x) %>>%
-        (~ freq.table) %>>%
-        xtable(digits=c(0,0,0,0,2,2)) %>>%
-        print.xtable(floating=TRUE,
-                     table.placement="!h",
-                     booktabs=TRUE,
-                     include.rownames=FALSE)
+    score <- sort(unique(data))
+    freq <- table(data)
+    cfreq <- cumsum(freq)
+    rfreq <- freq / n
+    crfreq <- cumsum(rfreq)
+    freq.table <- cbind(score, freq, cfreq, rfreq, crfreq)
+
+    print.xtable(xtable(freq.table, digits=c(0,0,0,0,2,2)),
+                 floating=TRUE,
+                 table.placement="!h",
+                 booktabs=TRUE,
+                 include.rownames=FALSE)
     
     if (include.answer == TRUE) {
 
@@ -32,7 +31,12 @@ function (include.answer, seed) {
         cumf <- freq.table[freq.table[,1] == median - 1, 3]
         fm <- freq.table[freq.table[,1] == median, 2]
 
-        paste0("Median = ", ll, "  + 1 $\\begin{bmatrix} \\frac{0.5(", n, ") - ", cumf, "}{", fm, "} \\end{bmatrix}$ = ", round(truemedian(data), 2)) %>>% cat(sep="\n")
+        answer <- paste0("Median = ", ll, "  + 1
+               $\\begin{bmatrix}
+               \\frac{0.5(", n, ") - ", cumf, "}{", fm, "}
+               \\end{bmatrix}$ = ", round(truemedian(data), 2))
+
+        cat(answer, sep="\n")
 
     }
 }

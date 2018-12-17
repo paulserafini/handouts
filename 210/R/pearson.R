@@ -1,53 +1,60 @@
 function (include.answer, seed) {
 
+    ## Create scenario
     set.seed(seed)
-
-    ## Create sample
     n <- sample(4:6, 1)
-    df <- n - 1
-    X <- sample(1:9, n)
-    Y <- sample(1:9, n)
-
-    ## Get rcrit
+    X <- makesample(n)
+    Y <- makesample(n)
     alpha <- sample(c(0.2, 0.1), 1)
 
-    paste0("Calculate $r_{\\mathit{XY}}$ and test H_0: \\rho_{\\mathit{XY}} = 0 at \\alpha = ", alpha, ". \\\\") %>>% cat(sep="\n")
+    ## Begin table
+    table <- cbind(X, Y)
+    table <- as.data.frame(table)
 
-    if (include.answer == TRUE) {
+    cat("Calculate $r_{\\mathit{XY}}$ and test H_0: \\rho_{\\mathit{XY}} = 0 at \\alpha = ", alpha, ".\n")
 
-        Xsd <- round(sd(X), 2)
-        Ysd <- round(sd(Y), 2)
-        Xbar <- round(mean(X), 2)
-        Ybar <- round(mean(Y), 2)
+    if (include.answer) {
 
-        cbind(X, Y) %>>%
-            as.data.frame() %>>%
-            mutate(Xdev = X - Xbar) %>>%
-            mutate(Ydev = Y - Ybar) %>>%
-            mutate(Xdev.sq = Xdev^2) %>>%
-            mutate(Ydev.sq = Ydev^2) %>>%
-            mutate(product = Xdev * Ydev) %>>%
-            (~ tmp) %>>%
-            rename("$X_i$"=X,
-                   "$Y_i$"=Y,
-                   "$X_i - \\bar{X}$"=Xdev,
-                   "$Y_i - \\bar{Y}$"=Ydev,
-                   "$(X_i - \\bar{X})^2$"=Xdev.sq,
-                   "$(Y_i - \\bar{Y})^2$"=Ydev.sq,
-                   "$(X_i - \\bar{X})(Y_i - \\bar{Y})$"=product) %>>%
-            xtable(digits=0) %>>%
-            print.xtable(floating=TRUE,
-                         table.placement="!h",
-                         sanitize.text.function=function(x){x},
-                         booktabs=TRUE,
-                         include.rownames=FALSE)
+        ## X derivatives
+        Xsd <- sd(X)
+        Xbar <- mean(X)
 
-        SSx <- sum(tmp$Xdev.sq)
-        SSy <- sum(tmp$Ydev.sq)
-        SP <- sum(tmp$product)
-        r <- round(SP / sqrt(SSx * SSy), 2)
-        p <- round(cor.test(X,Y)$p.value, 2)
-        rcrit <- round(rcrit(n, alpha), 2)
+        ## Y derivatives
+        Ysd <- sd(Y)
+        Ybar <- mean(Y)
+
+        ## Create table
+
+        table$Xdev <- X - Xbar
+        table$Ydev <- Y - Ybar
+        table$Xdev.sq <- table$Xdev^2
+        table$Ydev.sq <- table$Ydev^2
+        table$SP <- table$Xdev * table$Ydev
+
+        ## Calculate rcrit
+        SSx <- sum(table$Xdev.sq)
+        SSy <- sum(table$Ydev.sq)
+        SP <- sum(table$SP)
+        r <- SP / sqrt(SSx * SSy)
+        p <- cor.test(X,Y)$p.value
+        rcrit <- rcrit(n, alpha)
+
+        massRound(Xsd, Ysd, SSx, SSy, SP, r, p, rcrit)
+
+        colnames(table) <- c("$X_i$",
+                             "$Y_i$",
+                             "$X_i - \\bar{X}$",
+                             "$Y_i - \\bar{Y}$",
+                             "$(X_i - \\bar{X})^2$",
+                             "$(Y_i - \\bar{Y})^2$",
+                             "$(X_i - \\bar{X})(Y_i - \\bar{Y})$")
+        table <- xtable(table, digits=0)
+        print.xtable(table,
+                     floating=TRUE,
+                     table.placement="!h",
+                     sanitize.text.function=function(x){x},
+                     booktabs=TRUE,
+                     include.rownames=FALSE)
 
         if (abs(r) >= rcrit) {
             operator <- ifelse(robs > rcrit, ">= ", " =< -")
@@ -56,40 +63,36 @@ function (include.answer, seed) {
             decision <- paste0("Fail to reject because $", rcrit, " > ", r, " > -", rcrit, "$")
         }
 
-        paste0("
-            \\vspace{-3em}
-            \\begin{multicols}{2}
-            \\begin{gather*}
-            \\bar{X} = ", Xbar, " \\\\
-            \\bar{Y} = ", Ybar, " \\\\
-            \\mathit{SS_X} = ", SSx, " \\\\
-            \\mathit{SS_Y} = ", SSy, "
-            \\end{gather*}
-            \\begin{gather*}
-            \\\\
-            \\mathit{SP} = ", SP, " \\\\
-            r_{\\mathit{XY}} = ", SP, " / \\sqrt{", SSx, " \\times ", SSy, "} = ", r, " \\\\
-            r_{\\textnormal{crit}} = \\pm", rcrit, " \\\\
-            \\textnormal{", decision, "}
-            \\end{gather*}
-            \\end{multicols}") %>>% cat(sep="\n")
+        cat("\\vspace{-3em}
+             \\begin{multicols}{2}
+             \\begin{gather*}
+             \\bar{X} = ", Xbar, " \\\\
+             \\bar{Y} = ", Ybar, " \\\\
+             \\mathit{SS_X} = ", SSx, " \\\\
+             \\mathit{SS_Y} = ", SSy, "
+             \\end{gather*}
+             \\begin{gather*}
+             \\\\
+             \\mathit{SP} = ", SP, " \\\\
+             r_{\\mathit{XY}} = ", SP, " / \\sqrt{", SSx, " \\times ", SSy, "} = ", r, " \\\\
+             r_{\\textnormal{crit}} = \\pm", rcrit, " \\\\
+             \\textnormal{", decision, "}
+             \\end{gather*}
+             \\end{multicols}\n", sep="")
 
     } else {
 
-        cat("\\begin{minipage}[t][4cm][t]{9cm} \\vspace{0.25cm}", sep="\n")
+        cat("\\begin{minipage}[t][4cm][t]{9cm} \\vspace{0.25cm}\n")
 
-        cbind(X, Y) %>>%
-            as.data.frame() %>>%
-            rename("$X_i$"=X,
-                   "$Y_i$"=Y) %>>%
-            xtable() %>>%
-            print.xtable(floating=FALSE,
-                         #table.placement="!h",
-                         sanitize.text.function=function(x){x},
-                         booktabs=TRUE,
-                         include.rownames=FALSE)
+        colnames(table) <- c("$X_i$", "$Y_i$")
+        table <- xtable(table, digits=0)
+        print.xtable(table,
+                     floating=FALSE,
+                     sanitize.text.function=function(x){x},
+                     booktabs=TRUE,
+                     include.rownames=FALSE)
 
-        cat("\\end{minipage}", sep="\n")
+        cat("\\end{minipage}\n")
         
     }
 }

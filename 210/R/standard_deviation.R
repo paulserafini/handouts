@@ -1,50 +1,51 @@
 function(include.answer, seed) {
 
     set.seed(seed)
+    n <- 5
+    sample <- makesample(n)
 
-    data <- makesample(5)
+    question <- paste(sample, collapse=", ")
+    cat(question, "\n")
 
-    paste(data, collapse=", ") %>>% cat(sep="\n")
+    if (include.answer) {
 
-    if (include.answer == TRUE) {
+        ## Create derivation table
+        table <- as.data.frame(sample)
+        table$dev <- sample - mean(sample)
+        table$devSq <- table$dev^2
+        colnames(table) <- c("$X_i$",
+                             "$X_i - \\bar{X}$",
+                             "$(X_i - \\bar{X})^2$")
 
-        data %>>%
-            as.data.frame() %>>%
-            rename(xi = 1) %>>%
-            mutate(dev = xi - mean(xi)) %>>%
-            mutate(dev.sq = dev^2) %>>%
-            (~ tmp) %>>%
-            rename("$X_i$"=xi,
-                   "$X_i - \\bar{X}$"=dev,
-                   "$(X_i - \\bar{X})^2$"=dev.sq) %>>%
-            xtable(digits=c(0,0,0,0)) %>>%
-            print.xtable(floating=TRUE,
-                         table.placement="!h",
-                         sanitize.text.function=function(x){x},
-                         booktabs=TRUE,
-                         include.rownames=FALSE)
+        print.xtable(xtable(digits=0)
+                     floating=TRUE,
+                     table.placement="!h",
+                     sanitize.text.function=function(x){x},
+                     booktabs=TRUE,
+                     include.rownames=FALSE)
 
-        xbar <- mean(tmp$xi)
+        ## Calculate standard deviation
+        xbar <- mean(sample)
         SS <- sum(tmp$dev.sq)
-        df <- 4
-        var <- round(SS / df, 2)
-        sd <- round(sqrt(var), 2)
+        df <- n - 1
+        var <- SS / df
+        sd <- sqrt(var)
 
-        paste0("
-                \\vspace{-3em}
-            \\begin{multicols}{2}
-            \\begin{gather*}
-            \\bar{X} = ", xbar, " \\\\
-            \\mathit{SS} = ", SS, " \\\\
-            df = 5 - 1 = ", df, "
-            \\end{gather*}
-            \\begin{gather*}
-            \\\\
-            s^2 = ", SS, " / ", df, " = ", var, " \\\\
-            s = \\sqrt{", var, "} = ", sd, "
-            \\end{gather*}
-            \\end{multicols}") %>% cat(sep="\n")
+        massRound(SS, var, sd)
+
+        cat("\\vspace{-3em}
+             \\begin{multicols}{2}
+             \\begin{gather*}
+             \\bar{X} = ", xbar, " \\\\
+             \\mathit{SS} = ", SS, " \\\\
+             df = 5 - 1 = ", df, "
+             \\end{gather*}
+             \\begin{gather*}
+             \\\\
+             s^2 = ", SS, " / ", df, " = ", var, " \\\\
+             s = \\sqrt{", var, "} = ", sd, "
+             \\end{gather*}
+             \\end{multicols}\n")
 
     }
-
 }

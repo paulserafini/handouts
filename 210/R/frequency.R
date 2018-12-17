@@ -1,34 +1,25 @@
 function(include.answer, seed) {
 
+    ## Create scenario
     set.seed(seed)
+    data <- rnorm(12, 0, 1)
+    data <- round(data, 0)
 
-    rnorm(12, 0, 1) %>>%
-        round(0) %>>%
-        (~ data)
+    question <- paste(data, collapse=", ")
+    cat(question, "\n")
 
-    if (include.answer == TRUE) {
+    if (include.answer) {
 
-        paste(data, collapse=", ") %>>%
-            cat()
+        score <- sort(unique(data))
+        freq <- table(data)
+        cfreq <- cumsum(freq)
+        rfreq <- freq / n
+        crfreq <- cumsum(rfreq)
+        freq.table <- cbind(score, freq, cfreq, rfreq, crfreq)
 
-        data %>>%
-            plyr::count() %>>%
-            mutate(cfreq = cumsum(freq)) %>>%
-            mutate(rfreq = freq / 12) %>>%
-            mutate(crfreq = cumsum(rfreq)) %>>%
-            round(2) %>>%
-            rename(score=x) %>>%
-            xtable(digits=c(0,0,0,0,2,2)) %>>%
-            print.xtable(floating=TRUE,
-                         table.placement="!h",
-                         booktabs=TRUE,
-                         include.rownames=FALSE)
-
-    } else {
-
-        paste(data, collapse=", ") %>>%
-            cat("\n")
-
-    }
-
+        print.xtable(xtable(freq.table, digits=c(0,0,0,0,2,2)),
+                     floating=TRUE,
+                     table.placement="!h",
+                     booktabs=TRUE,
+                     include.rownames=FALSE)
 }

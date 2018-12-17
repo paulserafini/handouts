@@ -1,52 +1,53 @@
 function (include.answer, seed) {
 
+    ## Create scenario
     set.seed(seed)
-
-    ## Create scenario / sample
-    mu <- sample(1:10, 1)
-    constant <- sample(1:10, 1)
     n <- sample(5:10, 1)
-    sigma <- round(runif(1, 1, 5), 2)
-    sample <- rtruncnorm(n=n, a=1, b=10, mean=mu, sd=sigma)
-    xbar <- round(mean(sample), 2)
-    variance <- round(sigma^2, 2)
-    
-    ## Calculate zcrit
+    sigma <- runif(1, 1, 5)
+    mu <- sample(1:10, 1)
+    sample <- sample(1:10, n)
+    xbar <- mean(sample)
     alpha <- sample(c(0.1, 0.05, 0.01), 1)
-    se <- round(sigma / sqrt(n), 2)
-    zobs <- round((xbar - constant) / se, 2)
-    zcrit <- abs(round(qnorm(alpha/2), 2))
-    
-    ## Calculate confidence interval
     CC <- sample(c(0.90, 0.95, 0.99), 1)
-    CIcrit <- abs(round(qnorm((1 - CC)/2), 2))
-    LL <- round(xbar - se * CIcrit, 2)
-    UL <- round(xbar + se * CIcrit, 2)
 
-    if (2 * pnorm(-abs(zobs)) <= alpha) {
-        operator <- ifelse(zobs > zcrit, ">= ", " =< -")
-        decision <- paste0("Reject because $", zobs, operator, zcrit, "$")
-    
-    } else {
-        decision <- paste0("Fail to reject because $", zcrit, " > ", zobs, " > -", zcrit, "$")
-    }
+    massRound(xbar, sigma)
 
-    answer <- paste0("
-                      \\begin{gather*}
-                      \\sigma = \\sqrt{", variance, "} = ", sigma, " \\\\
-                      \\sigma_{\\bar{X}} = ", sigma, "/\\sqrt{", n, "} = ", se, " \\\\
-                      z_{\\textnormal{obs}} = (", xbar, " - ", constant, ")/", se, " = ", zobs, " \\\\
-                      z_{\\textnormal{crit}} = \\pm", zcrit, " \\\\
-                      \\textnormal{", decision, "} \\\\
-                      z_{", 100*CC, "} = ", CIcrit, " \\\\
-                      \\mathit{CI}_{", 100*CC, "} = ", xbar, " \\pm (", se, " \\times ", CIcrit, ") = [", LL, " ,\\ ", UL, "]
-                      \\end{gather*}")
-    
-    question <- paste0("Researchers draw a sample of ", n, " with a mean of ", xbar, ". The population variance is known to be ", variance, ". Test $H_0: \\mu = ", constant, "$ at an \\alpha of ", alpha, ", state your decision, and calculate a ", 100*CC, "% confidence interval.", sep = "")
+    cat("Researchers draw a sample of ", n, " with a mean of ", xbar, ".
+         The population standard deviation is known to be ", sigma, ".
+         Test $H_0: \\mu = ", mu, "$ at an \\alpha of ", alpha, ",
+         state your decision, and calculate a ", 100*CC, "% confidence interval.\n", sep = "")
 
-    if (include.answer == TRUE) {
-        cat(question, answer, sep="\n")
-    } else {
-        cat(question, sep="\n")
+    if (include.answer) {
+        
+        ## Calculate zcrit
+        se <- sigma / sqrt(n)
+        zobs <- (xbar - mu) / se
+        zcrit <- qnorm(alpha / 2)
+        zcrit <- abs(zcrit)
+        
+        ## Calculate confidence interval
+        CIcrit <- qnorm((1 - CC) / 2)
+        CIcrit <- abs(CIcrit)
+        LL <- xbar - (se * CIcrit)
+        UL <- xbar + (se * CIcrit)
+
+        massRound(se, zobs, zcrit, CIcrit, LL, UL)
+
+        if (abs(zobs) >= zcrit) {
+            operator <- ifelse(zobs > zcrit, ">= ", " =< -")
+            decision <- paste0("Reject because $", zobs, operator, zcrit, "$")
+        } else {
+            decision <- paste0("Fail to reject because $", zcrit, " > ", zobs, " > -", zcrit, "$")
+        }
+
+        cat("\\begin{gather*}
+             \\sigma_{\\bar{X}} = ", sigma, "/\\sqrt{", n, "} = ", se, " \\\\
+             z_{\\textnormal{obs}} = (", xbar, " - ", mu, ")/", se, " = ", zobs, " \\\\
+             z_{\\textnormal{crit}} = \\pm", zcrit, " \\\\
+             \\textnormal{", decision, "} \\\\
+             z_{", 100*CC, "} = ", CIcrit, " \\\\
+             \\mathit{CI}_{", 100*CC, "} = ", xbar, " \\pm (", se, " \\times ", CIcrit, ") = [", LL, " ,\\ ", UL, "]
+             \\end{gather*}\n", sep="")
+
     }
 }
