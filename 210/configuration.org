@@ -5,6 +5,7 @@
 #+OPTIONS: toc:nil
 #+OPTIONS: num:nil
 #+OPTIONS: tags:nil
+#+OPTIONS: ':t
 
 #+LATEX_CLASS_OPTIONS: [fleqn]
 
@@ -21,9 +22,7 @@
 #+BEGIN_SRC R :session global :exports none
 
 library(fmsb) ## truemedian
-library(truncnorm) ## rtruncnorm
-library(xtable) ## xtable
-
+library(xtable)
 options(xtable.comment = FALSE)
 
 makesample <- dget("./R/makesample.R")

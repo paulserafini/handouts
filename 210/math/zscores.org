@@ -7,6 +7,8 @@ cat("\\onecolumn\n")
 
 * /Z/-scores
 
+Calculate the area between the following /z/ scores:
+
 #+BEGIN_SRC R :session global :results output raw :exports results
 printq(include.answer, seeds[1])
 #+END_SRC

@@ -9,7 +9,6 @@ function (include.answer, seed) {
     ## Print question
     z.list <- paste(z1, z2, sep=" and ")
     z.list <- paste(z.list, collapse=", ")
-    cat("Calculate the area between the following z scores: ")
     cat(z.list)
 
     ## Create z score table

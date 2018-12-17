@@ -1,6 +1,6 @@
 #+INCLUDE: "configuration.org"
 
-# #+SELECT_TAGS: week4
+#+SELECT_TAGS: week11
 # #+EXPORT_FILE_NAME: answerkey.pdf
 #+BEGIN_SRC R :session global :exports none
 include.answer <- FALSE
@@ -9,23 +9,26 @@ seeds <- 1:100
 
 * Week #1 :week1:
 
- - Give an example of a population and a sample from that population
- - Give an example of a parameter and its statistic counterpart
- - Give an example of an descriptive question and then reframe it as an inferential question
- - Give an example of a research question and identify the independent variable and the dependent variable
+ - Give an example of:
+   - A population and a sample from that population
+   - A parameter and its corresponding statistic
+   - A descriptive research question and an inferential reframing of that question
+   - A research question with an independent variable and a dependent variable
+  For each, explain why your example is appropriate.
    
  #+INCLUDE: "./math/summation.org"
  
 * Week #2 :week2:
 
- - Give an example of each of the following, and explain why your example is appropriate:
-    - Discrete variable
-    - Continuous variable
-    - Nominal variable
-    - Ordinal variable
-    - Interval variable
-    - Ratio variable
- - Draw a well-designed bar graph and a poorly-designed one, and indicate the differences
+ - Give an example of:
+    - A discrete variable
+    - A continuous variable
+    - A nominal variable
+    - An ordinal variable
+    - An interval variable
+    - A ratio variable
+  For each, explain why your example is appropriate.
+ - Draw a well-designed bar graph and a poorly-designed one, and explain why the first is better
    
  #+INCLUDE: "./math/frequency.org"
  #+INCLUDE: "./math/interval.org"
@@ -33,13 +36,14 @@ seeds <- 1:100
 * Week #3 :week3:
 
  - Why is the mean more sensitive to extreme scores than the median?
- - Why might we prefer the median over the mean?
- - What are we squaring in a sum of squares?
- - What is the point of the squaring in sum of squares?
+ - Give an exaple of a situation in which we might we prefer the median over the mean
+ - What are we squaring in a sum of squares, and why do we do it?
+    - $\Sigma[(X_i - \bar{X})^2]$
  - In what sense is a variance a mean?
+     - $\dfrac{\Sigma[(X_i - \bar{X})^2]}{n-1}$
+ - Why do we use $n - 1$ instead of $n$ in the denominator of sample variance?
  - When would variance be equal to zero?
  - Why do we use standard deviation instead of variance?
- - Why do we using $n - 1$ instead of $n$ in the denominator of variance?
  - Why is the standard deviation so named?
  - For the following data set, calculate the mode, median, mean, and standard deviation. Then, add 5 to every number in the data set and calculate again. Then, multiply every number in the data set by 2 and calculate again. What effect does adding/multiplying every score with the same number have, and why? Explain for each statistic.
     \begin{center}
@@ -53,9 +57,7 @@ seeds <- 1:100
 
  - Why do we transform scores into standard scores?
  - Draw these scores on a number line:
-      \begin{center}
-      4, 6, 4, 3, 8
-      \end{center}
+   - 4, 6, 4, 3, 8
    Then, subtract the mean from each score and draw the result on another number line. Then, divide those by the standard deviation and draw them on yet another number line. What does each step do?
  - How does the height of the normal curve correspond to the number line below it?
    
@@ -64,10 +66,9 @@ seeds <- 1:100
 
  - What is the difference between standard error and standard deviation?
  - Why is standard error so named?
- - Why can't we just draw a sample from the population and estimate the parameter by the sample statistic?
+ - What is the difference between standard error and standard error of the mean?
  - Give an example of a sampling distribution
  - What is the difference between a sampling distribution and a sampling distribution of the mean?
- - What is the difference between standard error and standard error of the mean?
  - Imagine a bowl with five bingo chips in it, numbered 1 through 5. For this "population":
    - List all 25 possible samples of size 2 (sampling with replacement)
    - Calculate the mean for every sample
@@ -82,12 +83,13 @@ seeds <- 1:100
 
  - Draw a null distribution and illustrate the relationship between the critical values and \alpha
  - Draw an alternate distribution and illustrate the relationship between the critical values, \beta, and power
- - What is \sigma_{\bar{X}}? What does it measure?
+ - What is $\sigma_{\bar{X}}$? What does it measure?
  - How are \alpha and \beta each affected by change in the critical values, effect size, $\sigma_{\bar{X}}$? Illustrate with a drawing
- - Give an example of a research question where a nondirectional test would be appropriate, then modify it so that a directional test would be appropriate
+ - Give an example of a research question where a nondirectional test would be appropriate, then reframe it so that a directional test would be appropriate
  - H_0 and H_1 must be exhaustive (one must be true) and mutually exclusive (they can't both be true). Come up with some invalid hypotheses. Here's an example to get you started:
    - H_0: \mu_1 = \mu_2
    - H_1: \mu_1 > \mu_2
+ - Why do we need hypothesis testing? Why can't we just draw a sample from the population and estimate the parameter by the sample statistic?
 
 # - What is wrong with saying ``$p$ is the probability that the null hypothesis is true''?
 # - What is the goal of a confidence interval?
@@ -99,10 +101,8 @@ seeds <- 1:100
 * Week #7 :week7:
 
  - When should we use a /t/ test instead of a /z/ test?
- - What is the expected value of /t/ under the null?
- - What is homogeneity of variance? State it symbolically
- - Why can't we calculate a /t/ statistic with a sample of one?
- - When might we employ a Welch correction?
+ - What is the expected value of /t/ under the null hypothesis?
+ - Why can't we calculate a /t/ statistic with a sample of $n = 1$?
  - Give an example of a research question for which a one-sample /t/-test would be appropriate, and explain why it is appropriate
  
  #+INCLUDE: "./math/1sample_t-test.org"
@@ -111,8 +111,9 @@ seeds <- 1:100
 
  - Give an example of a research question for which you would use an independent /t/-test, and explain why it is appropriate
  - What is $s_{\bar{X}_1 - \bar{X}_2}$ and what does it measure?
- - What is the sampling distribution of mean differences?
- - What is the reasoning behind using pooled variance?
+ - What is homogeneity of variance? State it symbolically
+ - When might we employ a Welch correction?
+ - What is the reasoning behind using pooled variance? Why not simply take the mean of s_1 and s_2?
    
  #+INCLUDE: "./math/independent_t-test.org"
 
@@ -121,7 +122,10 @@ seeds <- 1:100
  - Give an example of a research design in which you would use a dependent /t/-test, and explain why it is appropriate
  - How does using a dependent design rather than an independent design affect power? Why?
  - Give an example of a research question which could be addressed by ANOVA but not a single t-test
- - Define the numerator and denominator of the F statistic, then explain why F is equal to 1 under the null hypothesis
+ - What do the numerator and denominator of the /F/ statistic represent? Why is /F/ is equal to 1 under the null hypothesis?
+   - $F = \dfrac{\mathit{MS_B}}{\mathit{MS_W}}$
+   - /MS_B/ = "mean squares between"
+   - /MS_W/ = "mean squares within"
  - How much within and between group variability is there in each of the following scenarios?
    - Scenario #1
      - Group 1: [1, 1, 1, 1, 1]
@@ -150,12 +154,10 @@ seeds <- 1:100
  - Give an example of two variables which would have a correlation of close to 0
  - Draw a a relationship which cannot be accurately described by Pearson's /r/
  - Why doesn't correlation imply causation? Does causation imply correlation?
- - Why does $df = n - 2$?
+ - Why does $df = n - 2$ when looking up critical /r/ values?
  - Rank each set of scores as though you were calculating Spearman's rho:
-   \begin{center}
-   4, 0, 4, 9, 3 \\
-   3, 5, 3, 6, 3
-   \end{center}
+   - 4, 0, 4, 9, 3
+   - 3, 5, 3, 6, 3
    
  #+INCLUDE: "./math/pearson.org"
 
