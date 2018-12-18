@@ -14,10 +14,15 @@
 #+LATEX_HEADER: \usepackage{multicol}
 #+LATEX_HEADER: \usepackage{titlesec}
 
-#+LATEX_HEADER: \newcommand{\sectionbreak}{\clearpage}
+# #+LATEX_HEADER: \newcommand{\sectionbreak}{\clearpage}
 #+LATEX_HEADER: \renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
 #+LATEX_HEADER: \setlength{\parindent}{0cm}
 #+LATEX_HEADER: \pagenumbering{gobble}
+
+#+LATEX_HEADER: \usepackage{sectsty}
+#+LATEX_HEADER: \usepackage[scaled]{helvet}
+#+LATEX_HEADER: \allsectionsfont{\normalfont\sffamily\bfseries}
+#+LATEX_HEADER: \sectionfont{\normalfont\sffamily\bfseries\clearpage}
 
 #+BEGIN_SRC R :session global :exports none
 

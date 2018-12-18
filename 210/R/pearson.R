@@ -11,7 +11,7 @@ function (include.answer, seed) {
     table <- cbind(X, Y)
     table <- as.data.frame(table)
 
-    cat("Calculate $r_{\\mathit{XY}}$ and test H_0: \\rho_{\\mathit{XY}} = 0 at \\alpha = ", alpha, ".\n", sep="")
+    cat("Calculate $r_{\\mathit{XY}}$ and test $H_0: \\rho_{\\mathit{XY}} = 0$ at $\\alpha = ", alpha, "$.\n", sep="")
 
     if (include.answer) {
 

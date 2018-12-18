@@ -15,13 +15,13 @@ For each table, calculate the median using this formula:
 \mathit{Md} = \mathit{LL} + W \begin{bmatrix} \frac{0.5(n) - \mathit{cumF}}{\mathit{fm}} \end{bmatrix}
 \end{equation*}
 
-/LL/ = (score of the row with the lowest CR freq. \geq 0.5) - 0.5
+/LL/ = (score of the row with the lowest crfreq \geq 0.5) - 0.5
 
 /W/ = interval width (= 1 if the data are ungrouped)
 
-/n/ = sample size (= the highest C freq.)
+/n/ = sample size (= the greatest cfreq)
 
-/cumF/ = CR freq. of the row below the one containing /LL/
+/cumF/ = crfreq of the row below the one containing /LL/
 
 /fm/ = frequency of the row containing /LL/
 

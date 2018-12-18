@@ -22,12 +22,16 @@ function(include.answer, seed) {
         UL <- LL + width - 1
         MP <- (LL - 0.5) + (width / 2)
         table <- cbind(LL, MP, UL)
+        colnames(table) <- c("$\\mathit{LL}$",
+                             "$\\mathit{MP}$",
+                             "$\\mathit{UL}$")
 
         table <- xtable(table, digits=c(0,0,1,0))
         print.xtable(table,
                      floating=TRUE,
                      table.placement="!h",
                      booktabs=TRUE,
+                     sanitize.text.function=function(x){x},
                      include.rownames=FALSE)
         
     }

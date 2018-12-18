@@ -38,17 +38,15 @@
  - Why is the mean more sensitive to extreme scores than the median?
  - Give an exaple of a situation in which we might we prefer the median over the mean
  - What are we squaring in a sum of squares, and why do we do it?
-    - $\Sigma[(X_i - \bar{X})^2]$
+   - $\Sigma[(X_i - \bar{X})^2]$
  - In what sense is a variance a mean?
-     - $\dfrac{\Sigma[(X_i - \bar{X})^2]}{n-1}$
+   - $\dfrac{\Sigma[(X_i - \bar{X})^2]}{n-1}$
  - Why do we use $n - 1$ instead of $n$ in the denominator of sample variance?
- - When would variance be equal to zero?
+ - When would variance be equal to zero? Explain with reference the formula
  - Why do we use standard deviation instead of variance?
  - Why is the standard deviation so named?
  - For the following data set, calculate the mode, median, mean, and standard deviation. Then, add 5 to every number in the data set and calculate again. Then, multiply every number in the data set by 2 and calculate again. What effect does adding/multiplying every score with the same number have, and why? Explain for each statistic.
-    \begin{center}
-    2, 8, 1, 1, 3
-    \end{center}
+   - 2, 8, 1, 1, 3
 
  #+INCLUDE: "./math/median.org"
  #+INCLUDE: "./math/standard_deviation.org"
@@ -87,9 +85,9 @@
  - What is $\sigma_{\bar{X}}$? What does it measure?
  - How are \alpha and \beta each affected by change in the critical values, effect size, $\sigma_{\bar{X}}$? Illustrate with a drawing
  - Give an example of a research question where a nondirectional test would be appropriate, then reframe it so that a directional test would be appropriate
- - H_0 and H_1 must be exhaustive (one must be true) and mutually exclusive (they can't both be true). Come up with some invalid hypotheses. Here's an example to get you started:
-   - H_0: \mu_1 = \mu_2
-   - H_1: \mu_1 > \mu_2
+ - $H_0$ and $H_1$ must be exhaustive (one must be true) and mutually exclusive (they can't both be true). Come up with some invalid hypotheses. Here's an example to get you started:
+   - $H_0: \mu_1 = \mu_2$
+   - $H_1: \mu_1 > \mu_2$
  - Why do we need hypothesis testing? Why can't we just draw a sample from the population and estimate the parameter by the sample statistic?
 
 # - What is wrong with saying ``$p$ is the probability that the null hypothesis is true''?

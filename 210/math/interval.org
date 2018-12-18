@@ -9,10 +9,10 @@
 
 ** Instructions :ignore:
 
-For each scenario, find the lower limit (LL), midpoint (MP), and upper limit (UL) of the first five intervals.
-- LL_1 = the greatest multiple of the width less than or equal to the lowest score, or (if that does not exist) 0
-- UL_i = LL_i + width - 1
-- MP_i = (LL_i + UL_i)/2
+For each scenario, find the lower limit (/LL/), midpoint (/MP/), and upper limit (/UL/) of the first five intervals.
+- $LL_1 =$ the greatest multiple of the width less than or equal to the lowest score, or (if that does not exist) 0
+- $\mathit{UL_i} = \mathit{LL_i} + \mathit{width} - 1$
+- $\mathit{MP_i} = (\mathit{LL_i} + \mathit{UL_i})/2$
 
 ** Question #1
 #+BEGIN_SRC R :session global :results output raw :exports results
