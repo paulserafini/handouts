@@ -7,6 +7,8 @@
 
 * /Z/-scores
 
+The area between $z_1$ and $z_2$ is the area above the lesser of the two minus the area above the greater of the two. The area above /-z/ is 0.5 + the area between $z$ and the mean. \\
+   
 Calculate the area between the following pairs of /z/ scores:
 
 #+BEGIN_SRC R :session global :results output raw :exports results

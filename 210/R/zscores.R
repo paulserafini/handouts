@@ -2,14 +2,16 @@ function (include.answer, seed) {
 
     ## Generate example
     set.seed(seed)
-    z1 <- runif(14, 0.05, 0.95)
-    z2 <- runif(14, 0.05, 0.95)
+    z1 <- runif(14, -0.95, 0.95)
+    z2 <- runif(14, -0.95, 0.95)
     massRound(z1, z2)
 
     ## Print question
     z.list <- paste(z1, z2, sep=" and ")
     z.list <- paste(z.list, collapse=", ")
-    cat(z.list)
+    cat("\\begin{quote}\n")
+    cat(z.list, "\n")
+    cat("\\end{quote}\n")
 
     ## Create z score table
     z <- unique(z1, z2)
