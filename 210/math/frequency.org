@@ -9,16 +9,16 @@
 
 ** Instructions :ignore:
 
-For the following data sets, create a frequency table containing the frequency, cumulative frequency, relative frequency, and cumulative relative frequency of each value.
+For the following data sets, create a frequency table containing the frequency (freq), cumulative frequency (cfreq), relative frequency (rfreq), and cumulative relative frequency (crfreq) of each value.
 
 \begin{quote}
-Freq. = number equal to score
+freq = number equal to score
 
-C Freq. = number less than or equal to score
+cfreq = number less than or equal to score
 
-R Freq. = frequency divided by sample size
+rfreq = frequency divided by $n$
 
-CR Freq. = cumulative frequency divided by n
+crfreq. = cumulative frequency divided by $n$
 \end{quote}
 
 ** Question #1
