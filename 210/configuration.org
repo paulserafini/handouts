@@ -9,12 +9,13 @@
 
 #+LATEX_CLASS_OPTIONS: [fleqn]
 
+#+LATEX_HEADER: \usepackage{tikz}
 #+LATEX_HEADER: \usepackage{booktabs}
 #+LATEX_HEADER: \usepackage[margin=0.5in]{geometry}
 #+LATEX_HEADER: \usepackage{multicol}
 #+LATEX_HEADER: \usepackage{titlesec}
+#+LATEX_HEADER: \usetikzlibrary{arrows}
 
-# #+LATEX_HEADER: \newcommand{\sectionbreak}{\clearpage}
 #+LATEX_HEADER: \renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
 #+LATEX_HEADER: \setlength{\parindent}{0cm}
 #+LATEX_HEADER: \pagenumbering{gobble}
