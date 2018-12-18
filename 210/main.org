@@ -3,7 +3,7 @@
 # #+SELECT_TAGS: week2
 # #+EXPORT_FILE_NAME: answerkey.pdf
 #+BEGIN_SRC R :session global :exports none
-  include.answer <- TRUE
+  include.answer <- FALSE
   seeds <- 1:100
 #+END_SRC
 

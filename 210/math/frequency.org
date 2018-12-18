@@ -9,14 +9,10 @@
 ** Instructions :ignore:
 
 For the following data sets, create a frequency table containing the frequency (freq), cumulative frequency (cfreq), relative frequency (rfreq), and cumulative relative frequency (crfreq) of each value.
-
 \begin{quote}
-freq = number equal to score
-
-cfreq = number less than or equal to score
-
-rfreq = frequency divided by $n$
-
+freq = number equal to score \\
+cfreq = number less than or equal to score \\
+rfreq = frequency divided by $n$ \\
 crfreq = cumulative frequency divided by $n$
 \end{quote}
 
