@@ -5,11 +5,13 @@
   cat("\\twocolumn\n")
 #+END_SRC
   
-* Median calculation
+* Median & IQR calculation
 
 ** Instructions :ignore:
 
-For each table, calculate the median using this formula:
+For each frequency table, calculate the median ($P_{50}$) and interquartile range ($P_{25}$ and $P_{75}$). \\
+
+The equation for the 50th percentile is:
 
 \begin{equation*}
 \mathit{Md} = \mathit{LL} + W \begin{bmatrix} \frac{0.5(n) - \mathit{cumF}}{\mathit{fm}} \end{bmatrix}
@@ -23,9 +25,9 @@ For each table, calculate the median using this formula:
 
 /cumF/ = crfreq of the row below the one containing /LL/
 
-/fm/ = frequency of the row containing /LL/ \\
+/fm/ = freq of the row containing /LL/ \\
 
-Note: these definitions are for when the frequency table is in /descending/ order
+Note: the frequency table must be in /descending/ order
 
 ** Question #1
 #+BEGIN_SRC R :session global :results output raw :exports results

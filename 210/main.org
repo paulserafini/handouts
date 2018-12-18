@@ -3,7 +3,7 @@
 # #+SELECT_TAGS: week2
 # #+EXPORT_FILE_NAME: answerkey.pdf
 #+BEGIN_SRC R :session global :exports none
-  include.answer <- FALSE
+  include.answer <- TRUE
   seeds <- 1:100
 #+END_SRC
 
@@ -48,7 +48,7 @@
  - Is it possible to have a negative standard deviation? Justify your answer with reference to the formula
  - For the following data set, calculate the mode, median, mean, and standard deviation. Then, add 5 to every number in the data set and calculate again. Then, multiply every number in the data set by 2 and calculate again. What effect does adding/multiplying every score with the same number have, and why? Explain for each statistic.
    - 2, 8, 1, 1, 3
- - Draw a positively skewed distribution and come up with an example data set to which it might correspond. Then do the same for a negative skew
+ - Draw a positively skewed distribution and come up with an example data set to which it might correspond. Then do the same for negative skew
 
  #+INCLUDE: "./math/median.org"
  #+INCLUDE: "./math/standard_deviation.org"

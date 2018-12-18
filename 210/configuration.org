@@ -32,6 +32,7 @@
 
   makesample <- dget("./R/makesample.R")
   massRound <- dget("./R/massRound.R")
+  perCalc <- dget("./R/perCalc.R")
   rcrit <- dget("./R/rcrit.R")
 
 #+END_SRC

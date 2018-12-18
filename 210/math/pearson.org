@@ -2,7 +2,7 @@
 
 #+BEGIN_SRC R :session global :results output raw :exports results
   printq <- dget("./R/pearson.R")
-  cat("\\newpage", sep="\n")
+  cat("\\newpage\n")
 #+END_SRC
 
 * Pearson's /r/
@@ -62,10 +62,8 @@ r_{\mathit{XY}} = \mathit{SP} / \sqrt{\mathit{SS_X} \times \mathit{SS_Y}}
 ** Question #6
 #+BEGIN_SRC R :session global :results output raw :exports results
   printq(include.answer, seeds[6])
-#+END_SRC
-#+BEGIN_SRC R :session global :results value raw :exports results
   if (!include.answer) {
-      print("\\vfill\\eject\n")
+      cat("\\vfill\\eject\n")
   }
 #+END_SRC
 ** Question #7

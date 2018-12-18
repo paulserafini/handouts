@@ -1,8 +1,8 @@
 * Configuration :ignore:
 
-#+BEGIN_SRC R :session global :results value raw :exports results
+#+BEGIN_SRC R :session global :results output raw :exports results
   printq <- dget("./R/dependent_t-test.R")
-  print("\\twocolumn")
+  cat("\\twocolumn\n")
 #+END_SRC
 
 * Dependent /t/-tests
