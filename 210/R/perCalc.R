@@ -13,6 +13,6 @@ function (percentile, table) {
     per <- round(per, 2)
 
     cat("\n P_{", 100 * percentile, "} = ", ll, "  + 1 \\times
-            (", percentile, " \\times ", n, " - ", cumf, ") / ", fm, "
+            [(", percentile, " \\times ", n, " - ", cumf, ") / ", fm, "]
             = ", per, "\n", sep="")
 }
