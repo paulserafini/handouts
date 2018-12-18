@@ -1,6 +1,6 @@
 #+INCLUDE: "configuration.org"
 
-# #+SELECT_TAGS: week2
+#+SELECT_TAGS: week6
 # #+EXPORT_FILE_NAME: answerkey.pdf
 #+BEGIN_SRC R :session global :exports none
   include.answer <- FALSE
@@ -9,6 +9,7 @@
 
 * Week #1 :week1:
 
+ - What is the difference between descriptive and inferential statistics?
  - Give an example of:
    - A population and a sample from that population
    - A parameter and its corresponding statistic
@@ -37,6 +38,7 @@
 
  - Why is the mean more sensitive to extreme scores than the median?
  - Give an exaple of a situation in which we might we prefer the median over the mean
+ - Give an example of a situation in which it would be important to report the variance along with the mean, and justify your answer
  - What are we squaring in a sum of squares, and why do we do it?
    - $\Sigma[(X_i - \bar{X})^2]$
  - In what sense is a variance a mean?
@@ -59,7 +61,8 @@
  - Draw these scores on a number line:
    - 4, 6, 4, 3, 8
    Then, subtract the mean from each score and draw the result on another number line. Then, divide those by the standard deviation and draw them on yet another number line. What does each step do?
- - How does the height of the normal curve correspond to the number line below it?
+ - What does the distribution of standard scores look like? Draw it
+ - How does the area under the normal curve tell us about numbers below?
    
  #+INCLUDE: "./math/zscores.org"
 
@@ -68,6 +71,7 @@
  - What is the difference between standard error and standard deviation?
  - Why is standard error so named?
  - What is the difference between standard error and standard error of the mean?
+ - What does the standard error of the mean measure?
  - Give an example of a sampling distribution
  - What is the difference between a sampling distribution and a sampling distribution of the mean?
  - Imagine a bowl with five bingo chips in it, numbered 1 through 5. For this "population":
@@ -82,20 +86,21 @@
 
 * Week #6 :week6:
 
- - Draw a null distribution and illustrate the relationship between the critical values and \alpha
- - Draw an alternate distribution and illustrate the relationship between the critical values, \beta, and power
- - What is $\sigma_{\bar{X}}$? What does it measure?
- - How are \alpha and \beta each affected by change in the critical values, effect size, $\sigma_{\bar{X}}$? Illustrate with a drawing
- - Give an example of a research question where a nondirectional test would be appropriate, then reframe it so that a directional test would be appropriate
+ - What are the steps in hypothesis testing? Give an example and relate each step to the concepts we've learned so far in the course (population, sample, parameter, statistic, sampling distribution of the mean, null and alternate hypotheses, critical values, etc.)
+ - Draw a null distribution and illustrate the relationship between the critical values, the rejection region, and \alpha
+ - Draw an alternate distribution and illustrate the relationship between the critical values, the rejection region, \beta, and power
+ - How are \alpha and \beta each affected by change in the critical values, effect size, and standard error?
+ - How do we control Type I and Type II error, respectively? Why don't we make $\alpha = 0$?
  - $H_0$ and $H_1$ must be exhaustive (one must be true) and mutually exclusive (they can't both be true). Come up with some invalid hypotheses. Here's an example to get you started:
    - $H_0: \mu_1 = \mu_2$
    - $H_1: \mu_1 > \mu_2$
  - Why do we need hypothesis testing? Why can't we just draw a sample from the population and estimate the parameter by the sample statistic?
+ - Give an example of a finding which is statistically significant but practically insignificant. When might this occur?
+ - What is the goal of a confidence interval?
+ - Give an example of a research question where a nondirectional test would be appropriate, then reframe it so that a directional test would be appropriate
 
-# - What is wrong with saying ``$p$ is the probability that the null hypothesis is true''?
-# - What is the goal of a confidence interval?
+# - What does it mean to say that a /p/ value is a conditional probability?
 # - Why is calculating a 1 - \alpha% confidence interval the same as performing a hypothesis test at \alpha?
-# - Give an example of a finding which is statistically significant but practically insignificant. When might this occur?
  
 #+INCLUDE: "./math/ztests.org"
 
@@ -169,5 +174,6 @@
  - Give an example of restriction of range
  - Explain the difference between a univariate outlier and a regression outlier, and draw a picture
  - Draw an example of how an influential outlier might affect the regression line
+ - What is a residual and what does it tell us about model fit?
 
  #+INCLUDE: "./math/regression.org"
