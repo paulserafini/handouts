@@ -9,23 +9,11 @@
 
 ** Instructions :ignore:
 
-For each frequency table, calculate the median ($P_{50}$) and interquartile range ($P_{25}$ and $P_{75}$). \\
-
-The equation for the 50th percentile is:
-
+For each frequency table, calculate the median ($P_{50}$) and interquartile range ($P_{25}$ and $P_{75}$). The equation for the 50th percentile is:
 \begin{equation*}
-\mathit{Md} = \mathit{LL} + W \begin{bmatrix} \frac{0.5(n) - \mathit{cumF}}{\mathit{fm}} \end{bmatrix}
+P_{50} = \mathit{LL} + W \begin{bmatrix} \dfrac{0.5(n) - \mathit{cumF}}{\mathit{fm}} \end{bmatrix}
 \end{equation*}
-
-/LL/ = (score of the row with the lowest crfreq \geq 0.5) - 0.5
-
-/W/ = interval width (= 1 if the data are ungrouped)
-
-/n/ = sample size (= the greatest cfreq)
-
-/cumF/ = crfreq of the row below the one containing /LL/
-
-/fm/ = freq of the row containing /LL/ \\
+/LL/ is the least score with a crfreq \geq 0.5, /W/ is the interval width (1 if the data is ungrouped), /n/ is the sample size (the greatest cfreq), /cumF/ is the crfreq of the row below the one containing /LL/ (0 if there is no such row), and /fm/ is the freq of the row containing /LL/. \\
 
 Note: the frequency table must be in /descending/ order
 

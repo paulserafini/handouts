@@ -12,7 +12,7 @@ function (percentile, table) {
     per <- ll + 1 * ((percentile * n - cumf)/fm)
     per <- round(per, 2)
 
-    cat("\n P_{", 100 * percentile, "} = ", ll, "  + 1 \\times
+    cat("\n $P_{", 100 * percentile, "} = ", ll, "  + 1 \\times
             [(", percentile, " \\times ", n, " - ", cumf, ") / ", fm, "]
-            = ", per, "\n", sep="")
+            = ", per, "$ \n", sep="")
 }
