@@ -21,12 +21,12 @@
 
 #+BEGIN_SRC R :session global :exports none
 
-library(fmsb) ## truemedian
-library(xtable)
-options(xtable.comment = FALSE)
+  library(fmsb) ## truemedian
+  library(xtable)
+  options(xtable.comment = FALSE)
 
-makesample <- dget("./R/makesample.R")
-massRound <- dget("./R/massRound.R")
-rcrit <- dget("./R/rcrit.R")
+  makesample <- dget("./R/makesample.R")
+  massRound <- dget("./R/massRound.R")
+  rcrit <- dget("./R/rcrit.R")
 
 #+END_SRC

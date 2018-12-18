@@ -1,10 +1,10 @@
 #+INCLUDE: "configuration.org"
 
-#+SELECT_TAGS: week11
+# #+SELECT_TAGS: week2
 # #+EXPORT_FILE_NAME: answerkey.pdf
 #+BEGIN_SRC R :session global :exports none
-include.answer <- FALSE
-seeds <- 1:100
+  include.answer <- FALSE
+  seeds <- 1:100
 #+END_SRC
 
 * Week #1 :week1:
@@ -62,6 +62,7 @@ seeds <- 1:100
  - How does the height of the normal curve correspond to the number line below it?
    
  #+INCLUDE: "./math/zscores.org"
+
 * Week #5 :week5:
 
  - What is the difference between standard error and standard deviation?
@@ -96,7 +97,7 @@ seeds <- 1:100
 # - Why is calculating a 1 - \alpha% confidence interval the same as performing a hypothesis test at \alpha?
 # - Give an example of a finding which is statistically significant but practically insignificant. When might this occur?
  
- #+INCLUDE: "./math/ztests.org"
+#+INCLUDE: "./math/ztests.org"
 
 * Week #7 :week7:
 
@@ -143,7 +144,7 @@ seeds <- 1:100
      - Group 1: [1, 4, 3, 7, 9]
      - Group 2: [15, 26, 17, 29, 21]
      - Group 3: [30, 37, 43, 41, 32]
-   Rank them on the likelihoood the null hypothesis (F = 1) will be rejected
+   Rank them on the likelihoood the null hypothesis ($F = 1$) will be rejected
 
  #+INCLUDE: "./math/dependent_t-test.org"
 

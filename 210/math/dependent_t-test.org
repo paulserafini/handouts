@@ -1,8 +1,8 @@
 * Configuration :ignore:
 
 #+BEGIN_SRC R :session global :results value raw :exports results
-printq <- dget("./R/dependent_t-test.R")
-print("\\twocolumn")
+  printq <- dget("./R/dependent_t-test.R")
+  print("\\twocolumn")
 #+END_SRC
 
 * Dependent /t/-tests
@@ -34,33 +34,33 @@ t_y \textnormal{ is the critical value for } \alpha = (100 - y) / 100
 
 ** Question #1
 #+BEGIN_SRC R :session global :results output raw :exports results
-printq(TRUE, seeds[1])
-if (include.answer) {
-    cat("\\newpage\n")
-} else {
-    cat("\\vfill\\eject\n")
-}
+  printq(TRUE, seeds[1])
+  if (include.answer) {
+      cat("\\newpage\n")
+  } else {
+      cat("\\vfill\\eject\n")
+  }
 #+END_SRC
 ** Question #2
 #+BEGIN_SRC R :session global :results output raw :exports results
-printq(include.answer, seeds[2])
+  printq(include.answer, seeds[2])
 #+END_SRC
 ** Question #3
 #+BEGIN_SRC R :session global :results output raw :exports results
-printq(include.answer, seeds[3])
-if (include.answer) {
-    cat("\\newpage\n")
-}
+  printq(include.answer, seeds[3])
+  if (include.answer) {
+      cat("\\newpage\n")
+  }
 #+END_SRC
 
 ** Question #4
 #+BEGIN_SRC R :session global :results output raw :exports results
-printq(include.answer, seeds[4])
+  printq(include.answer, seeds[4])
 #+END_SRC
 
 ** Question #5
 #+BEGIN_SRC R :session global :results output raw :exports results
-printq(include.answer, seeds[5])
+  printq(include.answer, seeds[5])
 #+END_SRC
 
 \onecolumn

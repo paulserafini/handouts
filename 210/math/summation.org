@@ -1,8 +1,8 @@
 * Configuration :ignore:
 
 #+BEGIN_SRC R :session global :results output raw :exports results
-printq <- dget("./R/summation.R")
-cat("\\twocolumn\n")
+  printq <- dget("./R/summation.R")
+  cat("\\twocolumn\n")
 #+END_SRC
 
 * Summing notation
@@ -18,27 +18,27 @@ $[\Sigma(X_i)]^2 = (X_1 + X_2 + ... + X_n)^2$
 
 ** Question #1
 #+BEGIN_SRC R :session global :results output raw :exports results
-printq(TRUE, seeds[1])
+  printq(TRUE, seeds[1])
 #+END_SRC
 ** Question #2
 #+BEGIN_SRC R :session global :results output raw :exports results
-printq(include.answer, seeds[2])
+  printq(include.answer, seeds[2])
 #+END_SRC
 ** Question #3
 #+BEGIN_SRC R :session global :results output raw :exports results
-printq(include.answer, seeds[3])
+  printq(include.answer, seeds[3])
 #+END_SRC
 ** Question #4
 #+BEGIN_SRC R :session global :results output raw :exports results
-printq(include.answer, seeds[4])
+  printq(include.answer, seeds[4])
 #+END_SRC
 ** Question #5
 #+BEGIN_SRC R :session global :results output raw :exports results
-printq(include.answer, seeds[5])
+  printq(include.answer, seeds[5])
 #+END_SRC
 ** Question #6
 #+BEGIN_SRC R :session global :results output raw :exports results
-printq(include.answer, seeds[6])
+  printq(include.answer, seeds[6])
 #+END_SRC
 
 \onecolumn

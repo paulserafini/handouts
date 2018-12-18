@@ -1,8 +1,8 @@
 * Configuration :ignore:
 
 #+BEGIN_SRC R :session global :results output raw :exports results
-printq <- dget("./R/pearson.R")
-cat("\\newpage", sep="\n")
+  printq <- dget("./R/pearson.R")
+  cat("\\newpage", sep="\n")
 #+END_SRC
 
 * Pearson's /r/
@@ -33,58 +33,58 @@ r_{\mathit{XY}} = \mathit{SP} / \sqrt{\mathit{SS_X} \times \mathit{SS_Y}}
 
 ** Question #1
 #+BEGIN_SRC R :session global :results output raw :exports results
-printq(TRUE, seeds[1])
+  printq(TRUE, seeds[1])
 #+END_SRC
 ** Question #2
 #+BEGIN_SRC R :session global :results output raw :exports results
-printq(TRUE, seeds[2])
-if (include.answer) {
-    cat("\\newpage\n")
-} else {
-    cat("\\twocolumn\n")
-}
+  printq(TRUE, seeds[2])
+  if (include.answer) {
+      cat("\\newpage\n")
+  } else {
+      cat("\\twocolumn\n")
+  }
 #+END_SRC
 ** Question #3
 #+BEGIN_SRC R :session global :results output raw :exports results
-printq(include.answer, seeds[3])
+  printq(include.answer, seeds[3])
 #+END_SRC
 ** Question #4
 #+BEGIN_SRC R :session global :results output raw :exports results
-printq(include.answer, seeds[4])
+  printq(include.answer, seeds[4])
 #+END_SRC
 ** Question #5
 #+BEGIN_SRC R :session global :results output raw :exports results
-printq(include.answer, seeds[5])
-if (include.answer) {
-    cat("\\newpage\n")
-}
+  printq(include.answer, seeds[5])
+  if (include.answer) {
+      cat("\\newpage\n")
+  }
 #+END_SRC
 ** Question #6
 #+BEGIN_SRC R :session global :results output raw :exports results
-printq(include.answer, seeds[6])
+  printq(include.answer, seeds[6])
 #+END_SRC
 #+BEGIN_SRC R :session global :results value raw :exports results
-if (!include.answer) {
-    print("\\vfill\\eject\n")
-}
+  if (!include.answer) {
+      print("\\vfill\\eject\n")
+  }
 #+END_SRC
 ** Question #7
 #+BEGIN_SRC R :session global :results output raw :exports results
-printq(include.answer, seeds[7])
+  printq(include.answer, seeds[7])
 #+END_SRC
 ** Question #8
 #+BEGIN_SRC R :session global :results output raw :exports results
-printq(include.answer, seeds[8])
-if (include.answer) {
-    cat("\\newpage\n")
-}
+  printq(include.answer, seeds[8])
+  if (include.answer) {
+      cat("\\newpage\n")
+  }
 #+END_SRC
 ** Question #9
 #+BEGIN_SRC R :session global :results output raw :exports results
-printq(include.answer, seeds[9])
+  printq(include.answer, seeds[9])
 #+END_SRC
 ** Question #10
 #+BEGIN_SRC R :session global :results output raw :exports results
-printq(include.answer, seeds[10])
-cat("\\onecolumn\n")
+  printq(include.answer, seeds[10])
+  cat("\\onecolumn\n")
 #+END_SRC

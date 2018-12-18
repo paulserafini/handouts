@@ -1,80 +1,83 @@
 * Configuration :ignore:
 
 #+BEGIN_SRC R :session global :results output raw :exports results
-printq <- dget("./R/interval.R")
-cat("\\twocolumn\n")
+  printq <- dget("./R/interval.R")
+  cat("\\twocolumn\n")
 #+END_SRC
 
 * Interval construction
 
 ** Instructions :ignore:
 
-For each scenario, find the lower limit, midpoint, and upper limit of the first five intervals.
+For each scenario, find the lower limit (LL), midpoint (MP), and upper limit (UL) of the first five intervals.
+- LL_1 = the greatest multiple of the width less than or equal to the lowest score, or (if that does not exist) 0
+- UL_i = LL_i + width - 1
+- MP_i = (LL_i + UL_i)/2
 
 ** Question #1
 #+BEGIN_SRC R :session global :results output raw :exports results
-printq(TRUE, seeds[1])
+  printq(TRUE, seeds[1])
 #+END_SRC
 ** Question #2
 #+BEGIN_SRC R :session global :results output raw :exports results
-printq(include.answer, seeds[2])
+  printq(include.answer, seeds[2])
 #+END_SRC
 ** Question #3
 #+BEGIN_SRC R :session global :results output raw :exports results
-printq(include.answer, seeds[3])
+  printq(include.answer, seeds[3])
+  if (include.answer) {
+      cat("\\vfill\\eject", sep="\n")
+  }
 #+END_SRC
 ** Question #4
 #+BEGIN_SRC R :session global :results output raw :exports results
-printq(include.answer, seeds[4])
-if (include.answer) {
-cat("\\vfill\\eject", sep="\n")
-}
+  printq(include.answer, seeds[4])
 #+END_SRC
 ** Question #5
 #+BEGIN_SRC R :session global :results output raw :exports results
-printq(include.answer, seeds[5])
+  printq(include.answer, seeds[5])
 #+END_SRC
 ** Question #6
 #+BEGIN_SRC R :session global :results output raw :exports results
-printq(include.answer, seeds[6])
+  printq(include.answer, seeds[6])
 #+END_SRC
 ** Question #7
 #+BEGIN_SRC R :session global :results output raw :exports results
-printq(include.answer, seeds[7])
+  printq(include.answer, seeds[7])
+  if (include.answer) {
+      cat("\\vfill\\eject", sep="\n")
+  }
 #+END_SRC
 ** Question #8
 #+BEGIN_SRC R :session global :results output raw :exports results
-printq(include.answer, seeds[8])
-if (include.answer) {
-    cat("\\vfill\\eject", sep="\n")
-}
+  printq(include.answer, seeds[8])
 #+END_SRC
 ** Question #9
 #+BEGIN_SRC R :session global :results output raw :exports results
-printq(include.answer, seeds[9])
+  printq(include.answer, seeds[9])
 #+END_SRC
 ** Question #10
 #+BEGIN_SRC R :session global :results output raw :exports results
-printq(include.answer, seeds[10])
+  printq(include.answer, seeds[10])
 #+END_SRC
 ** Question #11
 #+BEGIN_SRC R :session global :results output raw :exports results
-printq(include.answer, seeds[11])
+  printq(include.answer, seeds[11])
+  if (include.answer) {
+      cat("\\vfill\\eject", sep="\n")
+  }
 #+END_SRC
 ** Question #12
 #+BEGIN_SRC R :session global :results output raw :exports results
-printq(include.answer, seeds[12])
-if (include.answer) {
-cat("\\vfill\\eject", sep="\n")
-}
+  printq(include.answer, seeds[12])
 #+END_SRC
 ** Question #13
 #+BEGIN_SRC R :session global :results output raw :exports results
-printq(include.answer, seeds[13])
+  printq(include.answer, seeds[13])
 #+END_SRC
 ** Question #14
 #+BEGIN_SRC R :session global :results output raw :exports results
-printq(include.answer, seeds[14])
+  printq(include.answer, seeds[14])
 #+END_SRC
 
 \onecolumn
