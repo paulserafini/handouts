@@ -23,7 +23,9 @@ For each table, calculate the median using this formula:
 
 /cumF/ = crfreq of the row below the one containing /LL/
 
-/fm/ = frequency of the row containing /LL/
+/fm/ = frequency of the row containing /LL/ \\
+
+Note: these definitions are for when the frequency table is in /descending/ order
 
 ** Question #1
 #+BEGIN_SRC R :session global :results output raw :exports results
