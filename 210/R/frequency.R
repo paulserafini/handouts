@@ -17,7 +17,8 @@ function(include.answer, seed) {
         crfreq <- cumsum(rfreq)
         freq.table <- cbind(score, freq, cfreq, rfreq, crfreq)
 
-        freq.table <- xtable(freq.table, digits=c(0,0,0,0,2,2))
+        freq.table <- xtable(freq.table,
+                             digits=c(0,0,0,0,2,2))
         print.xtable(freq.table,
                      floating=TRUE,
                      table.placement="!h",

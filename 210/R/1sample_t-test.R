@@ -7,14 +7,14 @@ function (include.answer, seed) {
     sd <- sd(sample)
     xbar <- mean(sample)
     alpha <- sample(c(0.1, 0.05, 0.01), 1)
-    CC <- sample(c(0.90, 0.95, 0.99), 1)
+    CC <- sample(1-alpha, 1)
     mu <- sample(1:10, 1)
 
     massRound(sd, xbar)
 
     cat("You draw a sample of ", n, " with a mean of ", xbar, " and a standard deviation of ", sd, ".
          Test $H_0: \\mu = ", mu, "$ at an \\alpha of ", alpha, ",
-         state your decision, then calculate a ", 100*CC, "% confidence interval.\n", sep="")
+         state your decision, then calculate a ", 100 * CC, "% confidence interval.\n", sep="")
 
     if (include.answer == TRUE) {
 
@@ -23,18 +23,20 @@ function (include.answer, seed) {
         se <- sd / sqrt(n)
         tobs <- (xbar - mu) / se
 
-        tcrit <- qt(alpha/2, df)
+        ## Make a decision
+        tcrit <- qt(alpha / 2, df)
         tcrit <- abs(tcrit)
+        significant <- abs(tobs) >= tcrit
 
         ## Calculate CI
         CIcrit <- qt((1 - CC)/2, df)
         CIcrit <- abs(CIcrit)
-        LL <- xbar - se * CIcrit
-        UL <- xbar + se * CIcrit
+        LL <- xbar - (se * CIcrit)
+        UL <- xbar + (se * CIcrit)
 
         massRound(se, tobs, tcrit, CIcrit, LL, UL)
 
-        if (abs(tcrit) > tobs) {
+        if (significant) {
             operator <- ifelse(tobs > tcrit, ">= ", " =< -")
             decision <- paste0("Reject because $", tobs, operator, tcrit, "$")
         } else {
@@ -46,8 +48,8 @@ function (include.answer, seed) {
              t_{\\textnormal{tobs}} = (", xbar, " - ", mu, ") / ", se, " = ", tobs, " \\\\
              t_{\\textnormal{crit}} = \\pm", tcrit, "\\\\
              \\textnormal{", decision, "} \\\\
-             t_{", 100*CC, "} = ", CIcrit, "\\\\
-             \\mathit{CI}_{", 100*CC, "} = ", xbar, " \\pm (", se, " \\times ", CIcrit, ") = [", LL, " ,\\ ", UL, "]
+             t_{", 100 * CC, "} = ", CIcrit, "\\\\
+             \\mathit{CI}_{", 100 * CC, "} = ", xbar, " \\pm (", se, " \\times ", CIcrit, ") = [", LL, " ,\\ ", UL, "]
              \\end{gather*}\n", sep="")
 
     }

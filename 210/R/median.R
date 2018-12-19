@@ -1,8 +1,8 @@
 function (include.answer, seed) {
 
-    n <- 12
+    n <- sample(10:30, 1)
 
-    mean <- sample(5:15, 1)
+    mean <- sample(10:100, 1)
     data <- round(rnorm(n, mean, 1), 0)
 
     ## Find a sample where the complicated procedure is necessary

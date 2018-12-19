@@ -12,7 +12,7 @@ function (include.answer, seed) {
     Y <- makesample(n)
     Ybar <- mean(Y)
 
-    ## Begin table
+    ## Start derivation table
     table <- cbind(X, Y)
     table <- as.data.frame(table)
     table$XdevSq <- (X - Xbar)^2
@@ -30,13 +30,12 @@ function (include.answer, seed) {
         B1 <- SP / SSx
         B0 <- Ybar - B1 * Xbar
 
-        ## Complete table
+        ## Finish derivation table
         table$Yhat <- B0 + X * B1
         table$Res <- table$Yhat - Ybar
         table$ResSq <- table$Res^2
-        table <- round(table, 2)
 
-        ## Calculate Fcrit
+        ## Calculate F
         SStot <- sum(table$YdevSq)
         SSreg <- sum(table$ResSq)
         SSres <- SStot - SSreg
@@ -44,12 +43,15 @@ function (include.answer, seed) {
         df2 <- n - df1 - 1
         MSreg <- SSreg / df1
         MSres <- SSres / df2
+
+        ## Make a decision
         F <- MSreg / MSres
         Fcrit <- qf(1-alpha, df1, df2)
+        significant <- F >= Fcrit
 
         massRound(SSx, SSy, SP, B1, B0, SStot, SSreg, SSres, MSreg, MSres, F, Fcrit)
 
-        if (F >= Fcrit) {
+        if (significant) {
             decision <- paste0("Reject because $", F, " >= ", Fcrit, "$")
         } else {
             decision <- paste0("Fail to reject because $", F, " < ", Fcrit, "$")
@@ -107,7 +109,7 @@ function (include.answer, seed) {
                              "$(Y_i - \\bar{Y})^2$",
                              "$(X_i - \\bar{X})(Y_i - \\bar{Y})$")
 
-        table <- xtable(table, digits=c(0,0,0,0,0,0))
+        table <- xtable(table, digits=0)
         print.xtable(table,
                      floating=FALSE,
                      sanitize.text.function=function(x){x},

@@ -5,15 +5,16 @@ function (include.answer, seed) {
     n <- sample(5:7, 1)
     sample1 <- makesample(n)
     sample2 <- makesample(n)
-    CC <- sample(c(0.90, 0.95, 0.99), 1)
-    alpha <- sample(1-CC, 1)
+    alpha <- sample(c(0.1, 0.05, 0.01), 1)
+    CC <- sample(1-alpha, 1)
    
+    cat("Test $H_0: \\mu_{\\bar{D}} = 0$ at an \\alpha of ", alpha, ",
+         state the decision/error,
+         then calculate a ", 100 * CC, "% confidence interval.\n", sep="")
+
     ## Initialise derivation table
     table <- cbind(sample1, sample2)
     table <- as.data.frame(table)
-    
-    cat("Test $H_0: \\mu_{\\bar{D}} = 0$ at an \\alpha of ", alpha, ",
-         state the decision/error, then calculate a ", 100*CC, "% confidence interval.\n", sep="")
 
     if (include.answer) {
 
@@ -33,11 +34,11 @@ function (include.answer, seed) {
         tcrit <- abs(tcrit)
 
         ## Calculate confidence interval
-        CIcrit <- (1 - CC)/2
+        CIcrit <- (1 - CC) / 2
         CIcrit <- qt(CIcrit, df)
         CIcrit <- abs(CIcrit)
-        LL <- (Dbar - sDbar * CIcrit)
-        UL <- (Dbar + sDbar * CIcrit)
+        LL <- Dbar - (sDbar * CIcrit)
+        UL <- Dbar + (sDbar * CIcrit)
 
         massRound(Dbar, sumDevSq, sD, sDbar, tobs, tcrit, CIcrit, LL, UL)
 
@@ -55,8 +56,9 @@ function (include.answer, seed) {
                      booktabs=TRUE,
                      include.rownames=FALSE)
 
-        if (abs(tobs) >= tcrit) {
-            operator <- ifelse(tobs > tcrit, ">= ", " =< -")
+        significant <- abs(tobs) >= tcrit
+        if (significant) {
+            operator <- ifelse(tobs >= tcrit, ">= ", " =< -")
             decision <- paste0("Reject because $", tobs, operator, tcrit, "$")
         } else {
             decision <- paste0("Fail to reject because $", tcrit, " > ", tobs, " > -", tcrit, "$")
@@ -71,8 +73,8 @@ function (include.answer, seed) {
              t_{\\textnormal{obs}}(", df, ") = ", Dbar, " / ", sDbar, " = ", tobs, " \\\\
              t_{\\textnormal{crit}} = ", tcrit, " \\\\
              \\textnormal{", decision, "} \\\\
-             t_{", 100*CC, "} = ", CIcrit, " \\\\
-             \\mathit{CI}_{", 100*CC, "} = ", Dbar,  " \\pm (", sDbar, " \\times ", CIcrit, ") = [", LL, ",\\ ", UL, "]
+             t_{", 100 * CC, "} = ", CIcrit, " \\\\
+             \\mathit{CI}_{", 100 * CC, "} = ", Dbar,  " \\pm (", sDbar, " \\times ", CIcrit, ") = [", LL, ",\\ ", UL, "]
              \\end{gather*}\n", sep="")
 
     } else {

@@ -7,7 +7,7 @@ function (include.answer, seed) {
     Y <- makesample(n)
     alpha <- sample(c(0.2, 0.1), 1)
 
-    ## Begin table
+    ## Start derivation table
     table <- cbind(X, Y)
     table <- as.data.frame(table)
 
@@ -23,23 +23,24 @@ function (include.answer, seed) {
         Ysd <- sd(Y)
         Ybar <- mean(Y)
 
-        ## Create table
-
+        ## Finish derivation table table
         table$Xdev <- X - Xbar
         table$Ydev <- Y - Ybar
         table$Xdev.sq <- table$Xdev^2
         table$Ydev.sq <- table$Ydev^2
         table$SP <- table$Xdev * table$Ydev
 
-        ## Calculate rcrit
+        ## Calculate r
         SSx <- sum(table$Xdev.sq)
         SSy <- sum(table$Ydev.sq)
         SP <- sum(table$SP)
         r <- SP / sqrt(SSx * SSy)
-        p <- cor.test(X,Y)$p.value
-        rcrit <- rcrit(n, alpha)
 
-        massRound(Xsd, Ysd, SSx, SSy, SP, r, p, rcrit)
+        ## Make a decision
+        rcrit <- rcrit(n, alpha)
+        significant <- abs(r) >= rcrit
+
+        massRound(Xsd, Ysd, SSx, SSy, SP, r, rcrit)
 
         colnames(table) <- c("$X_i$",
                              "$Y_i$",
@@ -48,6 +49,7 @@ function (include.answer, seed) {
                              "$(X_i - \\bar{X})^2$",
                              "$(Y_i - \\bar{Y})^2$",
                              "$(X_i - \\bar{X})(Y_i - \\bar{Y})$")
+
         table <- xtable(table, digits=0)
         print.xtable(table,
                      floating=TRUE,
@@ -56,8 +58,8 @@ function (include.answer, seed) {
                      booktabs=TRUE,
                      include.rownames=FALSE)
 
-        if (abs(r) >= rcrit) {
-            operator <- ifelse(robs > rcrit, ">= ", " =< -")
+        if (significant) {
+            operator <- ifelse(robs > rcrit, ">= ", " <= -")
             decision <- paste0("Reject because $", r, operator, rcrit, "$")
         } else {
             decision <- paste0("Fail to reject because $", rcrit, " > ", r, " > -", rcrit, "$")

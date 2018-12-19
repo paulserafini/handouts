@@ -8,7 +8,7 @@ function (include.answer, seed) {
     sample <- sample(1:10, n, replace=TRUE)
     xbar <- mean(sample)
     alpha <- sample(c(0.1, 0.05, 0.01), 1)
-    CC <- sample(c(0.90, 0.95, 0.99), 1)
+    CC <- sample(1-alpha, 1)
 
     massRound(xbar, sigma)
 
@@ -19,12 +19,15 @@ function (include.answer, seed) {
 
     if (include.answer) {
         
-        ## Calculate zcrit
+        ## Calculate zobs
         se <- sigma / sqrt(n)
         zobs <- (xbar - mu) / se
+
+        ## Make a decision
         zcrit <- qnorm(alpha / 2)
         zcrit <- abs(zcrit)
-        
+        significant <- abs(zobs) >= zcrit 
+
         ## Calculate confidence interval
         CIcrit <- qnorm((1 - CC) / 2)
         CIcrit <- abs(CIcrit)
@@ -33,8 +36,8 @@ function (include.answer, seed) {
 
         massRound(se, zobs, zcrit, CIcrit, LL, UL)
 
-        if (abs(zobs) >= zcrit) {
-            operator <- ifelse(zobs > zcrit, ">= ", " =< -")
+        if (significant) {
+            operator <- ifelse(zobs >= zcrit, ">= ", " <= -")
             decision <- paste0("Reject because $", zobs, operator, zcrit, "$")
         } else {
             decision <- paste0("Fail to reject because $", zcrit, " > ", zobs, " > -", zcrit, "$")

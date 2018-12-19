@@ -2,7 +2,7 @@ function (include.answer, seed) {
 
     set.seed(seed)
     alpha <- sample(c(0.1, 0.05, 0.01), 1)
-    CC <- sample(c(0.90, 0.95, 0.99), 1)
+    CC <- sample(1-alpha, 1)
 
     ## Create sample 1
     n1 <- sample(6:7, 1)
@@ -24,7 +24,7 @@ function (include.answer, seed) {
          and another sample of ", n2, " with a mean of ", xbar2, "
          and a variance of ", var2, ".
          Test $H_0: \\mu_1 = \\mu_2$ at an \\alpha of ", alpha, ",
-         state the error, then calculate a ", 100*CC, "% confidence interval.\n", sep="")
+         state the error, then calculate a ", 100 * CC, "% confidence interval.\n", sep="")
 
     if (include.answer) {
 
@@ -42,19 +42,21 @@ function (include.answer, seed) {
         se <- sqrt((var.p / n1) + (var.p / n2))
         tobs <- (xbar1 - xbar2) / se
 
+        ## Make a decision
         tcrit <- qt(alpha / 2, dftot)
         tcrit <- abs(tcrit)
+        significant <- abs(tobs) >= tcrit
 
         ## Calculate confidence interval
-        CIcrit <- qt((1 - CC)/2, dftot)
+        CIcrit <- qt((1 - CC) / 2, dftot)
         CIcrit <- abs(CIcrit)
         LL <- (xbar1 - xbar2) - (se * CIcrit)
         UL <- (xbar1 - xbar2) + (se * CIcrit)
 
         massRound(SS1, SS2, var.p, se, tobs, tcrit, CIcrit, LL, UL)
 
-        if (abs(tobs) >= tcrit) {
-            operator <- ifelse(tobs >= tcrit, ">= ", " =< -")
+        if (significant) {
+            operator <- ifelse(tobs >= tcrit, ">= ", " <= -")
             decision <- paste0("Reject because $", tobs, operator, tcrit, "$")
         } else {
             decision <- paste0("Fail to reject because $", tcrit, " > ", tobs, " > -", tcrit, "$")
@@ -71,9 +73,8 @@ function (include.answer, seed) {
              t_{\\textnormal{obs}}(", dftot, ") = (", xbar1, " - ", xbar2, ") / ", se, " = ", tobs, " \\\\
              t_{\\textnormal{crit}} = \\pm", tcrit, "\\\\
              \\textnormal{", decision, "} \\\\
-             t_{", 100*CC, "} = ", CIcrit, "\\\\
-             \\mathit{CI}_{", 100*CC, "} = (", xbar1, " - ", xbar2, ") \\pm (", se, " \\times ", CIcrit, ") = [", LL, ",\\ ", UL, "]
+             t_{", 100 * CC, "} = ", CIcrit, "\\\\
+             \\mathit{CI}_{", 100 * CC, "} = (", xbar1, " - ", xbar2, ") \\pm (", se, " \\times ", CIcrit, ") = [", LL, ",\\ ", UL, "]
              \\end{gather*}\n", sep="")
-
     }
 }
