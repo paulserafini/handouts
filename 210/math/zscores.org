@@ -14,3 +14,5 @@ Calculate the area between the following pairs of /z/ scores:
 #+BEGIN_SRC R :session global :results output raw :exports results
   printq(include.answer, seeds[1])
 #+END_SRC
+
+\onecolumn

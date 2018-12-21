@@ -2,10 +2,12 @@ function (include.answer, seed) {
 
     ## Generate example
     set.seed(seed)
-    n <- 30
-    pop <- seq(from=-0.99, to=0.99, by=0.01)
-    z1 <- sample(pop, n)
-    z2 <- sample(setdiff(pop, z1), n)
+    n <- 48
+    positive <- seq(from=0.01, to=0.99, by=0.01)
+    positive <- sample(positive, 57)
+    both <- c(positive, -positive)
+    z1 <- sample(both, n)
+    z2 <- sample(both, n)
 
     ## Print area between each z1 and z2
     table <- cbind(z1, z2)
@@ -41,10 +43,7 @@ function (include.answer, seed) {
 
     
     ## Create z score table
-    z <- c(z1, z2)
-    z <- abs(z)
-    z <- unique(z)
-    z <- sort(z)
+    z <- sort(positive)
     table <- cbind(z)
     table <- transform(table, above = 1 - pnorm(z))
     table <- transform(table, mean = 0.5 -above)
