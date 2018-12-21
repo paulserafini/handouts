@@ -7,7 +7,10 @@
 
 * /Z/-scores
 
-The area between $z_1$ and $z_2$ is the area above the lesser of the two minus the area above the greater of the two. The area above /-z/ is 0.5 + the area between $z$ and the mean. \\
+The area between $z_1$ and $z_2$ is the area above the lesser of the two minus the area above the greater of the two. Note:
+ - The area below $z$ = 1 - (the area above it)
+ - The area below $-z$ = the area above $z$
+ - The area above $-z$ = 0.5 + (the area between $z$ and the mean)
    
 Calculate the area between the following pairs of /z/ scores:
 

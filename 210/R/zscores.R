@@ -2,9 +2,10 @@ function (include.answer, seed) {
 
     ## Generate example
     set.seed(seed)
-    z1 <- runif(14, -0.95, 0.95)
-    z2 <- runif(14, -0.95, 0.95)
-    massRound(z1, z2)
+    n <- 14
+    pop <- seq(from=-0.99, to=0.99, by=0.01)
+    z1 <- sample(pop, n)
+    z2 <- sample(pop, n)
 
     ## Print question
     z.list <- paste(z1, z2, sep=" and ")
@@ -14,8 +15,9 @@ function (include.answer, seed) {
     cat("\\end{quote}\n")
 
     ## Create z score table
-    z <- unique(z1, z2)
+    z <- c(z1, z2)
     z <- abs(z)
+    z <- unique(z)
     z <- sort(z)
     table <- cbind(z)
     table <- transform(table, above = 1 - pnorm(z))
@@ -23,6 +25,7 @@ function (include.answer, seed) {
     colnames(table) <- c("$z$",
                          "Area between mean and $z$",
                          "Area above $z$")
+
     table <- xtable(table, digits=c(0,2,4,4))
     print.xtable(table,
                  floating=TRUE,
@@ -31,27 +34,31 @@ function (include.answer, seed) {
                  booktabs=TRUE,
                  include.rownames=FALSE)
 
-    if (include.answer) {
-
-        ## Print area between each z1 and z2
-        table <- cbind(z1, z2)
-        min <- apply(table, 1, min)
-        max <- apply(table, 1, max)
-        area.above.min <- 1 - pnorm(min, lower.tail=TRUE)
-        area.above.max <- 1 - pnorm(max, lower.tail=TRUE)
-        area.between <- area.above.min - area.above.max
-        table <- cbind(table, area.between)
-        colnames(table) <- c("$z_1$", "$z_2$", "Area between $z_1$ and $z_2$")
-
-        table <- xtable(table, digits=c(0,2,2,2))
-
-        print.xtable(table,
-                     floating=TRUE,
-                     table.placement="!h",
-                     booktabs=TRUE,
-                     sanitize.text.function=function(x){x},
-                     include.rownames=FALSE)
+    ## Print area between each z1 and z2
+    table <- cbind(z1, z2)
+    min <- apply(table, 1, min)
+    max <- apply(table, 1, max)
+    area.above.min <- 1 - pnorm(min, lower.tail=TRUE)
+    area.above.max <- 1 - pnorm(max, lower.tail=TRUE)
+    area.between <- area.above.min - area.above.max
+    massRound(area.above.min, area.above.max, area.between)
+    area.between <- paste0(area.above.min, " - ", area.above.max, " = ", area.between)
+    table <- cbind(table, area.between)
+    colnames(table) <- c("$z_1$", "$z_2$", "Area between $z_1$ and $z_2$")
 
 
-    }    
+    if (!include.answer) {
+        table <- table[1:2,]
+    }
+
+    table <- xtable(table,
+                    align=c("r","r","r","r"),
+                    digits=c(0,2,2,2))
+
+    print.xtable(table,
+                 floating=TRUE,
+                 table.placement="!h",
+                 booktabs=TRUE,
+                 sanitize.text.function=function(x){x},
+                 include.rownames=FALSE)
 }
