@@ -7,7 +7,7 @@
 
 * /Z/-scores
 
-To get the area between $z_1$ and $z_2$, subtract the area above the lesser of the two minus the area above the greater of the two. The area below $z$ = 1 - (the area above it), the area below $-z$ = the area above $z$, the area above $-z$ = 0.5 + (the area between $z$ and the mean). \newline
+The area between $z_1$ and $z_2$ is equal to the area above the lesser of the two minus the area above the greater of the two. The area below $z$ = 1 - (the area above it), the area below $-z$ = the area above $z$, and the area above $-z$ = 0.5 + (the area between $z$ and the mean). \newline
    
 Calculate the area between the following pairs of /z/ scores:
 

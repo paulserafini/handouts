@@ -1,21 +1,18 @@
 * Configuration :ignore:
 
 #+BEGIN_SRC R :session global :results output raw :exports results
-  printq <- dget("./R/median.R")
+  printq <- dget("./R/spearman_ranking.R")
   cat("\\twocolumn\n")
 #+END_SRC
   
-* Median & IQR calculation
+* Spearman score-ranking
 
 ** Instructions :ignore:
 
-For each frequency table, calculate the median ($P_{50}$) and interquartile range ($P_{25}$ and $P_{75}$). The equation for the 50th percentile is:
-    \begin{equation*}
-    P_{50} = \mathit{LL} + W \begin{bmatrix} \dfrac{0.5(n) - \mathit{cumF}}{\mathit{fm}} \end{bmatrix}
-    \end{equation*}
-/LL/ is (the least score with a crfreq \geq 0.5) - 0.5, /W/ is the interval width (1 if the data is ungrouped), /n/ is the sample size (the greatest cfreq), /cumF/ is the crfreq of the row below the one containing /LL/ (0 if there is no such row), and /fm/ is the freq of the row containing /LL/. \\
-
-Note: the frequency table must be in /descending/ order
+To rank scores when calculating Spearman's rho:
+ 1. Order the $n$ scores from least to greatest
+ 2. Assign them ranks from 1 to $n$
+ 3. Assign tied scores the mean of their ranks from step 2
 
 ** Question #1
 #+BEGIN_SRC R :session global :results output raw :exports results
@@ -28,7 +25,9 @@ Note: the frequency table must be in /descending/ order
 ** Question #3
 #+BEGIN_SRC R :session global :results output raw :exports results
   printq(include.answer, seeds[3])
-  cat("\\vfill\\eject\n")
+  if (include.answer) {
+      cat("\\vfill\\eject\n")
+  }
 #+END_SRC
 ** Question #4
 #+BEGIN_SRC R :session global :results output raw :exports results
@@ -41,10 +40,6 @@ Note: the frequency table must be in /descending/ order
 ** Question #6
 #+BEGIN_SRC R :session global :results output raw :exports results
   printq(include.answer, seeds[6])
-#+END_SRC
-** Question #7
-#+BEGIN_SRC R :session global :results output raw :exports results
-  printq(include.answer, seeds[7])
 #+END_SRC
 
 \onecolumn

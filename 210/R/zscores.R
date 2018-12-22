@@ -26,8 +26,6 @@ function (include.answer, seed) {
     table <- cbind(table, area.between)
     colnames(table) <- c("$z_1$", "$z_2$", "Area between $z_1$ and $z_2$")
 
-
-
     table <- xtable(table,
                     align=c("r","r","r","r"),
                     digits=c(0,2,2,2))
@@ -38,7 +36,6 @@ function (include.answer, seed) {
                  booktabs=TRUE,
                  sanitize.text.function=function(x){x},
                  include.rownames=FALSE)
-
 
 
     
