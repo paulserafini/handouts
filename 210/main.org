@@ -250,11 +250,6 @@
  4. Draw a a relationship which cannot be accurately described by Pearson's /r/
  5. Why doesn't correlation imply causation? Give a scenario in which inferring a causal relationship from correlation would be misguided
  6. Why does $df = n - 2$ when looking up critical /r/ values? Explain using a scatterplot of the $n = 2$ and $n = 1$ cases
- 7. Rank each set of scores as though you were calculating Spearman's rho:
-    \begin{gather*}
-    4, 0, 4, 9, 3 \\
-    3, 5, 3, 6, 3
-    \end{gather*}
 
  #+INCLUDE: "./math/pearson.org"
  #+INCLUDE: "./math/spearman_ranking.org"
