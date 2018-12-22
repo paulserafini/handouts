@@ -3,7 +3,7 @@
 # #+SELECT_TAGS: week4
 # #+EXPORT_FILE_NAME: answerkey.pdf
 #+BEGIN_SRC R :session global :exports none
-  include.answer <- FALSE
+  include.answer <- TRUE
   seeds <- 1:100
 #+END_SRC
 
@@ -33,7 +33,7 @@
  2. Draw a well-designed bar graph and a poorly-designed one, and explain why the first is better
  3. Why might we prefer:
     a. Relative frequency over frequency?
-    b. Cumulative relative frequency over relative frequency?
+    b. Cumulative relative frequency over cumulative frequency?
 
  #+INCLUDE: "./math/frequency.org"
  #+INCLUDE: "./math/interval.org"

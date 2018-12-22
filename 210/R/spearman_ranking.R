@@ -13,14 +13,14 @@ function(include.answer, seed) {
         table <- as.data.frame(sample)
         table$sorted <- sort(sample)
         table$rank1 <- 1:5
-        table$rank2 <- rank(sample, ties.method="average")
+        table$rank2 <- rank(table$sorted, ties.method="average")
     
         colnames(table) <- c("$X_i$",
                              "Sorted",
                              "Ranking 1",
                              "Ranking 2")
 
-        table <- xtable(table, digits=0)
+        table <- xtable(table, digits=c(0,0,0,0,1))
         print.xtable(table,
                      floating=TRUE,
                      table.placement="!h",
