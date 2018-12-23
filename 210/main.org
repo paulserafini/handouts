@@ -7,6 +7,8 @@
   seeds <- 1:100
 #+END_SRC
 
+# calculate their predicted score
+
 * Week #1 :week1:
 
  1. What is the difference between descriptive and inferential statistics?
@@ -75,7 +77,7 @@
     b. If you divide every score by the same number, the new standard deviation is the old standard deviation divided by that number
     So if we subtract the mean from every score, and divide every score by the standard deviation, what are the new mean and standard deviation?
  2. What is the advantage of standard scores over raw scores? Give an example of a scenario in which a standard score would be a lot more meaningful than a raw score
- 3. What does the height of the normal curve above a given score tell us about that score? What does the area under the curve for a given interval tell us about that interval?
+ 3. What does the height of the curve above a given score tell us about that score? What does the area under the curve for a given interval tell us about that interval?
  4. On the first number line below, draw bars representing the frequency distribution of the following data:
     \begin{quote}
     4, 6, 4, 3, 8
@@ -131,6 +133,7 @@
 #+END_SRC
 
 #+INCLUDE: "./math/z_calculation.org"
+#+INCLUDE: "./math/p_calculation.org"
 
 * Week #5 :week5:
 
@@ -162,8 +165,6 @@
        - A mean $<=$ 2.5
        - An error of at least 1.5
          
-#+INCLUDE: "./math/p_calculation.org"
-
 * Week #6 :week6:
 
  1. What are the steps in hypothesis testing? Give an example and relate each step to the concepts we've learned so far in the course (population, sample, parameter, statistic, sampling distribution of the mean, null and alternate hypotheses, critical values, etc.)
@@ -214,12 +215,12 @@
 
  1. Come up with some research questions for which a nondirectional dependent /t/-test would be appropriate, then reframe them so that a directional test would be appropriate. State the hypotheses formally
  2. How does using a dependent design rather than an independent design affect power? Why?
- 3. Give an example of a research question which could be addressed by ANOVA but not a single t-test
+ 3. Give an example of a research question which could be addressed by ANOVA but not a single /t/-test
  4. What do the numerator and denominator of the /F/ statistic represent? Why is /F/ is equal to 1 under the null hypothesis?
     \begin{gather*}
     F = \dfrac{\mathit{MS_B}}{\mathit{MS_W}} \\
-    \mathit{MS}_B = \textnormal{ "mean squares between"} \\
-    \mathit{MS}_W = \textnormal{ "mean squares within"}
+    \mathit{MS}_B = \textnormal{ ``mean squares between''} \\
+    \mathit{MS}_W = \textnormal{ ``mean squares within''}
     \end{gather*}
  5. How much within and between group variability is there in each of the following scenarios?
     - Scenario #1

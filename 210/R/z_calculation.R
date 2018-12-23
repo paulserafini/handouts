@@ -4,8 +4,6 @@ function(include.answer, seed) {
     set.seed(seed)
     n <- 5
     sample <- makesample(n)
-    
-    cat("Convert the following scores into $z$ scores.\n")
 
     if (include.answer) {
 
@@ -35,7 +33,8 @@ function(include.answer, seed) {
                      booktabs=TRUE,
                      include.rownames=FALSE)
 
-        cat("\\begin{gather*}
+        cat("\\vspace{-2\\baselineskip}
+             \\begin{gather*}
              \\bar{X} = ", xbar, " \\\\
              \\mathit{SS} = ", SS, " \\\\
              df = 5 - 1 = 4 \\\\
@@ -45,15 +44,8 @@ function(include.answer, seed) {
 
     } else {
 
-        table <- data.frame(sample)
-        colnames(table) <- "$X_i$"
-        table <- xtable(table, digits=0)
-        print.xtable(table,
-                     floating=TRUE,
-                     table.placement="!h",
-                     sanitize.text.function=function(x){x},
-                     booktabs=TRUE,
-                     include.rownames=FALSE)
+        question <- paste(sample, collapse=", ")
+        cat(question, "\n")
 
     }
 }

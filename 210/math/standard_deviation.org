@@ -9,12 +9,13 @@
 
 ** Instructions :ignore:
 
-\begin{gather*}
-\mathit{SS} = \Sigma[(X_i - \bar{X})^2] \\
-df = n - 1 \\
-s^2 = \frac{\mathit{SS}}{df} \\
-s = \sqrt{s}
-\end{gather*}
+Calculate the standard deviation of each data set.
+    \begin{gather*}
+    \mathit{SS} = \Sigma[(X_i - \bar{X})^2] \\
+    df = n - 1 \\
+    s^2 = \frac{\mathit{SS}}{df} \\
+    s = \sqrt{s}
+    \end{gather*}
 
 ** Question #1
 #+BEGIN_SRC R :session global :results output raw :exports results

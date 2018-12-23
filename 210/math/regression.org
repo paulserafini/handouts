@@ -6,8 +6,9 @@
 #+END_SRC
 
 * Regression
-
 ** Definitions :ignore:
+
+\vspace{-2\baselineskip}
 
 \begin{multicols}{2}
 \begin{gather*}
