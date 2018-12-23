@@ -82,7 +82,6 @@
     \end{quote}
     Then, subtract the mean from each score and draw the new distribution on the second number line. Then, divide those by the standard deviation and draw them on the third number line. What does each step do to the location, spread, and shape of the distribution?
 
-
 # Number line 1
 #+BEGIN_SRC latex
   \vspace{1cm}
@@ -131,7 +130,7 @@
   \end{center}
 #+END_SRC
 
-#+INCLUDE: "./math/zscores.org"
+#+INCLUDE: "./math/z_calculation.org"
 
 * Week #5 :week5:
 
@@ -162,6 +161,8 @@
        - A mean $>=$ 4
        - A mean $<=$ 2.5
        - An error of at least 1.5
+         
+#+INCLUDE: "./math/p_calculation.org"
 
 * Week #6 :week6:
 
@@ -181,10 +182,9 @@
  10. What is the goal of a confidence interval?
  11. Come up with some research questions for which a nondirectional /z/-test would be appropriate, then reframe them so that a directional test would be appropriate. State the hypotheses formally
 
-# - What does it mean to say that a /p/ value is a conditional probability?
 # - Why is calculating a 1 - \alpha% confidence interval the same as performing a hypothesis test at \alpha?
 
-#+INCLUDE: "./math/ztests.org"
+#+INCLUDE: "./math/z-test.org"
 
 * Week #7 :week7:
 

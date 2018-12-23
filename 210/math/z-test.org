@@ -1,7 +1,7 @@
 * Configuration :ignore:
 
 #+BEGIN_SRC R :session global :results output raw :exports results
-  printq <- dget("./R/ztest.R")
+  printq <- dget("./R/z-test.R")
   cat("\\twocolumn\n")
 #+END_SRC
 

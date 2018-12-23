@@ -1,47 +1,71 @@
 * Configuration :ignore:
 
 #+BEGIN_SRC R :session global :results output raw :exports results
-  printq <- dget("./R/standard_deviation.R")
+  printq <- dget("./R/z_calculation.R")
   cat("\\twocolumn\n")
 #+END_SRC
-  
-* Standard deviation calculation
 
-** Instructions :ignore:
+* /Z/-scores
+
+** Definitions :ignore:
 
 \begin{gather*}
 \mathit{SS} = \Sigma[(X_i - \bar{X})^2] \\
 df = n - 1 \\
-s^2 = \frac{\mathit{SS}}{df} \\
-s = \sqrt{s}
+s^2 = \mathit{SS}/df \\
+s = \sqrt{s} \\
+z_i = (X_i - \bar{X})/s \\
 \end{gather*}
 
 ** Question #1
+
 #+BEGIN_SRC R :session global :results output raw :exports results
   printq(TRUE, seeds[1])
 #+END_SRC
+
 ** Question #2
+
 #+BEGIN_SRC R :session global :results output raw :exports results
   printq(include.answer, seeds[2])
-#+END_SRC
-** Question #3
-#+BEGIN_SRC R :session global :results output raw :exports results
-  printq(include.answer, seeds[3])
   if (include.answer) {
       cat("\\vfill\\eject\n")
   }
 #+END_SRC
+
+** Question #3
+
+#+BEGIN_SRC R :session global :results output raw :exports results
+  printq(include.answer, seeds[3])
+  if (!include.answer) {
+      cat("\\vfill\\eject\n")
+  }
+#+END_SRC
+
 ** Question #4
+
 #+BEGIN_SRC R :session global :results output raw :exports results
   printq(include.answer, seeds[4])
 #+END_SRC
+
 ** Question #5
+
 #+BEGIN_SRC R :session global :results output raw :exports results
   printq(include.answer, seeds[5])
+  if (include.answer) {
+      cat("\\newpage\n")
+  }
 #+END_SRC
+
 ** Question #6
+
 #+BEGIN_SRC R :session global :results output raw :exports results
   printq(include.answer, seeds[6])
+#+END_SRC
+
+** Question #7
+
+#+BEGIN_SRC R :session global :results output raw :exports results
+  printq(include.answer, seeds[7])
 #+END_SRC
 
 \onecolumn
