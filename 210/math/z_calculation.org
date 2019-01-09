@@ -15,7 +15,7 @@ For each data set, convert each score into a /z/-score.
     \mathit{SS} = \Sigma[(X_i - \bar{X})^2] \\
     df = n - 1 \\
     s^2 = \mathit{SS}/df \\
-    s = \sqrt{s} \\
+    s = \sqrt{s^2} \\
     z_i = (X_i - \bar{X})/s \\
     \end{gather*}
 
