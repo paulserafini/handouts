@@ -10,10 +10,13 @@
 
 For the following data sets, create a frequency table containing the frequency (freq), cumulative frequency (cfreq), relative frequency (rfreq), and cumulative relative frequency (crfreq) of each value.
 \begin{quote}
-freq = number equal to score \\
-cfreq = number less than or equal to score \\
-rfreq = frequency divided by $n$ \\
-crfreq = cumulative frequency divided by $n$
+freq = the number of scores equal to a value
+
+cfreq = the number of scores less than or equal to that value
+
+rfreq = freq divided by $n$
+
+crfreq = cfreq divided by $n$
 \end{quote}
 
 ** Question #1
@@ -27,13 +30,13 @@ crfreq = cumulative frequency divided by $n$
 ** Question #3
 #+BEGIN_SRC R :session global :results output raw :exports results
   printq(include.answer, seeds[3])
+  if (include.answer) {
+      cat("\\vfill\\eject\n")
+  }
 #+END_SRC
 ** Question #4
 #+BEGIN_SRC R :session global :results output raw :exports results
   printq(include.answer, seeds[4])
-  if (include.answer) {
-      cat("\\vfill\\eject\n")
-  }
 #+END_SRC
 ** Question #5
 #+BEGIN_SRC R :session global :results output raw :exports results
@@ -46,13 +49,13 @@ crfreq = cumulative frequency divided by $n$
 ** Question #7
 #+BEGIN_SRC R :session global :results output raw :exports results
   printq(include.answer, seeds[7])
+  if (include.answer) {
+      cat("\\vfill\\eject\n")
+  }
 #+END_SRC
 ** Question #8
 #+BEGIN_SRC R :session global :results output raw :exports results
   printq(include.answer, seeds[8])
-  if (include.answer) {
-      cat("\\vfill\\eject\n")
-  }
 #+END_SRC
 ** Question #9
 #+BEGIN_SRC R :session global :results output raw :exports results
@@ -89,8 +92,4 @@ crfreq = cumulative frequency divided by $n$
 ** Question #17
 #+BEGIN_SRC R :session global :results output raw :exports results
   printq(include.answer, seeds[17])
-#+END_SRC
-** Question #18
-#+BEGIN_SRC R :session global :results output raw :exports results
-  printq(include.answer, seeds[18])
 #+END_SRC

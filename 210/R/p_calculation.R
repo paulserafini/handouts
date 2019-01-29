@@ -45,8 +45,8 @@ function (include.answer, seed) {
     table <- transform(table, above = 1 - pnorm(z))
     table <- transform(table, mean = 0.5 -above)
     colnames(table) <- c("$z$",
-                         "Area between mean and $z$",
-                         "Area above $z$")
+                         "Area above $z$",
+                         "Area between mean and $z$")
 
     table <- xtable(table, digits=c(0,2,4,4))
     print.xtable(table,

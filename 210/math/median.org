@@ -15,7 +15,7 @@ For each frequency table, calculate the median ($P_{50}$) and interquartile rang
     \end{equation*}
 /LL/ is (the least score with a crfreq \geq 0.5) - 0.5, /W/ is the interval width (1 if the data is ungrouped), /n/ is the sample size (the greatest cfreq), /cumF/ is the crfreq of the row below the one containing /LL/ (0 if there is no such row), and /fm/ is the freq of the row containing /LL/. \\
 
-Note: the frequency table must be in /descending/ order
+Note: the frequency table must be in /descending/ order of score
 
 ** Question #1
 #+BEGIN_SRC R :session global :results output raw :exports results
