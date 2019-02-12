@@ -14,7 +14,7 @@
 z_{\textnormal{crit}} = \textnormal{the \emph{z} score with $\alpha/2$ above it} \\
 z_{\textnormal{obs}} = \dfrac{\bar{X} - \mu}{\sigma_{\bar{X}}} \\
 \mathit{CI}_y = \bar{X} \pm (\sigma_{\bar{X}} \times z_y) \\
-z_y = \textnormal{ the \emph{z} score with } (100 - y)/100 \textnormal{ above it}
+z_y = \textnormal{ the \emph{z} score with } (100 - y) / 200 \textnormal{ above it}
 \end{gather*}
 
 ** Critical /z/ values
