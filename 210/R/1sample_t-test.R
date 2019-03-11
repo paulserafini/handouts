@@ -7,7 +7,7 @@ function (include.answer, seed) {
     sd <- sd(sample)
     xbar <- mean(sample)
     alpha <- sample(c(0.1, 0.05, 0.01), 1)
-    CC <- sample(1-alpha, 1)
+    CC <- sample(1 - c(0.1, 0.05, 0.01), 1)
     mu <- sample(1:10, 1)
 
     massRound(sd, xbar)

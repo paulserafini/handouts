@@ -6,7 +6,7 @@ function (include.answer, seed) {
     sample1 <- makesample(n)
     sample2 <- makesample(n)
     alpha <- sample(c(0.1, 0.05, 0.01), 1)
-    CC <- sample(1-alpha, 1)
+    CC <- sample(1 - c(0.1, 0.05, 0.01), 1)
    
     cat("Test $H_0: \\mu_{\\bar{D}} = 0$ at an \\alpha of ", alpha, ",
          state the decision/error,

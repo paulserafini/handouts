@@ -2,7 +2,7 @@ function (include.answer, seed) {
 
     set.seed(seed)
     alpha <- sample(c(0.1, 0.05, 0.01), 1)
-    CC <- sample(1-alpha, 1)
+    CC <- sample(1 - c(0.1, 0.05, 0.01), 1)
 
     ## Create sample 1
     n1 <- sample(6:7, 1)
