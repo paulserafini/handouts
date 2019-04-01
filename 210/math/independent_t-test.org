@@ -5,7 +5,7 @@
   cat("\\twocolumn\n")
 #+END_SRC
 
-* Independent /t/-tests
+* Independent /t/-tests (two-tailed)
 
 ** Definitions :ignore:
 
@@ -20,7 +20,7 @@ s^2_p = \frac{\mathit{SS}_1 + \mathit{SS}_2}{df_{\textnormal{tot}}} \\
 t_y = \textnormal{is the critical value for } \alpha = (100 - y) / 100
 \end{gather*}
 
-** Critical /t/ values
+** Critical /t/ values (two-tailed)
 
 #+ATTR_LATEX: :booktabs t :center t :rmlines t
 |    |      |    \alpha |      |

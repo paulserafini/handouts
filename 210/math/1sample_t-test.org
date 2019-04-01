@@ -5,7 +5,7 @@
   cat("\\twocolumn\n")
 #+END_SRC
 
-* One sample /t/-tests
+* One sample /t/-tests (two-tailed)
 
 ** Definitions :ignore:
 
@@ -14,10 +14,10 @@ df = n - 1 \\
 s_{\bar{X}} = \dfrac{s}{\sqrt{n}} \\
 t_{\textnormal{obs}} = \dfrac{\bar{X} - \mu}{s_{\bar{X}}} \\
 \mathit{CI}_{y} = \bar{X} \pm (s_{\bar{X}} \times t_y) \\
-t_y = \textnormal{the critical value for } \alpha = (100 - y) / 100
+t_y = \textnormal{the two-tailed critical value for } \alpha = (100 - y) / 100
 \end{gather*}
 
-** Critical /t/ values
+** Critical /t/ values (two-tailed)
 
 #+ATTR_LATEX: :booktabs t :center t :rmlines t
 |----+------+------+------+------|
