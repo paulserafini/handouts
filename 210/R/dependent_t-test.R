@@ -9,8 +9,7 @@ function (include.answer, seed) {
     CC <- sample(1 - c(0.1, 0.05, 0.01), 1)
    
     cat("Test $H_0: \\mu_{\\bar{D}} = 0$ at an \\alpha of ", alpha, ",
-         state the decision/error,
-         then calculate a ", 100 * CC, "% confidence interval.\n", sep="")
+         state the decision, then calculate a ", 100 * CC, "% confidence interval.\n", sep="")
 
     ## Initialise derivation table
     table <- cbind(sample1, sample2)
