@@ -19,7 +19,9 @@ function (include.answer, seed) {
     table$YdevSq <- (Y - Ybar)^2
     table$products <- (X - Xbar) * (Y - Ybar)
 
-    cat("Test the model fit at an $\\alpha$ of ", alpha, ".\n", sep="")
+    newX <- sample(20:100, 5)
+
+    cat("Calculate the regression equation for predicting Y from X, and calculate the predicted Y score for each X score. Then, calculate the predicted score for an X = ", paste(newX, collapse=", "), ".\n", sep="")
 
     if (include.answer) {
 
@@ -30,43 +32,19 @@ function (include.answer, seed) {
         B1 <- SP / SSx
         B0 <- Ybar - B1 * Xbar
 
-        ## Finish derivation table
+        ## Apply regression formula
         table$Yhat <- B0 + X * B1
-        table$Res <- table$Yhat - Ybar
-        table$ResSq <- table$Res^2
 
-        ## Calculate F
-        SStot <- sum(table$YdevSq)
-        SSreg <- sum(table$ResSq)
-        SSres <- SStot - SSreg
-        df1 <- 1
-        df2 <- n - df1 - 1
-        MSreg <- SSreg / df1
-        MSres <- SSres / df2
-
-        ## Make a decision
-        F <- MSreg / MSres
-        Fcrit <- qf(1-alpha, df1, df2)
-        significant <- F >= Fcrit
-
-        massRound(SSx, SSy, SP, B1, B0, SStot, SSreg, SSres, MSreg, MSres, F, Fcrit)
-
-        if (significant) {
-            decision <- paste0("Reject because $", F, " >= ", Fcrit, "$")
-        } else {
-            decision <- paste0("Fail to reject because $", F, " < ", Fcrit, "$")
-        }
+        massRound(SSx, SSy, SP, B1, B0)
 
         colnames(table) <- c("$X_i$",
                              "$Y_i$",
                              "$(X_i - \\bar{X})^2$",
                              "$(Y_i - \\bar{Y})^2$",
                              "$(X_i - \\bar{X})(Y_i - \\bar{Y})$",
-                             "$\\hat{Y}_i$",
-                             "$(\\hat{Y}_i - \\bar{Y})$",
-                             "$(\\hat{Y}_i - \\bar{Y})^2$")
+                             "$\\hat{Y}_i$")
 
-        table <- xtable(table, digits=c(0,0,0,0,0,0,2,2,2))
+        table <- xtable(table, digits=c(0,0,0,0,0,0,2))
         print.xtable(table,
                      floating=TRUE,
                      table.placement="!h",
@@ -83,19 +61,15 @@ function (include.answer, seed) {
              \\bar{X} = ", Xbar, " \\\\
              \\beta_0 = ", Ybar, " - (", B1, " \\times ", Xbar, ") = ", B0, " \\\\
              \\hat{Y}_i = ", B0, " + (", B1, " \\times X_i ) \\\\
-             \\mathit{SS_{\\textnormal{tot}}} = ", SStot, " \\\\
-             \\mathit{SS_{\\textnormal{reg}}} = ", SSreg, " \\\\
              \\end{gather*}
              \\begin{gather*}
              \\\\
-             \\mathit{SS_{\\textnormal{res}}} = ", SStot, " - ", SSreg, " = ", SSres, " \\\\
-             df_1 = ", df1, " \\\\
-             df_2 = ", n, " - ", df1, " - 1 = ", df2, " \\\\
-             \\mathit{MS_{\\textnormal{reg}}} = ", SSreg, " / ", df1, " = ", MSreg, " \\\\
-             \\mathit{MS_{\\textnormal{res}}} = ", SSres, "/", df2, " = ", MSres, " \\\\
-             F = ", MSreg, " / ", MSres, " = ", F, " \\\\
-             F_{\\textnormal{crit}} = ", Fcrit, " \\\\
-             \\textnormal{", decision, "}
+             \\hat{Y}_{", newX[1], "} = ", B0, " + (", B1, " \\times ", newX[1], ") = ", B0 + (B1 * newX[1]), " \\\\
+             \\hat{Y}_{", newX[2], "} = ", B0, " + (", B1, " \\times ", newX[2], ") = ", B0 + (B1 * newX[2]), " \\\\
+             \\hat{Y}_{", newX[3], "} = ", B0, " + (", B1, " \\times ", newX[3], ") = ", B0 + (B1 * newX[3]), " \\\\
+             \\hat{Y}_{", newX[4], "} = ", B0, " + (", B1, " \\times ", newX[4], ") = ", B0 + (B1 * newX[4]), " \\\\
+             \\hat{Y}_{", newX[5], "} = ", B0, " + (", B1, " \\times ", newX[5], ") = ", B0 + (B1 * newX[5]), " \\\\
+             \\\\
              \\end{gather*}
              \\end{multicols}\n", sep="")
 
