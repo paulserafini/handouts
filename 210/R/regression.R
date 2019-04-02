@@ -16,35 +16,32 @@ function (include.answer, seed) {
     table <- cbind(X, Y)
     table <- as.data.frame(table)
     table$XdevSq <- (X - Xbar)^2
-    table$YdevSq <- (Y - Ybar)^2
     table$products <- (X - Xbar) * (Y - Ybar)
 
     newX <- sample(20:100, 5)
 
-    cat("Calculate the regression equation for predicting Y from X, and calculate the predicted Y score for each X score. Then, calculate the predicted score for an X = ", paste(newX, collapse=", "), ".\n", sep="")
+    cat("Calculate the regression equation for predicting Y from X, and calculate the predicted Y score for each X score. Then, calculate the predicted score for X_i = ", paste(newX, collapse=", "), ".\n", sep="")
 
     if (include.answer) {
 
         ## Calculate regression formula
         SP <- sum(table$products)
         SSx <- sum(table$XdevSq)
-        SSy <- sum(table$YdevSq)
         B1 <- SP / SSx
         B0 <- Ybar - B1 * Xbar
 
         ## Apply regression formula
         table$Yhat <- B0 + X * B1
 
-        massRound(SSx, SSy, SP, B1, B0)
+        massRound(SSx, SP, B1, B0)
 
         colnames(table) <- c("$X_i$",
                              "$Y_i$",
                              "$(X_i - \\bar{X})^2$",
-                             "$(Y_i - \\bar{Y})^2$",
                              "$(X_i - \\bar{X})(Y_i - \\bar{Y})$",
                              "$\\hat{Y}_i$")
 
-        table <- xtable(table, digits=c(0,0,0,0,0,0,2))
+        table <- xtable(table, digits=c(0,0,0,0,0,2))
         print.xtable(table,
                      floating=TRUE,
                      table.placement="!h",
